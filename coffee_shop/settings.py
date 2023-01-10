@@ -84,7 +84,7 @@ SITE_ID = 1
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
-# Information for user login/logout and user info 
+# Information for user login/logout and user info
 ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
