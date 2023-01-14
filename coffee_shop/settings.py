@@ -79,6 +79,8 @@ TEMPLATES = [
     },
 ]
 
+MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
+
 AUTHENTICATION_BACKENDS = [
     # Allowing superusers to access the admin panel
     'django.contrib.auth.backends.ModelBackend',
