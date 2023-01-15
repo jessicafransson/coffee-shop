@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
+{% endblock %}
+
+{% block page_header %}
+<div class="container header-container">
+    <div class="row">
+        <div class="col"></div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="overlay"></div>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <hr>
+            <h2 class="logo-font mb-4">Thank you for your order!</h2>
+            <hr>
+            <p class="text-black">Your order information is found below, You will recieve a email confirmation sent to <strong>{{ order.email }}</strong></p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12 col-lg-7">
+            {% if from_profile %}
+                <a href="{% url 'profile' %}" class="btn btn-outline-black my-2">
+                    <span class="mr-2">
+                        <i class="fa-solid fa-chevron-left"></i>
+                    </span>
+                    <span>Take me back to my profile!</span>
+                </a>
+            {% else %}
+                <a href="{% url 'products' %}?category=espresso,filter" class="btn btn-outline-black my-2">
+                    <span class="icon mr-2">
+                        <i class="fa-solid fa-shop"></i>
+                    </span>
+                    <span>Check out some more beans!</span>
+                </a>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}
