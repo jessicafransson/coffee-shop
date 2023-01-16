@@ -72,7 +72,6 @@ def checkout(request):
                             quantity=item_data,
                         )
                         order_line_item.save()
-
                         # if product isn't available return an error message,
                         # delete the order, and redirect
                 except Product.DoesNotExist:
