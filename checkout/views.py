@@ -38,6 +38,7 @@ def cache_checkout_data(request):
 
 
 def checkout(request):
+
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
 
@@ -64,6 +65,8 @@ def checkout(request):
             order.stripe_pid = pid
             order.original_bag = json.dumps(bag)
             order.save()
+
+            # for every item in the bag, create a new order line in admin
             for item_id, item_data in bag.items():
                 try:
                     product = Product.objects.get(id=item_id)
@@ -74,8 +77,9 @@ def checkout(request):
                             quantity=item_data,
                         )
                         order_line_item.save()
-                        # if product isn't available return an error message,
-                        # delete the order, and redirect
+
+                # if product isn't available return an error message,
+                # delete the order, and redirect
                 except Product.DoesNotExist:
                     messages.error(request, "One of the products in your \
                         bag isn't available. Please contact us\
@@ -83,12 +87,17 @@ def checkout(request):
                     order.delete()
                     return redirect(reverse('view_bag'))
 
+            # save the users information to account
             request.session['save_info'] = 'save-info' in request.POST
             return redirect(
                 reverse('checkout_success', args=[order.order_number]))
+
+        # if not valid
         else:
             messages.error(request, 'There was an issue with your information.\
                 Please double check and try again.')
+            return redirect(reverse('checkout'))
+
     else:
         bag = request.session.get('bag', {})
         if not bag:
@@ -104,7 +113,24 @@ def checkout(request):
             currency=settings.STRIPE_CURRENCY,
         )
 
-        order_form = OrderForm()
+        if request.user.is_authenticated:
+            try:
+                profile = UserProfile.objects.get(user=request.user)
+                order_form = OrderForm(initial={
+                    'full_name': profile.user.get_full_name(),
+                    'email': profile.user.email,
+                    'phone_number': profile.default_phone_number,
+                    'country': profile.default_country,
+                    'postcode': profile.default_postcode,
+                    'town_or_city': profile.default_town_or_city,
+                    'street_address1': profile.default_street_address1,
+                    'street_address2': profile.default_street_address2,
+                    'county': profile.default_county,
+                })
+            except UserProfile.DoesNotExist:
+                order_form = OrderForm()
+        else:
+            order_form = OrderForm()
 
     if not stripe_public_key:
         messages.warning(request, 'The Stripe public key is missing. \
