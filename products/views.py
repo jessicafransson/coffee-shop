@@ -62,7 +62,7 @@ def add_product(request):
     """
     Adding a product to the shop
     """
-    if not requested.user.is_superuser:
+    if not request.user.is_superuser:
         messages.error(request, 'Sorry, only staff can be here.')
         return redirect(reverse('home'))
 
@@ -91,7 +91,7 @@ def add_product(request):
 @login_required
 def edit_product(request, product_id):
     """ Edit a product in the store """
-    if not requested.user.is_superuser:
+    if not request.user.is_superuser:
         messages.error(request, 'Sorry, only staff can be here.')
         return redirect(reverse('home'))
 
@@ -123,7 +123,7 @@ def delete_product(request, product_id):
     """
     Delete an item from the shop
     """
-    if not requested.user.is_superuser:
+    if not request.user.is_superuser:
         messages.error(request, 'Sorry, only staff can be here.')
         return redirect(reverse('home'))
 
