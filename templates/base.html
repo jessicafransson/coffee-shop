@@ -4,10 +4,14 @@
 <html lang="en">
   <head>
 
+    <!-- Meta tags -->
     {% block meta %}
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="copyright" content="Coffee Shop">
+        <meta name="Classification" content="business">
+        <meta name="owner" content="Jessica Fransson">
     {% endblock %}
 
     {% block extra_meta %}
@@ -22,6 +26,8 @@
     {% block extra_css %}
     {% endblock %}
 
+    <!-- Place for scripts -->
+    <!-- Placed here to load as early as possible -->
     {% block corejs %}
         <script src="https://kit.fontawesome.com/e9c73d7092.js" crossorigin="anonymous"></script>
         <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
@@ -33,6 +39,7 @@
 
     {% block extra_js %}
     {% endblock %}
+
 
     <title>Coffee Shop {% block extra_title %}{% endblock %}</title>
   </head>
@@ -134,15 +141,28 @@
     {% block page_header %}
     {% endblock %}
 
+    <!-- Content of page -->
     {% block content %}
     {% endblock %}
 
+
+    <!-- Footer section-->
+    <div class="footer-container pt-5">
+        {% include 'includes/footer_content.html %}
+    </div>
+    
     {% block postloadjs %}
+    <!-- Js for messages/toasts -->
     <script type="text/javascript">
         $('.toast').toast('show');
     </script>
-    {% endblock %}
 
-    
+    <!-- possibility to rotate mobile menu -->
+    <script>
+        $(".rotate").click(function () {
+            $(this).toggleClass("down");
+        })
+    </script>
+    {% endblock %}
   </body>
 </html>
