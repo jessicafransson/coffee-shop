@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_title %} - Delivery Policy{% endblock %}
+
+{% block extra_meta %}
+<meta name="description"
+    content="Coffee Shop - terms and conditions. Information regarding the terms and condition for this e-commerce store selling all delicious beans for both espresso and filter coffee">
+<meta name="keywords" content="terms and conditions, Coffee Shop, coffee, beans, online, ecommerce, drinks, espresso">
+
+<!-- Links for social media -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="Coffee Shop - terms and conditions">
+<meta property="og:description"
+    content="Coffee Shop - terms and conditions. Information and terms and conditions for an online ecommerce for coffee beans.">
+<meta property="og:url" content="">
+<meta property="og:site_name" content="Coffee Shop - Terms and Conditions">
+{% endblock %}
+
+{% block content %}
+<div class="row page-title">
+    <h3>Delivery Policy</h3>
+</div>
+
+<div class="row">
+    <div class="col-10 offset-1">
+
+        <p>Coffee Shop has been created by <a href="https://github.com/jessicafransson" target="_blank"
+                class="text-muted">Jessica Fransson</a> as an education project for the 5 project diploma for Full
+            Stack Developer with Code Institute. No orders will be fulfilled as this website has been created for
+            educational purposes only.</p>
+
+        <h4 class="pt-4 pb-2">Delivery Prices</h4>
+        <p>We offer a percentage delivery fee, calculated on your total order.</p>
+        <p>Free Delivery is offered for all orders over $30</p>
+
+        <h4 class="pt-4 pb-2">Delivery Times</h4>
+        <p>All orders are processed within 1 to 3 business days (excluding weekends and holidays) after receiving your
+            order confirmation email. You will receive another notification when your order has posted.</p>
+        <p>Delivery times are estimates and commence from the date of postage, rather than the date of order. Delivery
+            times are to be used as a guide only and are subject to the acceptance and approval of your order.</p>
+
+        <h4 class="pt-4 pb-2">How do I check the status of my order?</h4>
+        <p>When your order has been posted, you will receive an email notification from us which will include a tracking
+            number you can use to check its status. Please allow 48 hours for the tracking information to become
+            available.</p>
+        <p>If you haven't received your order within 2 days of receiving your confirmation of postage email, please <a
+                class="text-muted" href="{% url 'contact' %}">contact us</a> with your name and order number, and we
+            will look into it for you.</p>
+        <p>You can also keep track of your delivery in your account profile.</p>
+
+        <h4 class="pt-4 pb-2">Refunds, returns and exchanges</h4>
+        <p>We do not accept returns or exchanges unless the item you purchased is defective.</p>
+        <p>In the event that your order arrives damaged in any way, please <a class="text-muted"
+                href="{% url 'contact' %}">contact us</a> as soon as possible with your order number and a photo of the
+            item's condition. We address these on a case-by-case basis but will try our best to work towards a
+            satisfactory solution.</p>
+        <p>Refunds do not include any postage and handling charges shown on the packaging slip or invoice. Delivery
+            charges for all returns must be prepaid and insured by you. You are responsible for any loss or damage to
+            hardware during postage. We do not guarantee that we will receive your returned item. Postage and handling
+            charges are not refundable. Any amounts refunded will not include the cost of Postage.</p>
+        <p>If you have any further questions, please don't hesitate to <a class="text-muted"
+                href="{% url 'contact' %}">contact us.</a></p>
+
+    </div>
+</div>
+
+{% endblock %}

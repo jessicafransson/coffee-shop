@@ -229,6 +229,12 @@ input[name='q']::placeholder {
 .allauth-form-inner-content a {
 	color: #17a2b8; /* text-info */
 }
+.footer {
+    background-color: whitesmoke;
+    position: absolute;
+    padding: 20px;
+    display: block;
+}
 
 /* ---------------------------------------- Media Queries */
 
