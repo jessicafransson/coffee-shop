@@ -1,13 +1,45 @@
+/* Google font import */
+@import url('https://fonts.googleapis.com/css2?family=Overlock:wght@700&family=Palanquin+Dark&display=swap');
+
+
+/* Default styling section */
 html {
     height: 100%;
+    overflow-x: hidden;
 }
 
 body {
     background: url('/media/homepage_background_image.jpeg') no-repeat center center fixed;
     background-size: cover;
-    height: calc(100vh - 164px);
+    /* height: calc(100vh - 164px); */
     color: #555;
-    font-family: 'Lato';
+    font-family: 'Roboto Serif', Arial, Helvetica, sans-serif;
+}
+
+/* body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+} */
+
+h1, h2, h3, h4 {
+    font-family: 'imbue', "Times New Roman", Times, serif;
+    letter-spacing: 2px;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+a:hover {
+    text-decoration: none;
+    color: #706563;
+}
+
+main {
+    flex-grow: 1;
 }
 
 /* from Bulma */
@@ -229,11 +261,15 @@ input[name='q']::placeholder {
 .allauth-form-inner-content a {
 	color: #17a2b8; /* text-info */
 }
-.footer {
+
+footer {
     background-color: whitesmoke;
-    position: absolute;
-    padding: 20px;
-    display: block;
+}
+
+.social-icon {
+    color: #748386;
+    font-size: 1.75rem;
+    padding-right: .5rem;
 }
 
 /* ---------------------------------------- Media Queries */
