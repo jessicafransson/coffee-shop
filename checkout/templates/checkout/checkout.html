@@ -2,6 +2,24 @@
 {% load static %}
 {% load bag_tools %}
 
+{% block extra_title %} - Checkout {% endblock %}
+
+{% block extra_meta %}
+<meta name="description" content="Coffee Shop - Checkout. An online e-commerce shop selling all you need for the ultimate coffee experience at home">
+<meta name="keywords" content="Checkout, Coffee Shop, ecommerce, online shop, shop, coffee, beans, online, ecommerce, drinks, espresso">
+
+<!-- Links for social media -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="Coffee Shop - Checkout ">
+<meta property="og:description" content="Coffee Shop - checkout. Online e-commerce shop for all your at home coffee needs.">
+<meta name="image" property="og:image" content="{% media '/images/homepage_background_image' %}">
+<meta property="og:image:alt" content="Coffee Shop, image of coffee beans being roasted">
+<!--
+    <meta property="og:url" content=" update with deployed URL here ">
+<meta property="og:site_name" content="Coffee Shop - Terms and Conditions">
+-->
+{% endblock %}
+
 {% block extra_css %}
     <link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
 {% endblock %}
