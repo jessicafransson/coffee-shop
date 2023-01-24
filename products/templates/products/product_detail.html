@@ -1,6 +1,22 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block extra_meta %}
+    <meta name="description" content="Coffee Shop - {{ product.name }}. Product information for {{ product.name }}. Coffee Shop, an online e-commerce store for all your coffee needs at home.">
+    <meta name="keywords" content="{{ product.name }}, Coffee Shop, beans, espresso, latte, coffee bean, cappucino, roast, grinds, preground">
+
+    <!-- For the social media links, meta names-->
+    <meta property="og:type" content="article">
+    <meta property="og:type" content="Coffee Shop - {{ product.name }}">
+    <meta property="og:description" content="Coffee Shop {{ product.name }}. Product information for {{ product.name }} Coffee Shop, an online e-commerce store for all your coffee neds at home.">
+    <meta name="image" property="og:image" content="{% media '/media/homepage_background_image.jpeg' %}">
+    <meta property="og:image:alt" content="Coffee Shop main image, showing coffee beans being roasted">
+    <!--
+         <meta property="og:url" content=" deployed URL goes here">
+    <meta property="og:site_name" content="Coffee shop - Admin Management - Add Item">
+    -->
+{% endblock %}
+
 {% block page_header %}
 <div class="container header-container">
     <div class="row">
@@ -38,7 +54,8 @@
                 </p>
                 {% endif %}
                 {% if product.rating %}
-                <small class="text-muted"><i class="fas fa-star mr-1"></i>{{ product.rating }} / 5</small>
+                <small class="text-muted">
+                    <i class="fas fa-star mr-1"></i>{{ product.rating }} / 5</small>
                 {% else %}
                 <small class="text-muted">No Reviews yet!</small>
                 {% endif %}
