@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+    {% load static %}
+    
+    {% block extra_title %} - Contact Us Success {% endblock %}
+
+    {% block extra_meta %}
+        <meta name="description" content="Coffee Shop - Contact Us. Coffee Shop, an online e-commerce store selling all you need for your ultimate coffee experience at home!">
+        <meta name="keywords" content="Contact us success, Coffee Shop, e-commerce, online shop, shop, coffee beans, espresso, coffee, filter coffee, pour over">
+    
+       <!-- SoMe, contact, online  -->
+       <meta property="og:type" content="article">
+       <meta property="og:title" content="Coffee Shop - Contact Us success">
+       <meta property="og:description" content="Coffee Shop - Contact Us. Coffee Shop, an online ecommerce store selling all you need for your ultimate coffee experience at home">
+       <meta name="image" property="og:image" content="{% media 'images/homepage_background_image' %}">
+       <meta property="og:image:alt" content="Coffee Shop image of coffee beans being roasted">
+       <!--<meta property="og:url" content=" deployed heroku url here">
+       <meta property="og:site_name" content="Coffee Shop - contact us">
+       -->
+   {% endblock %} 
+
+   {% block content %}
+    <div class="row page-title">
+        <h3>Contact Us</h3>
+    </div>
+
+    <div class="row">
+        <div class="col-10 offset-1 text-center">
+            <h4>Thank you for your message!</h4>
+            <p>We have the ambition to get back to you within 2 business days.</p>
+
+            <a href="{% url 'products' %}" class="btn btn-outline-blue my-2">
+                <span class="icon mr-2">
+                    <i class="fa-solid fa-shop"></i>
+                </span>
+                <span>See our products!</span>
+            </a>
+
+        </div>
+    </div>
+{% endblock %}
+Footer
+© 2023 GitHub, Inc.
+Footer navigation
