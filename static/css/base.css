@@ -16,13 +16,6 @@ body {
     font-family: 'Roboto Serif', Arial, Helvetica, sans-serif;
 }
 
-/* body {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    margin: 0;
-} */
-
 h1, h2, h3, h4 {
     font-family: 'imbue', "Times New Roman", Times, serif;
     letter-spacing: 2px;
@@ -38,8 +31,26 @@ a:hover {
     color: #706563;
 }
 
+.logo {
+    font-family: 'imbue', "Times New Roman", Times, serif;
+}
+
 main {
     flex-grow: 1;
+}
+
+.link-btn {
+    background-color: #706563;
+    color: white;
+}
+
+.link-btn:hover, .btn-bag:hover {
+    background-color: #748386;
+    color: white;
+}
+
+.hover-link:hover {
+    color:#706563;
 }
 
 /* from Bulma */
@@ -261,6 +272,7 @@ input[name='q']::placeholder {
 .allauth-form-inner-content a {
 	color: #17a2b8; /* text-info */
 }
+/* ---------------------------------------- Footer */
 
 footer {
     background-color: whitesmoke;
