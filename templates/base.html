@@ -26,7 +26,7 @@
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
     {% endblock %}
 
-    {% block extra_css %}
+    {% block extra_js %}
     {% endblock %}
 
     <!-- Place for scripts -->
@@ -45,7 +45,7 @@
     <script src="https://js.stripe.com/v3/"></script>
     {% endblock %}
 
-    {% block extra_js %}
+    {% block extra_css %}
     {% endblock %}
 
 
@@ -127,7 +127,7 @@
             </nav>
         </div>
         <div id="delivery-banner" class="row text-center">
-            <div class="col bg-black text-white">
+            <div class="col bg-secondary text-white">
                 <h4 class="logo-font my-1">Free delivery on orders over ${{ free_delivery_threshold }}!</h4>
             </div>
         </div>
@@ -164,7 +164,7 @@
 
 
     <!--Section for footer -->
-    <footer class="w-100 pt-4 px-4 mt-auto">
+    <footer class="w-100 pt-4 px-4 mt-auto fixed-bottom">
         <div class="row gy-4 gx-5">
             <!-- Place for logo -->
             <div class="col-lg-3 col-md-6">
