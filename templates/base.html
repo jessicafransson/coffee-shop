@@ -7,14 +7,13 @@
 
     <!-- Meta tags -->
     {% block meta %}
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="copyright" content="Coffee Shop">
-    <meta name="Classification" content="business">
-    <meta name="keywords" content="coffee, espresso, filter coffee, latte, coffee beans">
-    <meta name="owner" content="Jessica Fransson">
-
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="copyright" content="Coffee Shop">
+        <meta name="Classification" content="business">
+        <meta name="keywords" content="coffee, espresso, filter coffee, latte, coffee beans">
+        <meta name="owner" content="Jessica Fransson">
     {% endblock %}
 
     {% block extra_meta %}
@@ -33,7 +32,7 @@
     <!-- Place for scripts -->
     <!-- Placed here to load as early as possible -->
     {% block corejs %}
-    <script src="https://kit.fontawesome.com/e9c73d7092.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/609b3cc86d.js" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
@@ -175,7 +174,8 @@
             </div>
             <!-- Contact info -->
             <div class="col-lg-3 col-md-6">
-                <h5 class="mb-3"><strong>Get in touch!</strong></h5>
+                <h5 class="mb-3"><strong>Get in touch</strong></h5>
+                <a href = "{% url 'contact' %}">Contact Us Form</a>
                 <div class="row">
                     <div class="col-4 col-md-6">
                         <p>Address:</p>
@@ -203,8 +203,8 @@
                     </div>
                 </div>
                 <p>
-                    <a href="https://www.facebook.com" class="social-icon" target="_blank"
-                        rel="noopener" aria-label="Link to Facebook">
+                    <a href="https://www.facebook.com" class="social-icon" target="_blank" rel="noopener"
+                        aria-label="Link to Facebook">
                         <i class="fab fa-facebook-square"></i>
                     </a>
                     <a href="https://www.instagram.com/" class="social-icon" target="_blank" rel="noopener"
@@ -220,7 +220,7 @@
             <!-- Section about us and for terms and conditions -->
             <div class="col-sm-3 pb-5">
                 <h4 class="pb-3">About</h4>
-                <p><a href="{% url 'privacy' %}"><i class="fa-solid fa-shield"></i> Privacy Policy</a></p>
+                <p><a href="{% url 'privacy' %}"><i class="fas fa-duotone fa-shield-halved"></i> Privacy Policy</a></p>
                 <p><a href="{% url 'terms' %}"><i class="fas fa-solid fa-file"></i> Terms & Conditions</a></p>
                 <p><a href="{% url 'delivery' %}"><i class="fas fa-solid fa-truck"></i> Delivery Policy</a></p>
             </div>
