@@ -7,16 +7,24 @@
 
     <!-- Meta tags -->
     {% block meta %}
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <meta name="copyright" content="Coffee Shop">
-        <meta name="Classification" content="business">
-        <meta name="keywords" content="coffee, espresso, filter coffee, latte, coffee beans">
-        <meta name="owner" content="Jessica Fransson">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="copyright" content="Coffee Shop">
+    <meta name="Classification" content="business">
+    <meta name="keywords" content="coffee, espresso, filter coffee, latte, coffee beans">
+    <meta name="owner" content="Jessica Fransson">
     {% endblock %}
 
     {% block extra_meta %}
+    {% endblock %}
+
+    <!-- Favicon for website title here-->
+    {% block favicon %}
+        <link rel="apple-touch-icon" sizes="180x180" href="{% static 'favicon/apple-touch-icon.png' %}">
+        <link rel="icon" type="image/png" sizes="32x32" href="{% static 'favicon/favicon-32x32.png' %}">
+        <link rel="icon" type="image/png" sizes="16x16" href="{% static 'favicon/favicon-16x16.png' %}">
+        <link rel="manifest" href="{% static 'favicon/site.webmanifest' %}">
     {% endblock %}
 
     {% block corecss %}
@@ -175,7 +183,7 @@
             <!-- Contact info -->
             <div class="col-lg-3 col-md-6">
                 <h5 class="mb-3"><strong>Get in touch</strong></h5>
-                <a href = "{% url 'contact' %}">Contact Us Form</a>
+                <a href="{% url 'contact' %}">Contact Us Form</a>
                 <div class="row">
                     <div class="col-4 col-md-6">
                         <p>Address:</p>
