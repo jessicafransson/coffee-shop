@@ -1,13 +1,39 @@
-<div class="collapse navbar-collapse" id="main-nav">
+<!-- url's defined here to be used for 'if' statements -->
+<!-- Inspiration for navbar from https://tekshinobi.com/setting-active-navbar-link-in-django-template/ -->
+{% url 'home' as home %}
+{% url 'products' as products %}
+{% url 'about' as about %}
+{% url 'contact' as contact %}
+
+<div class="collapse navbar-collapse text-center mt-2 mt-lg-0" id="main-nav">
     <ul class="navbar-nav w-auto mx-auto">
+        <li class="nav-item">
+            <a class="font-weight-bold color-burgundy mx-lg-3 {% if request.path == home %} current-page {% endif %}" href="{% url 'home' %}">
+                Home
+            </a>
+        </li>
 
         <li class="nav-item dropdown">
-            <a class="logo-font font-weight-bold nav-link text-black mr-5" href="#" id="homeware-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                All our items
+            <a class="logo-font font-weight-bold color-burgundy mx-lg-3 {% if request.path == products %} current-page {% endif %}" href="#" id="shop-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Shop
             </a>
-            <div class="dropdown-menu border-0" aria-labelledby="beans-link">
+            <div class="dropdown-menu border-0">
+                <a href="{% url 'products' %}" class="dropdown-item">All Items</a>
                 <a href="{% url 'products' %}?category=espresso_beans" class="dropdown-item">Espresso Beans</a>
                 <a href="{% url 'products' %}?category=pour_over" class="dropdown-item">Pour Over Beans</a>
-                <a href="{% url 'products' %}?category=espresso_beans,pour_over" class="dropdown-item">All Beans</a>
             </div>
         </li>
+
+        <li class="nav-item">
+            <a class="font-weight-bold color-burgundy mx-lg-3 {% if request.path == about %} current-page {% endif %}" href="{% url 'about' %}">
+                About Us
+            </a>
+        </li>
+
+        <li class="nav-item">
+            <a class="font-weight-bold color-burgundy mx-lg-3 {% if request.path == contact %} current-page {% endif %}" href="{% url 'contact' %}">
+                Contact
+            </a>
+        </li>
+    </ul>
+</div>

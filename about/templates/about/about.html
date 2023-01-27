@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_title %}- About Us{% endblock %}
+
+{% block page_header %}
+<div class="container-flex">
+    <div class="row">
+        <div class="col-8 offset-2 mt-3">
+            <h2 class="text-center">About us</h2>
+            <hr>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="overlay"></div>
+<div class="container">
+    <div class="row">
+        <!-- Place for image, image from pexels.com -->
+        <div class="col-md-6">
+            <img src="{{ MEDIA_URL }}about.jpg" class="img-fluid" alt="A picture from a roastery, hands holding roasted beans">
+            <p class="text-center font-italic text-muted mt-1">Check out our roastery!</p>
+            <div class="text-center">
+                <a href="{% url 'contact' %}" class="btn link-btn rounded-pill">Contact us</a>
+                <a href="{% url 'products' %}" class="btn link-btn rounded-pill">View our selection</a>
+            </div>
+        </div>
+        <!-- Biography -->
+        <div class="col-md-6 mt-4 mt-md-0">
+            <p><strong>Coffee Shop</strong> was founded in the city center of Malmö, Sweden. 
+                We are founders that love a good cup of coffee, and our customers.</p>
+
+            <p>We keep a simple attitude towards our lovely coffee, <strong>but we accept no shortcuts</strong>
+            We purchase 100% specialty coffee from individual farms, plantations and cooperatives. 
+            A lot of our beans also come from ecologically certified producers.
+            Many of our coffees come from organically certified producers, but many also come from smaller growers, 
+            where certification is not an economic and practical possibility.
+            But <strong>we still support them when the coffee is good</strong>, there are often many good intentions behind each grower, 
+            especially those who work with quality.
+            They are afraid of their own land, and avoid expensive artificial fertilizers if they can.</p>
+        </div>
+    </div>
+</div>
+{% endblock %}

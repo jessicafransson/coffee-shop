@@ -1,4 +1,3 @@
-
 from django.shortcuts import render, redirect
 from .forms import ContactForm
 from profiles.models import UserProfile
