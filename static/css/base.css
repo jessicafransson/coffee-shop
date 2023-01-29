@@ -46,6 +46,10 @@ main {
     margin-top: auto;
 }
 
+container {
+    padding-top: 60px;
+}
+
 .link-btn {
     background-color: #706563;
     color: white;

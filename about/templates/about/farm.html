@@ -20,11 +20,48 @@
     <div class="row">
         <!-- Place for image, image from pexels.com -->
         <div class="col-md-6">
-            <img src="{{ MEDIA_URL }}coffee_farm.webp" class="img-fluid" alt="A picture from our farm, plants of coffee">
+            <img src="{{ MEDIA_URL }}coffee_farm.webp" class="img-fluid"
+                alt="A picture from our farm, plants of coffee">
             <p class="text-center font-italic text-muted mt-1">Our beautiful view on our farm</p>
+
+            <!-- Buttons for shop and contact -->
             <div class="text-center">
                 <a href="{% url 'contact' %}" class="btn link-btn rounded-pill">Contact us</a>
                 <a href="{% url 'products' %}" class="btn link-btn rounded-pill">Check out our selection</a>
             </div>
         </div>
+
+        <!-- Section about the coffee farm -->
+        <div class="col-md-6 mt-4 mt-md-0">
+            <p>Since founding <strong>Coffee Shop</strong> we have always had a passion to learn more, and to dive deep
+                into the thing that is coffee.</p>
+            <br>
+            When we came across the chance to buy this farm, it was really a no-brainer but to just go for it.
+            We own this farm with Mr. Coffee, a man well known in the coffee industry. If he hadn't taken on the
+            responsibility to move down to Colombia to take charge of the farm,
+            this purchase wouldn't have been possible. What we have learnt is, running a coffee farm is complicated, you
+            need to be on scene,
+            work on the farm and to be there with the employees and inspire them!
+            Since buying this farm we have worked hard to get the quality level up, both on the farm and in the coffee
+            it produces.
+            We have planted more shadowtrees, fruit trees have been planted together with new varieties of coffee.
+            We have started with organic soil, and in every way we have managed tried to make the cultivation as natural
+            as possible.
+            <p>
+            </p>
+
+            <div class="d-none d-lg-block">
+                <p class="text-muted text-center my-5"><em>'Coffee smells like freshly ground heaven.' - Jessi Lane
+                        Adams</em></p>
+
+                <p>
+                    Since buying this farm, we have educated the workers so both picking the beans, and the aftermath of the coffee will come out better. 
+                    Now that we see the fruit of our latest harvest we can see that our hard work and investments have paid off! 
+                    Our coffee has gone from 84 on a quality-scale to a clear 86+, now both of these are good, but this is a good improvement. 
+                    The fine fullness of the coffee remains, but the fruit tones are more complex and round. 
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}
