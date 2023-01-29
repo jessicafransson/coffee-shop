@@ -28,7 +28,7 @@ def coupon_apply(request):
             request.session['coupon_id'] = None
             messages.error(
                 request,
-                "Sorry, that coupon does not exist or is no longer valid"
+                "Sorry, this coupon is no longer valid!"
                 )
     return redirect('view_bag')
 
@@ -37,7 +37,7 @@ def coupon_apply(request):
 def add_coupon(request):
     """ Add a coupon to the store """
     if not request.user.is_superuser:
-        messages.error(request, 'Sorry, only store owners can do that.')
+        messages.error(request, 'Sorry, only admin can do this.')
         return redirect(reverse('home'))
 
     if request.method == 'POST':
@@ -49,7 +49,7 @@ def add_coupon(request):
         else:
             messages.error(
                 request,
-                'Failed to add coupon. Please ensure the form is valid.'
+                'Failed to add this one. Please make sure the form is correct.'
                 )
     else:
         form = CouponForm()
@@ -76,12 +76,12 @@ def edit_coupon(request, coupon_id):
         form = CouponForm(request.POST, instance=coupon)
         if form.is_valid():
             form.save()
-            messages.success(request, 'Successfully updated coupon!')
+            messages.success(request, 'Yay! Coupon is valid.')
             return redirect('add_coupon')
         else:
             messages.error(
                 request,
-                'Failed to update coupon. Please ensure the form is valid.')
+                'Failed to update this one, please make sure the form is correct.')
     else:
         form = CouponForm(instance=coupon)
         messages.info(request, f'You are editing {coupon}')
@@ -99,7 +99,7 @@ def edit_coupon(request, coupon_id):
 def delete_coupon(request, coupon_id):
     """ Delete a coupon from the store """
     if not request.user.is_superuser:
-        messages.error(request, 'Sorry, only store owners can do that.')
+        messages.error(request, 'Sorry, only store admin can do this.')
         return redirect(reverse('home'))
 
     coupon = get_object_or_404(Coupon, pk=coupon_id)
