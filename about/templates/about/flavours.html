@@ -19,6 +19,21 @@
 
 {% block content %}
 <div class="overlay"></div>
+<div class="container">
+    <div class="row">
+        <!-- Place for image, image from pexels.com -->
+        <div class="col-md-6">
+            <img src="{{ MEDIA_URL }}the_outsider.webp" class="img-fluid"
+                alt="A highlight photo of one of our beans in a bag">
+            <p class="text-center font-italic text-muted mt-1">Coffee of the month!</p>
+
+            <!-- Buttons for shop and contact -->
+            <div class="text-center">
+                <a href="{% url 'contact' %}" class="btn link-btn rounded-pill">Contact us</a>
+                <a href="{% url 'products' %}" class="btn link-btn rounded-pill">Check out our selection</a>
+            </div>
+        </div>
+
 <div class="col-md-6 mt-4 mt-md-0">
     <h3><strong>1. Soft and round</strong></h3>
     <p>
@@ -58,6 +73,7 @@
         <br>
         <br>
         <strong>Flavour words to be found here is: </strong>dried fruit, dark berries, dark chocolate, cedar and tobacco.
+        <br>
     </p>
 </div>
 {% endblock %}
