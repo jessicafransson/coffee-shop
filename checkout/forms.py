@@ -5,10 +5,17 @@ from .models import Order
 class OrderForm(forms.ModelForm):
     class Meta:
         model = Order
-        fields = ('full_name', 'email', 'phone_number',
-                  'country', 'postcode', 'town_or_city',
-                  'street_address1', 'street_address2',
-                  'county',)
+        fields = (
+            'full_name',
+            'email',
+            'phone_number',
+            'country',
+            'postcode',
+            'town_or_city',
+            'street_address1',
+            'street_address2',
+            'county',
+        )
 
     def __init__(self, *args, **kwargs):
         """
@@ -28,6 +35,17 @@ class OrderForm(forms.ModelForm):
         }
 
         self.fields['full_name'].widget.attrs['autofocus'] = True
+        for field in self.fields:
+            if field != 'country':
+                if self.fields[field].required:
+                    placeholder = f'{placeholders[field]} *'
+                else:
+                    placeholder = placeholders[field]
+                self.fields[field].widget.attrs['placeholder'] = placeholder
+            self.fields[field].widget.attrs['class'] = 'stripe-style-input'
+            self.fields[field].label = False
+
+        """self.fields['full_name'].widget.attrs['autofocus'] = True
         self.fields['full_name'].widget.attrs['aria-label'] = 'Full Name'
         self.fields['email'].widget.attrs['aria-label'] = 'Email Address'
         self.fields['phone_number'].widget.attrs['aria-label'] = 'Phone Number'
@@ -39,6 +57,7 @@ class OrderForm(forms.ModelForm):
             'aria-label'] = 'Street Address 2'
         self.fields['county'].widget.attrs['aria-label'] = 'County'
         self.fields['country'].widget.attrs['aria-label'] = 'Country'
+
         for field in self.fields:
             if field != 'country':
                 if self.fields[field].required:
@@ -47,4 +66,4 @@ class OrderForm(forms.ModelForm):
                     placeholder = placeholders[field]
                 self.fields[field].widget.attrs['placeholder'] = placeholder
             self.fields[field].widget.attrs['class'] = 'stripe-style-input'
-            self.fields[field].label = False
+            self.fields[field].label = False"""

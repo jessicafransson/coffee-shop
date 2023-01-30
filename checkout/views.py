@@ -12,6 +12,7 @@ from django.conf import settings
 from .forms import OrderForm
 from .models import Order, OrderLineItem
 from products.models import Product
+from coupons.models import Coupon
 from profiles.forms import UserProfileForm
 from profiles.models import UserProfile
 from bag.contexts import bag_contents
@@ -57,7 +58,6 @@ def checkout(request):
             'county': request.POST['county'],
         }
         order_form = OrderForm(form_data)
-
         # if the form is valid, to save order
         if order_form.is_valid():
             order = order_form.save(commit=False)
@@ -162,7 +162,6 @@ def checkout_success(request, order_number):
         # to save the users info
         if save_info:
             profile_data = {
-                'default_full_name': order.full_name,
                 'default_phone_number': order.phone_number,
                 'default_country': order.country,
                 'default_postcode': order.postcode,
