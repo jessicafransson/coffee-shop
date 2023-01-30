@@ -81,7 +81,8 @@ def edit_coupon(request, coupon_id):
         else:
             messages.error(
                 request,
-                'Failed to update this one, please make sure the form is correct.')
+                'Failed to update this one,\
+                    please make sure the form is correct.')
     else:
         form = CouponForm(instance=coupon)
         messages.info(request, f'You are editing {coupon}')

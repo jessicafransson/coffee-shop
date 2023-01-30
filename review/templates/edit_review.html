@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_title %}- Edit Review{% endblock %}
+
+{% block page_header %}
+<div class="container">
+    <div class="row">
+        <div class="col mt-3">
+            <h2 class="text-center">Edit Review</h2>
+            <hr>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="container mb-4">
+    <div class="row">
+        <div class="col-lg-6 ">
+            <form action="{% url 'edit_review' review.id %}" method="POST">
+                {% csrf_token %}
+                {% for field in form  %}
+                    {% if field.name == "rating" %}
+                        {{ field.label }} *
+                        <br>
+                        {% for radio in field %}
+                            <label for="{{ radio.id_for_label }}">
+                                <i class="far fa-star star"></i>
+                            </label>
+                            <div class="radio-tag d-inline">{{ radio.tag }}</div>
+                        {% endfor %}
+                        <br>
+                    {% else %}
+                    {{ field.errors }}
+                    <br>
+                    {{ field | as_crispy_field }}
+                    {% endif %}
+                {% endfor %}
+                <p class="small text-muted font-italic">* Required</p>
+                <div class="mt-1">
+                    <a href="{% url 'product_detail' review.product.id %}" class="btn btn-outline-dark rounded-pill">Cancel</a>
+                    <button type="submit" class="btn link-btn rounded-pill">Update Review</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block postloadjs %}
+{{ block.super }}
+{% include 'review/includes/fill-stars-script.html' %}
+<script>
+    // Checks the current rating and fills in the relevant stars
+    $(document).ready(function(){
+        input = $("input[type=radio][name='rating']:checked");
+        star = input.parent().prev().children();
+        star.click();
+    });
+</script>
+{% endblock %}

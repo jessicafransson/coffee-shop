@@ -1,0 +1,11 @@
+<script>
+    // Changes stars from empty to filled on selection
+        $('.star').click(function(e) {
+            prevStars = $(this).parent().prevAll('label').children();
+            nextStars = $(this).parent().nextAll('label').children();
+            
+            $(this).removeClass('far').addClass('fas').css({'color':'gold'});
+            prevStars.removeClass('far').addClass('fas').css({'color':'gold'});
+            nextStars.removeClass('fas').addClass('far').css({'color':'black'});
+        });
+    </script>
