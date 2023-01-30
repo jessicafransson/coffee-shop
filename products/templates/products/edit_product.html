@@ -1,36 +1,46 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block content %}
-    <div class="row page-title">
-        <h3>Product Management</h3>
-    </div>
+{% block extra_title %} Edit Product {% endblock %}
 
-    <div class="row">
-        <div class="col-12 col-md-6 offset-md-3">
-            <h4 class="text-center">Edit Product</h4>
-            <form method="POST" action="{% url 'edit_product' product.id %}" class="form mb-2" enctype="multipart/form-data">
-                {% csrf_token %}
-                {% for field in form %}
-                    {% if field.name != 'image' %}
-                        {{ field | as_crispy_field }}
-                    {% else %}
-                        {{ field }}
-                    {% endif %}
-                {% endfor %}
-                <div class="text-right">
-                    <a class="btn btn-outline-red my-2" href="{% url 'products' %}">
-                        <span class="mr-2"><i class="fa-solid fa-xmark"></i></span>    
-                        <span>Cancel</span>
-                    </a>
-                    <button class="btn btn-outline-blue ml-2" type="submit">
-                        <span class="mr-2"><i class="fa-regular fa-pen-to-square"></i></span>
-                        <span>Update Product</span>
-                    </button>
-                </div>
-            </form>
-        </div>            
+{% block page_header %}
+<div class="container">
+    <div class="row mt-3">
+        <div class="col">
+            <h2 class="text-center">Product Management</h2>
+            <hr>
+        </div>
     </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <h5 class="text-muted">Edit this item:</h5>
+                <hr>
+            </div>
+        </div>
+    <div class="col-lg-6">
+        <form method="POST" action="{% url 'edit_product' product.id %}" class="form" enctype="multipart/form-data">
+            {% csrf_token %}
+            {% for field in form %}
+                {% if field.name != 'image' %}
+                    {{ field | as_crispy_field }}
+                {% else %}
+                    {{ field }}
+                {% endif %}
+            {% endfor %}
+            <div class="text-md-right text-center pt-3">
+                <a class="btn btn-outline-dark rounded-pill" href="{% url 'products' %}">Cancel</a>
+                <button class="btn link-btn rounded-pill" type="submit">Update Product</button>
+            </div>
+        </form>
+    </div>
+</div>
+
 {% endblock %}
 
 {% block postloadjs %}

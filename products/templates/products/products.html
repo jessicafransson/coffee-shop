@@ -17,9 +17,12 @@
 {% endblock %}
 
 {% block page_header %}
-<div class="container header-container">
+<div class="container-flex">
     <div class="row">
-        <div class="col"></div>
+        <div class="col-8 offset-2 mt-3">
+            <h2 class="text-center">Products</h2>
+            <hr>
+        </div>
     </div>
 </div>
 {% endblock %}
@@ -79,10 +82,10 @@
                                     {% endif %}
                                     <!-- Section for admin to edit and delete items-->
                                     {% if request.user.is_superuser %}
-                                        <small class="ml-3">
-                                            <a href="{% url 'edit_product' product.id %}">Edit</a> | 
-                                            <a class="text-danger" href="{% url 'delete_product' product.id %}">Delete</a>
-                                        </small>
+                                        <div class="modal-footer">
+                                            <a class="btn btn-outline-dark rounded-pill" href="{% url 'edit_product' product.id %}">Edit</a>
+                                            <a class="btn text-white bg-danger rounded-pill" href="{% url 'delete_product' product.id %}">Delete</a>
+                                        </div>
                                     {% endif %}
                                 </div>
                             </div>

@@ -45,6 +45,7 @@ def checkout(request):
 
     if request.method == 'POST':
         bag = request.session.get('bag', {})
+        coupon_id = request.session.get('coupon_id')
 
         form_data = {
             'full_name': request.POST['full_name'],
@@ -61,22 +62,29 @@ def checkout(request):
         # if the form is valid, to save order
         if order_form.is_valid():
             order = order_form.save(commit=False)
+            if request.user.is_authenticated:
+                profile = get_object_or_404(UserProfile, user=request.user)
+                orders = Order.objects.all().filter(user_profile=profile)
+                if len(orders) == 0:
+                    order.first_order = True
+            if coupon_id:
+                coupon = Coupon.objects.get(id=coupon_id)
+                order.coupon = coupon
+                order.discount = coupon.discount
             pid = request.POST.get('client_secret').split('_secret')[0]
             order.stripe_pid = pid
             order.original_bag = json.dumps(bag)
             order.save()
-
-            # for every item in the bag, create a new order line in admin
             for item_id, item_data in bag.items():
                 try:
                     product = Product.objects.get(id=item_id)
-                    if isinstance(item_data, int):
-                        order_line_item = OrderLineItem(
-                            order=order,
-                            product=product,
-                            quantity=item_data,
-                        )
-                        order_line_item.save()
+                    isinstance(item_data, int)
+                    order_line_item = OrderLineItem(
+                        order=order,
+                        product=product,
+                        quantity=item_data,
+                    )
+                    order_line_item.save()
 
                 # if product isn't available return an error message,
                 # delete the order, and redirect
