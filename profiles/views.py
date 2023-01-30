@@ -6,6 +6,7 @@ from .models import UserProfile
 from .forms import UserProfileForm
 
 from checkout.models import Order
+from products.models import Product
 
 
 @login_required
@@ -29,9 +30,9 @@ def profile(request):
 
     template = 'profiles/profile.html'
     context = {
+        'profile': profile,
         'form': form,
         'orders': orders,
-        'on_profile_page': True
     }
 
     return render(request, template, context)
@@ -39,6 +40,7 @@ def profile(request):
 
 def order_history(request, order_number):
     order = get_object_or_404(Order, order_number=order_number)
+    order_date = order.date.strftime("%d-%m-%Y %H:%M:%S")
 
     messages.info(request, (
         f'This is a previoud confirmation for order number {order_number}. '
