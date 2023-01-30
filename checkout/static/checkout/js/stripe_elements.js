@@ -118,7 +118,7 @@ form.addEventListener('submit', function(ev) {
             }
         });
     }).fail(function () {
-        // Just reload the page, the error will be in django messages/toast
+        // Reload the page, the error message will be in django toast
         location.reload();
     });
 });
