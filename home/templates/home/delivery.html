@@ -19,12 +19,19 @@
 -->
 {% endblock %}
 
-{% block content %}
+{% block page_header %}
 <div class="overlay"></div>
-<div class="row page-title">
-    <h3>Delivery Policy</h3>
+<div class="container-flex">
+    <div class="row">
+        <div class="col-8 offset-2 mt-3">
+            <h2 class="text-center">Delivery Policy</h2>
+            <hr>
+        </div>
+    </div>
 </div>
+{% endblock %}
 
+{% block content %}
 <div class="row">
     <div class="col-10 offset-1">
 

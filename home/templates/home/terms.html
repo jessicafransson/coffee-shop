@@ -1,4 +1,4 @@
-{% extends "base.html" %} 
+{% extends "base.html" %}
 {% load static %}
 
 {% block extra_title %} - Our Terms and Conditions {% endblock %}
@@ -11,19 +11,27 @@
 <!-- Links for social media -->
 <meta property="og:type" content="article">
 <meta property="og:title" content="Coffee Shop - terms and conditions">
-<meta property="og:description" content="Coffee Shop - terms and conditions. Information and terms and conditions for an online ecommerce for coffee beans.">
+<meta property="og:description"
+    content="Coffee Shop - terms and conditions. Information and terms and conditions for an online ecommerce for coffee beans.">
 <!--
 <meta property="og:url" content=" update to deployed url heroku">
 <meta property="og:site_name" content="Coffee Shop - Terms and Conditions">
 -->
 {% endblock %}
 
-{% block content %}
+{% block page_header %}
 <div class="overlay"></div>
-<div class="row page-title">
-    <h3>Our Terms and Conditions:</h3>
+<div class="container-flex">
+    <div class="row">
+        <div class="col-8 offset-2 mt-3">
+            <h2 class="text-center">Our Terms and Conditions:</h2>
+            <hr>
+        </div>
+    </div>
 </div>
+{% endblock %}
 
+{% block content %}
 <div class="row">
     <div class="col-10 offset-1">
         <ul>
@@ -258,7 +266,8 @@
             </li>
         </ul>
 
-        <p class="pt-4">These terms and conditions where created on <time datetime="2023-01-23">23rd of January 2023</time></p>
+        <p class="pt-4">These terms and conditions where created on <time datetime="2023-01-23">23rd of January
+                2023</time></p>
     </div>
 </div>
 {% endblock %}
