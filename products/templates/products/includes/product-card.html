@@ -1,21 +1,4 @@
-<!-- Product Image -->
-<div class="h-100 card border-white product-card mb-2">
-    {% if user.is_superuser and product.featured %}
-        <div class="ribbon ribbon-top-left"><span>Featured</span></div>
-    {% endif %}
-    {% if user in product.likes.all  %}
-    <div class="card-liked">
-        <i class="fas fa-heart text-danger"></i>
-    </div>
-    {% endif %}
-    <a href="{% url 'product_detail' product.id %}" >
-        {% if product.image %}
-        <img class="card-img-top pt-2" src="{{ product.image.url }}" alt="{{ product.name }}">
-        {% else %}
-        <img class="card-img-top pt-2" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
-        {% endif %}
-    </a>
-    <!-- Product Card -->
+<!-- Product Card -->
     <div class="card-body h-100 bg-transparent">
         <div class="row">
             <div class="col">
@@ -84,15 +67,6 @@
                         </div>
                     </div>
                 </div>
-
-                <!--Feature Button -->
-                <form class="d-inline float-right" action="{% url 'feature_product' product.id %}" method="POST">
-                    {% csrf_token %}
-                    <input type="hidden" name="redirect_url" value="{{ request.path }}">
-                    <button type="submit" value="{{ product.id }}" 
-                        class="small link text-dark hover-link border-0 bg-transparent">{% if product.featured %}unfeature{% else %}feature{% endif %}
-                    </button>
-                </form>
             </div>
         </div>
         {% endif %}

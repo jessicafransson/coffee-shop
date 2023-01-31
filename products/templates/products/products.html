@@ -2,15 +2,17 @@
 {% load static %}
 
 {% block extra_meta %}
-    <meta name="description" content="Coffee Shop - See all available items available in this online shop for all your coffee needs. ">
-    <meta name="keywords" content="Coffee Shop, beans, espresso, latte, coffee bean, cappucino, roast, grinds, preground">
+<meta name="description"
+    content="Coffee Shop - See all available items available in this online shop for all your coffee needs. ">
+<meta name="keywords" content="Coffee Shop, beans, espresso, latte, coffee bean, cappucino, roast, grinds, preground">
 
-    <!-- For the social media links, meta names-->
-    <meta property="og:type" content="article">
-    <meta property="og:type" content="Coffee Shop - Products - See all the products available on Coffee Shop">
-    <meta property="og:description" content="Coffee Shop - View all available products available on this website, for all your coffee needs at home.">
-    <meta property="og:image:alt" content="Coffee Shop main image, showing coffee beans being roasted">
-    <!--
+<!-- For the social media links, meta names-->
+<meta property="og:type" content="article">
+<meta property="og:type" content="Coffee Shop - Products - See all the products available on Coffee Shop">
+<meta property="og:description"
+    content="Coffee Shop - View all available products available on this website, for all your coffee needs at home.">
+<meta property="og:image:alt" content="Coffee Shop main image, showing coffee beans being roasted">
+<!--
          <meta property="og:url" content=" deployed URL goes here">
     <meta property="og:site_name" content="Coffee shop - Admin Management - Add Item">
     -->
@@ -82,10 +84,12 @@
                                     {% endif %}
                                     <!-- Section for admin to edit and delete items-->
                                     {% if request.user.is_superuser %}
-                                        <div class="modal-footer">
-                                            <a class="btn btn-outline-dark rounded-pill" href="{% url 'edit_product' product.id %}">Edit</a>
-                                            <a class="btn text-white bg-danger rounded-pill" href="{% url 'delete_product' product.id %}">Delete</a>
-                                        </div>
+                                    <div class="modal-footer">
+                                        <a class="btn btn-outline-dark rounded-pill"
+                                            href="{% url 'edit_product' product.id %}">Edit</a>
+                                        <a class="btn text-white bg-danger rounded-pill"
+                                            href="{% url 'delete_product' product.id %}">Delete</a>
+                                    </div>
                                     {% endif %}
                                 </div>
                             </div>
@@ -120,27 +124,27 @@
 {% endblock %}
 
 {% block postloadjs %}
-    {{ block.super }}
-    <script type="text/javascript">
-        $('#sort-selector').change(function() {
-            var selector = $(this);
-            var currentUrl = new URL(window.location);
+{{ block.super }}
+<script type="text/javascript">
+    $('#sort-selector').change(function () {
+        var selector = $(this);
+        var currentUrl = new URL(window.location);
 
-            var selectedVal = selector.val();
-            if(selectedVal != "reset") {
-                var sort = selectedVal.split("_")[0];
-                var direction = selectedVal.split("_")[1];
+        var selectedVal = selector.val();
+        if (selectedVal != "reset") {
+            var sort = selectedVal.split("_")[0];
+            var direction = selectedVal.split("_")[1];
 
-                currentUrl.searchParams.set("sort", sort);
-                currentUrl.searchParams.set("direction", direction);
+            currentUrl.searchParams.set("sort", sort);
+            currentUrl.searchParams.set("direction", direction);
 
-                window.location.replace(currentUrl);
-            } else {
-                currentUrl.searchParams.delete("sort");
-                currentUrl.searchParams.delete("direction");
+            window.location.replace(currentUrl);
+        } else {
+            currentUrl.searchParams.delete("sort");
+            currentUrl.searchParams.delete("direction");
 
-                window.location.replace(currentUrl);
-            }
-        })
-    </script>
+            window.location.replace(currentUrl);
+        }
+    })
+</script>
 {% endblock %}

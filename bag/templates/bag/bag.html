@@ -55,7 +55,13 @@
                         </div>
                     </form>
                 </td>
-                {% endfor %}
+                <td class="pt-5 border-bottom">£{{ item.product.price | calc_subtotal:item.quantity | intcomma }}</td>
+                <td class="pt-5 text-center border-bottom-0 float-left pr-md-5 pr-lg-0">
+                    <p class="small pr-1 mb-0 btn btn-sm update-btn text-info">update</p>
+                    <i class="fa fa-trash btn text-danger remove-btn remove_{{ item.item_id }}" aria-hidden="true"></i>
+                </td>
+            </tr>
+            {% endfor %}
         </table>
     </div>
 </div>
@@ -67,13 +73,11 @@
             <p>Subtotal: £{{ before_coupon|floatformat:2 | intcomma }}</p>
             <p><strong class="text-success">{{ coupon }}</strong> coupon ({{ coupon.discount}}% off): <span
                     class="text-danger">- £{{ discount | floatformat:2 }}</span></p>
-            <p><strong>Bag Total: £{{ total|floatformat:2 | intcomma }}</strong></p>
+            <p><strong>Items: £{{ total|floatformat:2 | intcomma }}</strong></p>
             {% else %}
-            <p><strong>Bag Total: £{{ total|floatformat:2 | intcomma }}</strong></p>
+            <p><strong>Items: £{{ total|floatformat:2 | intcomma }}</strong></p>
             {% endif %}
             {% if not user.is_authenticated and free_delivery_delta > 0 %}
-            <p class="text-danger">Get free delivery on your first order when you register an account</p>
-            <p class="text-danger">or</p>
             <p class="text-danger">You could get free delivery by spending just
                 <strong>£{{ free_delivery_delta | floatformat:2 }}
                 </strong>more!</p>
@@ -81,9 +85,6 @@
             <p class="text-danger">You could get free delivery by spending just
                 <strong>£{{ free_delivery_delta | floatformat:2 }}
                 </strong>more!</p>
-            {% endif %}
-            {% if user.is_authenticated and not user_has_orders %}
-            <p class="text-success">FREE DELIVERY on your first order!</p>
             {% endif %}
             {% if delivery is 0 %}
             <p class="text-danger"><s>Delivery: £{{ pre_delivery|floatformat:2 | intcomma }}</s></p>
@@ -95,7 +96,9 @@
                 {% csrf_token %}
                 <div class="form-row">
                     <div class="form-group col-6 mb-0">
-                        {{ coupon_apply_form.code }}
+                        <p>
+                            {{ coupon_apply_form.code }}
+                        </p>
                     </div>
                     <div>
                         <input type="submit" value="Apply Coupon"
@@ -103,7 +106,7 @@
                     </div>
                 </div>
             </form>
-            <h4><strong>Grand Total: £{{ grand_total|floatformat:2 | intcomma }}</strong></h4>
+            <h4><strong>Total: £{{ grand_total|floatformat:2 | intcomma }}</strong></h4>
             <div class="pt-3 text-center">
                 <a href="{% url 'products' %}" class="btn btn-sm ">
                     <i class="fas fa-chevron-left"></i>
