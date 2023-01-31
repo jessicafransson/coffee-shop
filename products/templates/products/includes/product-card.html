@@ -1,0 +1,100 @@
+<!-- Product Image -->
+<div class="h-100 card border-white product-card mb-2">
+    {% if user.is_superuser and product.featured %}
+        <div class="ribbon ribbon-top-left"><span>Featured</span></div>
+    {% endif %}
+    {% if user in product.likes.all  %}
+    <div class="card-liked">
+        <i class="fas fa-heart text-danger"></i>
+    </div>
+    {% endif %}
+    <a href="{% url 'product_detail' product.id %}" >
+        {% if product.image %}
+        <img class="card-img-top pt-2" src="{{ product.image.url }}" alt="{{ product.name }}">
+        {% else %}
+        <img class="card-img-top pt-2" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
+        {% endif %}
+    </a>
+    <!-- Product Card -->
+    <div class="card-body h-100 bg-transparent">
+        <div class="row">
+            <div class="col">
+                <a href="{% url 'product_detail' product.id %}" >
+                    <p><strong>{{ product.name|truncatechars:63  }}</strong></p>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="card-footer border-light">
+        <div class="row">
+            <div class="col">
+                <h5 class="card-text d-inline"><strong>£{{ product.price }}</strong></h5>
+                <p  class="delivery-charge text-muted d-inline small font-weight-italic ml-2">+ £{{ delivery }} delivery</p>
+                <p class="card-text mt-2 mb-1"> 
+                    <a href="{% url 'products' %}?category={{ product.category.name }}">
+                        <i class="fas fa-tag mr-1"></i>{{ product.category.friendly_name }}
+                    </a>
+                </p>
+                <!-- Product Rating -->
+                <div class="mb-2 product-rating">
+                    {% include 'products/includes/product-rating.html' %}
+                    {% if product.review_count %}
+                    <p class="d-inline small ml-1">({{ product.review_count }})</p>
+                    {% endif %}
+                </div>
+                
+                <!-- Quick Add Button -->
+                <form class="form" action="{% url 'add_to_bag' product.id %}" method="POST">
+                    {% csrf_token %}
+                    <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                    <button type="submit" class="btn border rounded-pill btn-bag w-100" name="quantity" value="1">Add to bag</button>
+                </form>
+            </div>
+        </div>
+        <!-- Admin Buttons -->
+        {% if user.is_superuser %}
+        <hr>
+        <div class="row">
+            <div class="col">
+                <!-- Edit Button -->
+                <a href="{% url 'edit_product' product.id %}" class="small d-inline">Edit</a>
+                |
+                <!-- Button triggering deletion warning modal -->
+                <p class="small d-inline hover-link cursor" data-toggle="modal" data-target="#product-modal-{{ product.id }}">
+                    delete
+                </p>
+                <!-- Deletion Warning Modal -->
+                <div class="modal fade" id="product-modal-{{ product.id }}" tabindex="-1" role="dialog" aria-labelledby="warning-{{ product.id }}"
+                    aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="warning-{{ product.id }}">Warning!</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                Are you sure you want to delete {{ product.name }}? This act is irreversible.
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-outline-dark rounded-pill" data-dismiss="modal">Cancel</button>
+                                <a href="{% url 'delete_product' product.id %}" class="btn text-white bg-danger rounded-pill">Delete</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--Feature Button -->
+                <form class="d-inline float-right" action="{% url 'feature_product' product.id %}" method="POST">
+                    {% csrf_token %}
+                    <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                    <button type="submit" value="{{ product.id }}" 
+                        class="small link text-dark hover-link border-0 bg-transparent">{% if product.featured %}unfeature{% else %}feature{% endif %}
+                    </button>
+                </form>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</div>

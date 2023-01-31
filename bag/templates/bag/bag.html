@@ -22,133 +22,189 @@
 {% if bag_items %}
 <div class="row">
     <div class="col">
-        <div class="table-responsive rounded">
-            <table class="table table-sm table-borderless ml-4 d-none d-md-table">
-                <thead>
-                    <tr>
-                        <th scope="col">Product Info</th>
-                        <th scope="col"></th>
-                        <th scope="col">Price</th>
-                        <th scope="col">Quantity</th>
-                        <th scope="col">Subtotal</th>
-                    </tr>
-                </thead>
+        <table class="table table-sm table-borderless ml-4 d-none d-md-table">
+            <thead>
+                <tr>
+                    <th>Products</th>
+                    <th></th>
+                    <th>Price</th>
+                    <th class="text-center">Qty</th>
+                    <th>Subtotal</th>
+                    <th></th>
+                </tr>
+            </thead>
 
-                {% for item in bag_items %}
-                <tr>
-                    <td class="p-3 w-25">
-                        {% if item.product.image %}
-                        <img class="w-100 img-fluid rounded" src="{{ item.product.image.url }}">
-                        {% else %}
-                        <img class="w-100 img-fluid rounded" src="{{ MEDIA_URL }}noimage.png"
-                            alt="{{ item.product.name }}">
-                        {% endif %}
-                    </td>
-                    <td class="py-3">
-                        <p class="my-0"><strong>{{ item.product.name }}</strong></p>
-                        <p class="my-0 small text-muted">SKU: {{ item.product.sku|upper }}</p>
-                    </td>
-                    <td class="py-3">
-                        <p class="my-0">${{ item.product.price }}</p>
-                    </td>
-                    <td class="py-3 w-25">
-                        <form class="form update-form" method="POST" action="{% url 'adjust_bag' item.item_id %}">
-                            {% csrf_token %}
-                            <div class="form-group">
-                                <div class="input-group">
-                                    <div class="input-group-prepend">
-                                        <button class="decrement-qty btn btn-sm btn-black rounded-0"
-                                            data-item_id="{{ item.item_id }}" id="decrement-qty_{{ item.item_id }}">
-                                            <span>
-                                                <i class="fas fa-minus fa-sm"></i>
-                                            </span>
-                                        </button>
-                                    </div>
-                                    <input class="form-control form-control-sm qty_input" type="number" name="quantity"
-                                        value="{{ item.quantity }}" min="1" max="99" data-item_id="{{ item.item_id }}"
-                                        id="id_qty_{{ item.item_id }}">
-                                    <div class="input-group-append">
-                                        <button class="increment-qty btn btn-sm btn-black rounded-0"
-                                            data-item_id="{{ item.item_id }}" id="increment-qty_{{ item.item_id }}">
-                                            <span>
-                                                <i class="fas fa-plus fa-sm"></i>
-                                            </span>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
-                        <a class="update-link text-info"><small>Update</small></a>
-                        <a class="remove-item text-danger float-right"
-                            id="remove_{{ item.item_id }}"><small>Remove</small></a>
-                    </td>
-                    <td class="py-3">
-                        <p class="my-0">${{ item.product.price | calc_subtotal:item.quantity }}</p>
-                    </td>
-                </tr>
+            {% for item in bag_items %}
+            <tr class="pe-4">
+                <td class="py-3 border-bottom">
+                    <a href="{% url 'product_detail' item.product.id %}">
+                        <img src="{% if item.product.image %}{{ item.product.image.url }}{% else %}{{ MEDIA_URL }}noimage.png{% endif %}"
+                            alt="{{ item.product.name }}" style="width: 8rem;" class="img-fluid">
+                    </a>
+                </td>
+                <td class="pt-5 pl-0 border-bottom ">
+                    <a href="{% url 'product_detail' item.product.id %}">{{ item.product.name }}</a><br>
+                    <span class="text-muted">SKU: {{ item.product.sku }}</span>
+                </td>
+                <td class="pt-5 border-bottom"><strong>£{{ item.product.price }}</strong></td>
+                <td class="pt-5 text-center border-bottom">
+                    <form class="form update-form pb-3" method="POST" action="{% url 'adjust_bag' item.item_id %}">
+                        {% csrf_token %}
+                        <div class="mx-auto qty-btns input-group-prepend">
+                            {% include 'bag/includes/qty-buttons.html' %}
+                        </div>
+                    </form>
+                </td>
                 {% endfor %}
-                <tr>
-                    <td colspan="5" class="pt-5 text-right">
-                        <h6><strong>Bag Total: ${{ total|floatformat:2 }}</strong></h6>
-                        <h6>Delivery: ${{ delivery|floatformat:2 }}</h6>
-                        <h4 class="mt-4"><strong>Grand Total: ${{ grand_total|floatformat:2 }}</strong></h4>
-                        {% if free_delivery_delta > 0 %}
-                        <p class="mb-1 text-danger">
-                            You get free shipping, just spend <strong>${{ free_delivery_delta }}</strong>
-                            more!
-                        </p>
-                        {% endif %}
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="5" class="text-right">
-                        <a href="{% url 'products' %}" class="btn btn-outline-black rounded-0 btn-lg">
-                            <span class="icon">
-                                <i class="fas fa-chevron-left"></i>
-                            </span>
-                            <span class="text-uppercase">Get more beans!</span>
-                        </a>
-                        <a href="{% url 'checkout' %}" class="btn btn-black rounded-0 btn-lg">
-                            <span class="text-uppercase">Secure Checkout</span>
-                            <span class="icon">
-                                <i class="fas fa-lock"></i>
-                            </span>
-                        </a>
-                    </td>
-                </tr>
-            </table>
-        </div>
-        {% else %}
-        <p class="lead mb-5">There's nothing in here, yet.</p>
-        <a href="{% url 'products' %}" class="btn btn-outline-black rounded-0 btn-lg">
-            <span class="icon">
-                <i class="fas fa-chevron-left"></i>
-            </span>
-            <span class="text-uppercase">Keep Shopping</span>
-        </a>
-        {% endif %}
+        </table>
     </div>
 </div>
+<!-- Section for totals  -->
+<div class="row pb-5">
+    <div class="col">
+        <div class="float-md-right ml-md-5 mr-md-5 px-3">
+            {% if coupon %}
+            <p>Subtotal: £{{ before_coupon|floatformat:2 | intcomma }}</p>
+            <p><strong class="text-success">{{ coupon }}</strong> coupon ({{ coupon.discount}}% off): <span
+                    class="text-danger">- £{{ discount | floatformat:2 }}</span></p>
+            <p><strong>Bag Total: £{{ total|floatformat:2 | intcomma }}</strong></p>
+            {% else %}
+            <p><strong>Bag Total: £{{ total|floatformat:2 | intcomma }}</strong></p>
+            {% endif %}
+            {% if not user.is_authenticated and free_delivery_delta > 0 %}
+            <p class="text-danger">Get free delivery on your first order when you register an account</p>
+            <p class="text-danger">or</p>
+            <p class="text-danger">You could get free delivery by spending just
+                <strong>£{{ free_delivery_delta | floatformat:2 }}
+                </strong>more!</p>
+            {% elif free_delivery_delta > 0 %}
+            <p class="text-danger">You could get free delivery by spending just
+                <strong>£{{ free_delivery_delta | floatformat:2 }}
+                </strong>more!</p>
+            {% endif %}
+            {% if user.is_authenticated and not user_has_orders %}
+            <p class="text-success">FREE DELIVERY on your first order!</p>
+            {% endif %}
+            {% if delivery is 0 %}
+            <p class="text-danger"><s>Delivery: £{{ pre_delivery|floatformat:2 | intcomma }}</s></p>
+            {% endif %}
+            <p>Delivery: £{{ delivery|floatformat:2 }}</p>
+
+            <!-- Adding a coupon section -->
+            <form action="{% url 'coupon_apply' %}" method="POST">
+                {% csrf_token %}
+                <div class="form-row">
+                    <div class="form-group col-6 mb-0">
+                        {{ coupon_apply_form.code }}
+                    </div>
+                    <div>
+                        <input type="submit" value="Apply Coupon"
+                            class="mt-1 ml-2 border-0 rounded-pill link-btn btn-sm">
+                    </div>
+                </div>
+            </form>
+            <h4><strong>Grand Total: £{{ grand_total|floatformat:2 | intcomma }}</strong></h4>
+            <div class="pt-3 text-center">
+                <a href="{% url 'products' %}" class="btn btn-sm ">
+                    <i class="fas fa-chevron-left"></i>
+                    Continue Shopping
+                </a>
+                <a href="{% url 'checkout' %}" class="btn btn-dark">
+                    <span class="text-uppercase">Secure checkout</span>
+                    <i class="fas fa-lock"></i>
+                </a>
+            </div>
+        </div>
+    </div>
 </div>
+
+<!-- Items view for smaller screens -->
+<div class="container d-md-none mb-3">
+    <div class="row">
+        <div class="col">
+            <h6>Bag Summary</h6>
+            <hr>
+        </div>
+    </div>
+    {% for item in bag_items %}
+    <div class="row">
+        <div class="col">
+            <a href="{% url 'product_detail' item.product.id %}">
+                <img src="{% if item.product.image %}{{ item.product.image.url }}{% else %}{{ MEDIA_URL }}noimage.png{% endif %}"
+                    alt="{{ item.product.name }}" style="width: 16rem;" class="d-block mx-auto">
+            </a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <p class="mt-4 mb-1"><strong>{{ item.product.name }}</strong></p>
+            <p class="small text-muted mb-1">{{ item.product.sku }}</p>
+            <h6><span class="mr-4 mb-1">Price:</span>£{{ item.product.price }}</h6>
+            <h6 class="font-weight-bold"><span class="mr-4">Subtotal:</span>
+                £{{ item.product.price | calc_subtotal:item.quantity | intcomma }}</h6>
+            <form class="form update-form pb-3 text-center mt-4" method="POST"
+                action="{% url 'adjust_bag' item.item_id %}">
+                {% csrf_token %}
+                <div class="qty-btns input-group-prepend">
+                    {% include 'bag/includes/qty-buttons.html' %}
+                </div>
+            </form>
+            <div class="text-center">
+                <p class="small pr-3 mb-0 btn btn-sm update-sm-btn text-info">update</p>
+                <i class="fa fa-trash btn text-danger remove-btn remove_{{ item.item_id }}" aria-hidden="true"></i>
+            </div>
+            {% if forloop.last %}
+            {% else %}
+            <hr>
+            {% endif %}
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+<!-- If nothing added to bag -->
+{% else %}
+<div class="row">
+    <div class="col">
+        <p class="text-center">Sorry, no delicious beans in here.
+            <br>
+            <br>
+            <a href="{% url 'products' %}" class="btn btn-lg ">
+                <i class="fas fa-chevron-left"></i>
+                Continue Browsing for beans
+            </a>
+        </p>
+    </div>
+</div>
+{% endif %}
+
 {% endblock %}
 
 {% block postloadjs %}
 {{ block.super }}
-{% include 'products/includes/quantity_input_script.html' %}
-
-<script type="text/javascript">
-    // Update quantity on click
-    $('.update-link').click(function (e) {
-        var form = $(this).prev('.update-form');
+{% include 'products/includes/quantity-script.html' %}
+<script>
+    // Update Quantity on click
+    $('.update-btn').click(function (e) {
+        var form = $(this).parent().prev().prev().children('.update-form');
         form.submit();
-    })
+        console.log('Done');
+    });
 
-    // Remove item and reload on click
-    $('.remove-item').click(function (e) {
-        var csrfToken = "{{ csrf_token }}";
-        var itemId = $(this).attr('id').split('remove_')[1];
-        var url = `/bag/remove/${itemId}/`;
-        var data = {
+    // Update Quantity on click for small screens
+    $('.update-sm-btn').click(function (e) {
+        var form = $(this).parent().siblings('.update-form');
+        form.submit();
+        console.log('Done');
+    });
+
+
+    // Delete item and reload on click
+    $('.remove-btn').click(function (e) {
+        let csrfToken = "{{ csrf_token }}";
+        let itemId = $(this).attr('class').split('remove_')[1];
+        let url = `/bag/remove/${itemId}/`;
+        let data = {
             'csrfmiddlewaretoken': csrfToken
         };
 
@@ -156,6 +212,6 @@
             .done(function () {
                 location.reload();
             });
-    })
+    });
 </script>
-{% endblock %}
+{% endblock%}

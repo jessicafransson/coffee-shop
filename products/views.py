@@ -1,13 +1,17 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
+from django.http import HttpResponseRedirect
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.db.models.functions import Lower
+from django.db.models import Avg
+from django.conf import settings
 
 from .models import Product, Category
+from review.models import Review
 from .forms import ProductForm
-
-# Create your views here.
+from review.forms import ReviewForm
+from profiles.models import UserProfile
 
 
 def all_products(request):

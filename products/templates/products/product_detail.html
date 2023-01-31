@@ -1,119 +1,294 @@
 {% extends "base.html" %}
 {% load static %}
+{% load crispy_forms_tags %}
+{% load profanity %}
+{% load humanize %}
 
 {% block extra_meta %}
-    <meta name="description" content="Coffee Shop - {{ product.name }}. Product information for {{ product.name }}. Coffee Shop, an online e-commerce store for all your coffee needs at home.">
-    <meta name="keywords" content="{{ product.name }}, Coffee Shop, beans, espresso, latte, coffee bean, cappucino, roast, grinds, preground">
+<meta name="description"
+    content="Coffee Shop - {{ product.name }}. Product information for {{ product.name }}. Coffee Shop, an online e-commerce store for all your coffee needs at home.">
+<meta name="keywords"
+    content="{{ product.name }}, Coffee Shop, beans, espresso, latte, coffee bean, cappucino, roast, grinds, preground">
 
-    <!-- For the social media links, meta names-->
-    <meta property="og:type" content="article">
-    <meta property="og:type" content="Coffee Shop - {{ product.name }}">
-    <meta property="og:description" content="Coffee Shop {{ product.name }}. Product information for {{ product.name }} Coffee Shop, an online e-commerce store for all your coffee neds at home.">
-    <meta property="og:image:alt" content="Coffee Shop main image, showing coffee beans being roasted">
-    <!--
+<!-- For the social media links, meta names-->
+<meta property="og:type" content="article">
+<meta property="og:type" content="Coffee Shop - {{ product.name }}">
+<meta property="og:description"
+    content="Coffee Shop {{ product.name }}. Product information for {{ product.name }} Coffee Shop, an online e-commerce store for all your coffee neds at home.">
+<meta property="og:image:alt" content="Coffee Shop main image, showing coffee beans being roasted">
+<!--
          <meta property="og:url" content=" deployed URL goes here">
     <meta property="og:site_name" content="Coffee shop - Admin Management - Add Item">
     -->
 {% endblock %}
 
-{% block page_header %}
-<div class="container header-container">
-    <div class="row">
-        <div class="col"></div>
-    </div>
-</div>
-{% endblock %}
+{% block extra_title %} Product Details {% endblock %}
 
 {% block content %}
-<div class="overlay"></div>
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-12 col-md-6 col-lg-4 offset-lg-2">
-            <div class="image-container my-5">
+<div class="container">
+    <section class="row mt-4">
+        <!-- Product Image -->
+        <div class="col-12 col-md-4 col-lg-4">
+            <div class="image-container mb-3 ">
                 {% if product.image %}
-                <a href="{{ product.image.url }}" target="_blank">
-                    <img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}">
-                </a>
+                <a href="{{ product.image.url }}" target="_blank"><img src="{{ product.image.url }}"
+                        alt="{{ product.name }}" style="width: 100%;"></a>
                 {% else %}
-                <a href="">
-                    <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
-                </a>
+                <img src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
                 {% endif %}
             </div>
-        </div>
-        <div class="col-12 col-md-6 col-lg-4">
-            <div class="product-details-container mb-5 mt-md-5">
-                <p class="mb-0">{{ product.name }}</p>
-                <p class="lead mb-0 text-left font-weight-bold">${{ product.price }}</p>
-                {% if product.category %}
-                <p class="small mt-1 mb.0">
-                    <a class="text-muted" href="{% url 'products' %}?category={{ product.category.name }}">
-                        <i class="fas fa-tag mr-1"></i>{{ product.category.friendly_name }}
-                    </a>
-                </p>
-                {% endif %}
-                {% if product.rating %}
-                <small class="text-muted">
-                    <i class="fas fa-star mr-1"></i>{{ product.rating }} / 5</small>
-                {% else %}
-                <small class="text-muted">No Reviews yet!</small>
-                {% endif %}
-                <!-- Section for admin to edit and delete items-->
-                {% if request.user.is_superuser %}
-                    <div class="float-right">
-                        <a href="{% url 'edit_product' product.id %}" class="edit-link">Edit the item</a>
-                        <button data-toggle="modal" data-target="#deleteModal-{{ product.id }}" 
-                            class="delete-link ml-3">Delete</button>
-                {% endif %}
-                <p class="mt-3">{{ product.description }}</p>
-                <form class="form" action="{% url 'add_to_bag' product.id %}" method="POST">
+            <!-- Admin Buttons -->
+            {% if user.is_superuser %}
+            <div class="d-block text-center mb-4">
+                <form class="d-inline" action="{% url 'feature_product' product.id %}" method="POST">
                     {% csrf_token %}
-                    <div class="form-row">
-                        <div class="col-12">
-                            <p class="mt-3"><strong>Amount:</strong></p>
-                            <div class="form-group w-50">
-                                <div class="input-group">
-                                    <div class="input-group-prepend">
-                                        <button class="decrement-qty btn btn-black rounded-0"
-                                            data-item_id="{{ product.id }}" id="decrement-qty_{{ product.id }}">
-                                            <span class="icon">
-                                                <i class="fas fa-minus"></i>
-                                            </span>
+                    <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                </form>
+                <a href="{% url 'edit_product' product.id %}"
+                    class="text-white bg-success btn btn-sm small border rounded-pill">Edit</a>
+
+                <!-- Button triggering deletion warning modal -->
+                <button type="button" class="text-white bg-danger btn-sm border rounded-pill" data-toggle="modal"
+                    data-target="#product-modal-{{ product.id }}">
+                    Delete
+                </button>
+
+                <!-- Deletion warning Modal -->
+                <div class="modal fade" id="product-modal-{{ product.id }}" tabindex="-1" role="dialog"
+                    aria-labelledby="warning-{{ product.id }}" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="warning-{{ product.id }}">Warning!</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                Are you sure you want to delete {{ product.name }}? This act is irreversible.
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-outline-dark rounded-pill"
+                                    data-dismiss="modal">Cancel</button>
+                                <a href="{% url 'delete_product' product.id %}"
+                                    class="btn text-white bg-danger rounded-pill">Delete</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+        <!-- Product Details -->
+        <div class="col-12 col-md-8 col-lg-8">
+            <div class="mb-1">
+                <p class="mb-0"><strong>{{ product.name }}</strong></p>
+                <!-- Heart button to add product to favourites -->
+                <p class="d-inline">Add to Favourites: </p>
+                {% if user.is_authenticated %}
+                <form class="d-inline" action="{% url 'favourite_product' product.id %}" method="POST">
+                    {% csrf_token %}
+                    {% if liked %}
+                    <button type="submit" value="{{ product.id }}" class="btn-like">
+                        <i class="fas fa-heart"></i>
+                    </button>
+                    {% else %}
+                    <button type="submit" value="{{ product.id }}" class="btn-like">
+                        <i class="far fa-heart"></i>
+                    </button>
+                    {% endif %}
+                </form>
+                {% else %}
+                <!-- Button to trigger account required modal -->
+                <button type="button" class="btn btn-like" data-toggle="modal" data-target="#account-required-modal">
+                    <i class="far fa-heart"></i>
+                </button>
+
+                <!-- Account required Modal -->
+                <div class="modal fade" id="account-required-modal" tabindex="-1" role="dialog"
+                    aria-labelledby="account-required-modal-Label" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="account-required-modal-Label">Account Required</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                Please create an account or sign in to use this feature.
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-outline-dark rounded-pill"
+                                    data-dismiss="modal">Close</button>
+                                <a class="btn link-btn rounded-pill" href="{% url 'account_signup' %}">Register</a>
+                                <a class="btn link-btn rounded-pill" href="{% url 'account_login' %}">Sign In</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+            <div class="mb-3">
+                <!-- Product Rating -->
+                <div class="product-rating d-inline">{% include 'products/includes/product-rating.html' %}</div>
+                <p class="ml-3 small d-inline">({{ review_count }})</p>
+            </div>
+            <p>
+                <strong class="lead">£{{ product.price }}</strong>
+                <span class="text-muted small font-weight-italic ml-2">+ £{{ delivery }} delivery</span>
+            </p>
+            <p class="text-muted">{{ product.sku }}</p>
+            <p><a href="{% url 'products' %}?category={{ product.category.name }}"><i
+                        class="fas fa-tag mr-1"></i>{{ product.category.friendly_name }}</a></p>
+            <p class="d-none d-md-block">Product Description:</p>
+            <p>{{ product.description }}</p>
+            <!-- Quantity input -->
+            <form class="form pb-3" action="{% url 'add_to_bag' product.id %}" method="POST">
+                {% csrf_token %}
+                <p>Quantity:</p>
+                <div class="qty-btns">
+                    <button class="btn-dark rounded minus-qty minus-qty-{{ product.id }}"
+                        data-item_id="{{ product.id }}">
+                        <i class="fas fa-minus"></i>
+                    </button>
+                    <input class="w-25 d-inline qty-input form-control id_qty_{{ product.id }}" type="number"
+                        name="quantity" value="1" min="1" max="99" data-item_id="{{ product.id }}">
+                    <button class="btn-light rounded plus-qty plus-qty-{{ product.id }}"
+                        data-item_id="{{ product.id }}">
+                        <i class="fas fa-plus"></i>
+                    </button>
+                    <input type="submit" class="btn btn-bag border rounded-pill ml-2" value="Add to Bag">
+                    <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                </div>
+            </form>
+            <a href="{% url 'products' %}" class="small">
+                <i class="fas fa-chevron-left"></i>
+                Continue Shopping
+            </a>
+        </div>
+    </section>
+</div>
+
+<!-- Reviews -->
+<div class="row mt-5 mb-2 mb-lg-3 px-4">
+    <!-- Customer Reviews -->
+    <section class="col-lg-6 ">
+        {% if reviews %}
+        <h4>{{ review_count }} Reviews for {{ product.name }}</h4>
+        <hr>
+        <div class="container">
+            {% for review in reviews %}
+            <div class="row">
+                <div class="col review-stars">
+                    {% if review.rating == 5 %}
+                    <i class="fa fa-solid fa-star"></i><i class="fa fa-solid fa-star"></i><i
+                        class="fa fa-solid fa-star"></i><i class="fa fa-solid fa-star"></i><i
+                        class="fa fa-solid fa-star"></i>
+                    {% elif review.rating == 4 %}
+                    <i class="fa fa-solid fa-star"></i><i class="fa fa-solid fa-star"></i><i
+                        class="fa fa-solid fa-star"></i><i class="fa fa-solid fa-star"></i>
+                    {% elif review.rating == 3 %}
+                    <i class="fa fa-solid fa-star"></i><i class="fa fa-solid fa-star"></i><i
+                        class="fa fa-solid fa-star"></i>
+                    {% elif review.rating == 2 %}
+                    <i class="fa fa-solid fa-star"></i><i class="fa fa-solid fa-star"></i>
+                    {% elif review.rating == 1 %}
+                    <i class="fa fa-solid fa-star"></i>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col">
+                    {{ review.body }}
+                </div>
+            </div>
+            <div class="row mt-1">
+                <div class="col">
+                    <p class="d-inline font-italic small text-muted">by {{ review.user }} &#8226;
+                        {{review.created_on|naturaltime }}</p>
+                    <p class="d-inline small text-muted float-right">
+                        {% if user.is_authenticated and user.id == review.user.user.id %}
+                        <a href="{% url 'edit_review' review.id %}">edit</a> |
+                        <!-- Button triggering deletion warning modal -->
+                        <button class="btn btn-sm p-0 review-delete-btn" data-toggle="modal"
+                            data-target="#review-modal-{{ review.id }}">delete</button>
+                        <!-- Deletion warning Modal -->
+                        <div class="modal fade" id="review-modal-{{ review.id }}" tabindex="-1" role="dialog"
+                            aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title text-white" id="exampleModalLabel">Warning!</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
                                         </button>
                                     </div>
-                                    <input class="form-control qty_input" type="number" name="quantity" value="1"
-                                        min="1" max="99" data-item_id="{{ product.id }}" id="id_qty_{{ product.id }}">
-                                    <div class="input-group-append">
-                                        <button class="increment-qty btn btn-black rounded-0"
-                                            data-item_id="{{ product.id }}" id="increment-qty_{{ product.id }}">
-                                            <span class="icon">
-                                                <i class="fas fa-plus"></i>
-                                            </span>
-                                        </button>
+                                    <div class="modal-body">
+                                        Are you sure you want to delete your review? This act is irreversible.
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-outline-dark rounded-pill"
+                                            data-dismiss="modal">Cancel</button>
+                                        <a href="{% url 'delete_review' review.id %}"
+                                            class="btn text-white bg-danger rounded-pill">Delete</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
-
-                        <div class="col-12">
-                            <a href="{% url 'products' %}" class="btn btn-outline-black rounded-0 mt-5">
-                                <span class="icon">
-                                    <i class="fas fa-chevron-left"></i>
-                                </span>
-                                <span class="text-uppercase">Keep Shopping</span>
-                            </a>
-                            <input type="submit" class="btn btn-black rounded-0 text-uppercase mt-5" value="Add to Bag">
-                        </div>
-                        <input type="hidden" name="redirect_url" value="{{ request.path }}">
-                    </div>
-                </form>
+                        {% endif %}
+                </div>
             </div>
+            <hr>
+            {% endfor %}
         </div>
-    </div>
+        {% else %}
+        <h4>This Product has no reviews</h4>
+        <hr>
+        {% endif %}
+    </section>
+
+    <!-- Add a review  -->
+    <section class="col-lg-6 my-4 my-lg-0">
+        <h4>Add Review</h4>
+        <hr>
+        {% if user.is_authenticated %}
+        {% if reviewed %}
+        <p>You have already reviewed this product.</p>
+        {% else %}
+        <form action="{% url 'product_detail' product.id %}" method="POST">
+            {% csrf_token %}
+            {% for field in form  %}
+            {% if field.name == "rating" %}
+            <p class="mb-0">{{ field.label }} *</p>
+            <br>
+            {% for radio in field %}
+            <label for="{{ radio.id_for_label }}">
+                <i class="far fa-star star"></i>
+            </label>
+            <div class="radio-tag d-inline">{{ radio.tag }}</div>
+            {% endfor %}
+            <br>
+            {% else %}
+            {{ field.errors }}
+            <br>
+            {{ field | as_crispy_field }}
+            {% endif %}
+            {% endfor %}
+            <p class="small text-muted font-italic">* Required</p>
+            <button type="submit" class="btn link-btn rounded-pill d-block mt-2">Add Review</button>
+        </form>
+        {% endif %}
+        {% else %}
+        <p>Please <a href="{% url 'account_login' %}">login</a> to leave a review.</p>
+        {% endif %}
+    </section>
 </div>
+
 {% endblock %}
 
 {% block postloadjs %}
 {{ block.super }}
-{% include 'products/includes/quantity_input_script.html' %}
-{% endblock %}
+{% include 'products/includes/quantity-script.html' %}
+{% include 'review/includes/fill-stars-script.html' %}
+{% endblock%}

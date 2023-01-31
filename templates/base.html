@@ -21,10 +21,10 @@
 
     <!-- Favicon for website title here-->
     {% block favicon %}
-        <link rel="apple-touch-icon" sizes="180x180" href="{% static 'favicon/apple-touch-icon.png' %}">
-        <link rel="icon" type="image/png" sizes="32x32" href="{% static 'favicon/favicon-32x32.png' %}">
-        <link rel="icon" type="image/png" sizes="16x16" href="{% static 'favicon/favicon-16x16.png' %}">
-        <link rel="manifest" href="{% static 'favicon/site.webmanifest' %}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'favicon/apple-touch-icon.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'favicon/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'favicon/favicon-16x16.png' %}">
+    <link rel="manifest" href="{% static 'favicon/site.webmanifest' %}">
     {% endblock %}
 
     {% block corecss %}
@@ -85,12 +85,16 @@
             </div>
             <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
                 <ul class="list-inline list-unstyled text-center text-lg-right my-0">
-                    <li class="list-inline-item dropdown">
-                        <a class="text-black nav-link" href="#" id="user-options" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false">
+                    <!-- Menu for accounts -->
+                    <li class="list-inline-item dropdown pr-3">
+                        <a href="#" class="nav-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <div class="text-center">
-                                <div><i class="fas fa-user fa-lg"></i></div>
-                                <p class="my-0">My Account</p>
+                                <div class="icon"><i class="fas fa-user fa-lg"></i></div>
+                                {% if user.is_authenticated %}
+                                <p class="my-0 font-weight-bold">My Account</p>
+                                {% else %}
+                                <p class="my-0 font-weight-bold">Sign in/up</p>
+                                {% endif %}
                             </div>
                         </a>
                         <div class="dropdown-menu border-0" aria-labelledby="user-options">
