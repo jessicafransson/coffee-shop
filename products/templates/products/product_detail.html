@@ -80,22 +80,6 @@
         <div class="col-12 col-md-8 col-lg-8">
             <div class="mb-1">
                 <p class="mb-0"><strong>{{ product.name }}</strong></p>
-                <!-- Heart button to add product to favourites -->
-                <p class="d-inline">Add to Favourites: </p>
-                {% if user.is_authenticated %}
-                <form class="d-inline" action="{% url 'favourite_product' product.id %}" method="POST">
-                    {% csrf_token %}
-                    {% if liked %}
-                    <button type="submit" value="{{ product.id }}" class="btn-like">
-                        <i class="fas fa-heart"></i>
-                    </button>
-                    {% else %}
-                    <button type="submit" value="{{ product.id }}" class="btn-like">
-                        <i class="far fa-heart"></i>
-                    </button>
-                    {% endif %}
-                </form>
-                {% else %}
                 <!-- Button to trigger account required modal -->
                 <button type="button" class="btn btn-like" data-toggle="modal" data-target="#account-required-modal">
                     <i class="far fa-heart"></i>
@@ -124,7 +108,6 @@
                         </div>
                     </div>
                 </div>
-                {% endif %}
             </div>
             <div class="mb-3">
                 <!-- Product Rating -->
@@ -140,7 +123,7 @@
                         class="fas fa-tag mr-1"></i>{{ product.category.friendly_name }}</a></p>
             <p class="d-none d-md-block">Product Description:</p>
             <p>{{ product.description }}</p>
-            
+
             <!-- Quantity input -->
             <form class="form pb-3" action="{% url 'add_to_bag' product.id %}" method="POST">
                 {% csrf_token %}
@@ -251,32 +234,32 @@
         <h4>Add Review</h4>
         <hr>
         {% if user.is_authenticated %}
-        {% if reviewed %}
-        <p>You have already reviewed this product.</p>
-        {% else %}
-        <form action="{% url 'product_detail' product.id %}" method="POST">
-            {% csrf_token %}
-            {% for field in form  %}
-            {% if field.name == "rating" %}
-            <p class="mb-0">{{ field.label }} *</p>
-            <br>
-            {% for radio in field %}
-            <label for="{{ radio.id_for_label }}">
-                <i class="far fa-star star"></i>
-            </label>
-            <div class="radio-tag d-inline">{{ radio.tag }}</div>
-            {% endfor %}
-            <br>
+            {% if reviewed %}
+             <p>You have already reviewed this product.</p>
             {% else %}
-            {{ field.errors }}
-            <br>
-            {{ field | as_crispy_field }}
+                <form action="{% url 'product_detail' product.id %}" method="POST">
+                    {% csrf_token %}
+                    {% for field in form  %}
+                        {% if field.name == "rating" %}
+                            <p class="mb-0">{{ field.label }} *</p>
+                            <br>
+                            {% for radio in field %}
+                                <label for="{{ radio.id_for_label }}">
+                                    <i class="far fa-star star"></i>
+                                </label>
+                                <div class="radio-tag d-inline">{{ radio.tag }}</div>
+                            {% endfor %}
+                            <br>
+                        {% else %}
+                            {{ field.errors }}
+                            <br>
+                            {{ field | as_crispy_field }}
+                        {% endif %}
+                    {% endfor %}
+                    <p class="small text-muted font-italic">* Required</p>
+                    <button type="submit" class="btn link-btn rounded-pill d-block mt-2">Add Review</button>
+                </form>
             {% endif %}
-            {% endfor %}
-            <p class="small text-muted font-italic">* Required</p>
-            <button type="submit" class="btn link-btn rounded-pill d-block mt-2">Add Review</button>
-        </form>
-        {% endif %}
         {% else %}
         <p>Please <a href="{% url 'account_login' %}">login</a> to leave a review.</p>
         {% endif %}
