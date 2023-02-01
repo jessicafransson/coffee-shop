@@ -50,15 +50,58 @@ def all_products(request):
 
 
 def product_detail(request, product_id):
-    """ A view to show individual product details """
+    """ Detailed view of the products in the shop """
 
     product = get_object_or_404(Product, pk=product_id)
+    reviews = Review.objects.all().filter(
+        product=product).order_by('-created_on')
+    review_count = len(reviews)
 
-    context = {
-        'product': product,
-    }
+    if request.user.is_authenticated:
+        user_profile = get_object_or_404(UserProfile, user=request.user)
 
-    return render(request, 'products/product_detail.html', context)
+    if request.method == 'POST':
+        form = ReviewForm(request.POST)
+        if form.is_valid():
+            reviews.create(
+                user=user_profile,
+                product=product,
+                rating=request.POST.get('rating'),
+                body=request.POST.get('body')
+            )
+            reviews = Review.objects.all().filter(product=product)
+            rating = reviews.aggregate(Avg('rating'))['rating__avg']
+            product.rating = rating
+            product.review_count = review_count + 1
+            product.save()
+            messages.success(request, 'Review sucessfully added')
+            return redirect(reverse('product_detail', args=[product_id]))
+        else:
+            print(form.errors.as_data())
+            messages.error(
+                request,
+                'Review Failed. \
+                    Please check for errors or profanity and try again.'
+                )
+            return redirect(reverse('product_detail', args=[product_id]))
+    else:
+        form = ReviewForm()
+        if request.user.is_authenticated:
+            reviewed = Review.objects.all().filter(
+                product=product).filter(user=user_profile.id)
+        else:
+            reviewed = False
+
+
+        context = {
+            'product': product,
+            'form': form,
+            'reviews': reviews,
+            'review_count': review_count,
+            'reviewed': reviewed,
+        }
+
+        return render(request, 'products/product_detail.html', context)
 
 
 @login_required
