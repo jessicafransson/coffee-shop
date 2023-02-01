@@ -74,14 +74,14 @@ def product_detail(request, product_id):
             product.rating = rating
             product.review_count = review_count + 1
             product.save()
-            messages.success(request, 'Review sucessfully added')
+            messages.success(request, 'Review added sucessfully')
             return redirect(reverse('product_detail', args=[product_id]))
         else:
             print(form.errors.as_data())
             messages.error(
                 request,
                 'Review Failed. \
-                    Please check for errors or profanity and try again.'
+                    Please check for issues and try again.'
                 )
             return redirect(reverse('product_detail', args=[product_id]))
     else:
