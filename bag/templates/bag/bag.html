@@ -190,7 +190,7 @@
     // Update Quantity on click
     $('.update-btn').click(function (e) {
         var form = $(this).parent().prev().prev().children('.update-form');
-        form.submit();
+        form[0].requestSubmit();
         console.log('Done');
     });
 
