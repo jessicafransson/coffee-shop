@@ -76,14 +76,11 @@
             </div>
             {% endif %}
         </div>
+
         <!-- Product Details -->
         <div class="col-12 col-md-8 col-lg-8">
             <div class="mb-1">
                 <p class="mb-0"><strong>{{ product.name }}</strong></p>
-                <!-- Button to trigger account required modal -->
-                <button type="button" class="btn btn-like" data-toggle="modal" data-target="#account-required-modal">
-                    <i class="far fa-heart"></i>
-                </button>
 
                 <!-- Account required Modal -->
                 <div class="modal fade" id="account-required-modal" tabindex="-1" role="dialog"
@@ -234,32 +231,32 @@
         <h4>Add Review</h4>
         <hr>
         {% if user.is_authenticated %}
-            {% if reviewed %}
-             <p>You have already reviewed this product.</p>
+        {% if reviewed %}
+        <p>You have already reviewed this product.</p>
+        {% else %}
+        <form action="{% url 'product_detail' product.id %}" method="POST">
+            {% csrf_token %}
+            {% for field in form  %}
+            {% if field.name == "rating" %}
+            <p class="mb-0">{{ field.label }} *</p>
+            <br>
+            {% for radio in field %}
+            <label for="{{ radio.id_for_label }}">
+                <i class="far fa-star star"></i>
+            </label>
+            <div class="radio-tag d-inline">{{ radio.tag }}</div>
+            {% endfor %}
+            <br>
             {% else %}
-                <form action="{% url 'product_detail' product.id %}" method="POST">
-                    {% csrf_token %}
-                    {% for field in form  %}
-                        {% if field.name == "rating" %}
-                            <p class="mb-0">{{ field.label }} *</p>
-                            <br>
-                            {% for radio in field %}
-                                <label for="{{ radio.id_for_label }}">
-                                    <i class="far fa-star star"></i>
-                                </label>
-                                <div class="radio-tag d-inline">{{ radio.tag }}</div>
-                            {% endfor %}
-                            <br>
-                        {% else %}
-                            {{ field.errors }}
-                            <br>
-                            {{ field | as_crispy_field }}
-                        {% endif %}
-                    {% endfor %}
-                    <p class="small text-muted font-italic">* Required</p>
-                    <button type="submit" class="btn link-btn rounded-pill d-block mt-2">Add Review</button>
-                </form>
+            {{ field.errors }}
+            <br>
+            {{ field | as_crispy_field }}
             {% endif %}
+            {% endfor %}
+            <p class="small text-muted font-italic">* Required</p>
+            <button type="submit" class="btn link-btn rounded-pill d-block mt-2">Add Review</button>
+        </form>
+        {% endif %}
         {% else %}
         <p>Please <a href="{% url 'account_login' %}">login</a> to leave a review.</p>
         {% endif %}

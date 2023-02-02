@@ -92,6 +92,9 @@ def product_detail(request, product_id):
         else:
             reviewed = False
 
+        liked = False
+        if product.likes.filter(id=request.user.id).exists():
+            liked = True
 
         context = {
             'product': product,
