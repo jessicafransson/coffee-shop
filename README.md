@@ -71,6 +71,8 @@ This is a list of my user stories, and it can also be found [here](https://githu
 - As a user i want to easily make an order without having to sign up
 - As a user i want to view a confirmation of my order and recieve an email confirmation
 
+
+[Back to top ⇧](#coffee-shop)
 ----- 
 
 ## Design
@@ -128,6 +130,8 @@ this is what the visitor can do on my site:
 ### Edit products/coupons
 ### Delete products/coupons 
 
+
+[Back to top ⇧](#coffee-shop)
 -----
 
 ## Technologies 
@@ -195,12 +199,30 @@ It is created in GitHub following these steps:
     18. In Heroku, go to the deployment tab and deploy this branch manually. This will lead to Heroku building this app for you, and you will be able to follow the build process in the window. 
     19. When successful, you will be displayed with following: "Your app was successfully deployed".
 
-[Back to top (arrow)] ()
+[Back to top ⇧](#coffee-shop)
 
 ------
 
 ## Credits 
 
+### Code
+- Inspiration from both the Walkthru project, former student Delboy and Kera.
+- [GringoCoffee](https://www.gringonordic.se/) for images, inspiration with information and the coffee that kept me coding! 
+
+### Media
+- As mentioned above most images are from the [Gringo](https://www.gringonordic.se/) website. 
+Others from pixabay
+
+### Other
+- The [Djangodocs](https://docs.djangoproject.com/en/4.0/) was a big help for troubleshooting
+- [Stackoverflow](https://stackoverflow.com) for trying to find bugs, sollutions and inspiration.
+
 ------
 
 ## Acknowledgements 
+
+- The big support network on slack, alumnis and current students for always beeing there and helping, troubleshooting or rubber-ducking. No one mentioned and no-one therefor forgotten!
+- Tutor support for putting up with my brain-fog silly questions
+
+
+[Back to top ⇧](#coffee-shop)
