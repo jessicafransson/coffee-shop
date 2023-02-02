@@ -8,9 +8,11 @@ Here's a link to the live project ()
 
 This project is built as a Full Stack Framework for e-commerce. 
 
+The payment system used is a service called Stripe. To test the payments on this site, dummy card details can be used. A list of these can be found [here](https://stripe.com/docs/testing#cards)
+
 ## Content 
 
-- User experiences 
+[User experiences (UX)]()
 * user stories 
 
 - design 
@@ -35,12 +37,39 @@ This project is built as a Full Stack Framework for e-commerce.
 
 ## User stories 
 
-This is a list of my user stories, and it can also be found here (https://github.com/users/jessicafransson/projects/6)
+This is a list of my user stories, and it can also be found [here](https://github.com/users/jessicafransson/projects/8)
 
-### EPIC 
-### EPIC
-### EPIC
-### EPIC 
+#### EPIC | Admin
+- As an admin, i can access the products thru the admin site
+- As an admin, i can add products to the site
+- As an admin, i can add coupons for the site
+- As an admin, i can edit/delete the products and coupons for the site
+- As an admin, i can view the people signed up for my site
+
+### EPIC | Navigation 
+- As a user i can easily navigate around the site to view the different products and sections
+- As a user i can view a list of products to select what to order
+- As a user i can easily click a product to see more information
+- As a user i can easily find out what previous buyers think
+
+### EPIC | Customer
+- As a user i want to be able to sign up for an account
+- As a user i want to be able to edit my contact information
+- As a user i want to add an item to the shopping cart
+- As a user i want to be able to update the amount of products in my cart
+- As a user i want to be able to delete an item from my cart
+- As a user i want to be able to sign up for a newsletter
+- As a user i want to be able to see privacy information
+- As a user i want to be able to log in/log out easily
+- As a user i want to be able to se product information 
+
+### EPIC | Purchase
+- As a user i want to view my shopping cart to see the total cost
+- As a user i want to easily edit my cart to buy more/less
+- As a user i want to see a summary of my products added
+- As a user i want to be able to easily enter my payment information to complete a purchase
+- As a user i want to easily make an order without having to sign up
+- As a user i want to view a confirmation of my order and recieve an email confirmation
 
 ----- 
 
