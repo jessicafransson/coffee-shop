@@ -1,1 +1,1 @@
-web: gunicorn coffeeshop91.wsgi:application
+web: gunicorn coffee_shop.wsgi:application
