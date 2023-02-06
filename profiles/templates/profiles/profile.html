@@ -3,23 +3,6 @@
 
 {% block extra_title %} - {{ user }} Profile {% endblock %}
 
-{% block extra_meta %}
-<meta name="description"
-    content="Coffee Shop - Profile page. This is the way to view your profile page on Coffee Shop, an online e-commerce shop for all your coffee needs at home.">
-<meta name="keywords" content="Profile page, profile, espresso, coffee, coffee beans, online shop, coffee bean">
-
-<!-- Social Media - Facebook, LinkedIn, Google -->
-<meta property="og:type" content="article">
-<meta property="og:title" content="Coffee Shop - Profile">
-<meta property="og:description"
-    content="Coffee Shop - Profile Page. The one place to keep your profile for coffee needs!">
-<meta property="og:image:alt" content="Coffee Shop an image of coffee beans being roasted">
-<!--
-        <meta property="og:url" content="deployed heroku ULR here">
-    <meta property="og:site_name" content="Coffee Shop  - Profile">
-    -->
-{% endblock %}
-
 
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'profiles/css/profile.css' %}">

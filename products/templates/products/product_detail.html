@@ -4,23 +4,6 @@
 {% load profanity %}
 {% load humanize %}
 
-{% block extra_meta %}
-<meta name="description"
-    content="Coffee Shop - {{ product.name }}. Product information for {{ product.name }}. Coffee Shop, an online e-commerce store for all your coffee needs at home.">
-<meta name="keywords"
-    content="{{ product.name }}, Coffee Shop, beans, espresso, latte, coffee bean, cappucino, roast, grinds, preground">
-
-<!-- For the social media links, meta names-->
-<meta property="og:type" content="article">
-<meta property="og:type" content="Coffee Shop - {{ product.name }}">
-<meta property="og:description"
-    content="Coffee Shop {{ product.name }}. Product information for {{ product.name }} Coffee Shop, an online e-commerce store for all your coffee neds at home.">
-<meta property="og:image:alt" content="Coffee Shop main image, showing coffee beans being roasted">
-<!--
-         <meta property="og:url" content=" deployed URL goes here">
-    <meta property="og:site_name" content="Coffee shop - Admin Management - Add Item">
-    -->
-{% endblock %}
 
 {% block extra_title %} Product Details {% endblock %}
 
