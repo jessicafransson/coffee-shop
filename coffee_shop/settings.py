@@ -26,7 +26,7 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 SECRET_KEY = os.environ.get('SECRET_KEY', '')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['coffeeshop91.herokuapp.com', 'localhost']
 
@@ -136,10 +136,12 @@ WSGI_APPLICATION = 'coffee_shop.wsgi.application'
 
 
 if 'DATABASE_URL' in os.environ:
+    print("POSTRGRES")
     DATABASES = {
         'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
     }
 else:
+    print("SQLITE")
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',

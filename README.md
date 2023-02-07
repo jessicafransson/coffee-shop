@@ -194,7 +194,7 @@ It is created in GitHub following these steps:
     13. For your settings.py file you must also add the STATIC files, the url, storage path, directory path, root path, media url and the default file storage path. 
     14. You link this to the templates directory in Heroku with 'TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')'
     15. You also need to add new folders in GitPod. Create media, static and template folders and a file at the top level namned Procfile (the P has to be capital - important!)
-    16. Inside the Procfile you need to add following: web: guincorn bakemeacake.wsgi.
+    16. Inside the Procfile you need to add following: web: guincorn coffee_shop.wsgi.
     17. After adding these files, commit and push these changes to GitHub.
     18. In Heroku, go to the deployment tab and deploy this branch manually. This will lead to Heroku building this app for you, and you will be able to follow the build process in the window. 
     19. When successful, you will be displayed with following: "Your app was successfully deployed".

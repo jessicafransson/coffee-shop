@@ -9,7 +9,7 @@ html {
 }
 
 body {
-    background: url('/media/homepage_background_image.jpeg') no-repeat center center fixed;
+    background: url("https://res.cloudinary.com/dc06hazhc/image/upload/v1675706269/homepage_background_image_lfgwoj.jpg") no-repeat center center fixed;
     background-size: cover;
     color: #555;
     font-family: 'Roboto Serif', Arial, Helvetica, sans-serif;
