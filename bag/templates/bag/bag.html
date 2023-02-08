@@ -44,7 +44,6 @@
                 </td>
                 <td class="pt-5 pl-0 border-bottom ">
                     <a href="{% url 'product_detail' item.product.id %}">{{ item.product.name }}</a><br>
-                    <span class="text-muted">SKU: {{ item.product.sku }}</span>
                 </td>
                 <td class="pt-5 border-bottom"><strong>${{ item.product.price }}</strong></td>
                 <td class="pt-5 text-center border-bottom">
@@ -141,7 +140,6 @@
     <div class="row">
         <div class="col">
             <p class="mt-4 mb-1"><strong>{{ item.product.name }}</strong></p>
-            <p class="small text-muted mb-1">{{ item.product.sku }}</p>
             <h6><span class="mr-4 mb-1">Price:</span>£{{ item.product.price }}</h6>
             <h6 class="font-weight-bold"><span class="mr-4">Subtotal:</span>
                 ${{ item.product.price | calc_subtotal:item.quantity | intcomma }}</h6>
@@ -153,7 +151,7 @@
                 </div>
             </form>
             <div class="text-center">
-                <p class="small pr-3 mb-0 btn btn-sm update-sm-btn text-info">update</p>
+                <p class="small pr-3 mb-0 btn btn-sm update-sm-btn text-info">Update</p>
                 <i class="fa fa-trash btn text-danger remove-btn remove_{{ item.item_id }}" aria-hidden="true"></i>
             </div>
             {% if forloop.last %}
