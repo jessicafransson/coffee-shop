@@ -46,7 +46,7 @@
                     <a href="{% url 'product_detail' item.product.id %}">{{ item.product.name }}</a><br>
                     <span class="text-muted">SKU: {{ item.product.sku }}</span>
                 </td>
-                <td class="pt-5 border-bottom"><strong>£{{ item.product.price }}</strong></td>
+                <td class="pt-5 border-bottom"><strong>${{ item.product.price }}</strong></td>
                 <td class="pt-5 text-center border-bottom">
                     <form class="form update-form pb-3" method="POST" action="{% url 'adjust_bag' item.item_id %}">
                         {% csrf_token %}
@@ -55,7 +55,7 @@
                         </div>
                     </form>
                 </td>
-                <td class="pt-5 border-bottom">£{{ item.product.price | calc_subtotal:item.quantity | intcomma }}</td>
+                <td class="pt-5 border-bottom">${{ item.product.price | calc_subtotal:item.quantity | intcomma }}</td>
                 <td class="pt-5 text-center border-bottom-0 float-left pr-md-5 pr-lg-0">
                     <p class="small pr-1 mb-0 btn btn-sm update-btn text-info">update</p>
                     <i class="fa fa-trash btn text-danger remove-btn remove_{{ item.item_id }}" aria-hidden="true"></i>
@@ -72,24 +72,24 @@
             {% if coupon %}
             <p>Subtotal: £{{ before_coupon|floatformat:2 | intcomma }}</p>
             <p><strong class="text-success">{{ coupon }}</strong> coupon ({{ coupon.discount}}% off): <span
-                    class="text-danger">- £{{ discount | floatformat:2 }}</span></p>
-            <p><strong>Items: £{{ total|floatformat:2 | intcomma }}</strong></p>
+                    class="text-danger">- ${{ discount | floatformat:2 }}</span></p>
+            <p><strong>Items: ${{ total|floatformat:2 | intcomma }}</strong></p>
             {% else %}
-            <p><strong>Items: £{{ total|floatformat:2 | intcomma }}</strong></p>
+            <p><strong>Items: ${{ total|floatformat:2 | intcomma }}</strong></p>
             {% endif %}
             {% if not user.is_authenticated and free_delivery_delta > 0 %}
             <p class="text-danger">You could get free delivery by spending just
-                <strong>£{{ free_delivery_delta | floatformat:2 }}
+                <strong>${{ free_delivery_delta | floatformat:2 }}
                 </strong>more!</p>
             {% elif free_delivery_delta > 0 %}
             <p class="text-danger">You could get free delivery by spending just
-                <strong>£{{ free_delivery_delta | floatformat:2 }}
+                <strong>${{ free_delivery_delta | floatformat:2 }}
                 </strong>more!</p>
             {% endif %}
             {% if delivery is 0 %}
-            <p class="text-danger"><s>Delivery: £{{ pre_delivery|floatformat:2 | intcomma }}</s></p>
+            <p class="text-danger"><s>Delivery: ${{ pre_delivery|floatformat:2 | intcomma }}</s></p>
             {% endif %}
-            <p>Delivery: £{{ delivery|floatformat:2 }}</p>
+            <p>Delivery: ${{ delivery|floatformat:2 }}</p>
 
             <!-- Adding a coupon section -->
             <form action="{% url 'coupon_apply' %}" method="POST">
@@ -106,7 +106,7 @@
                     </div>
                 </div>
             </form>
-            <h4><strong>Total: £{{ grand_total|floatformat:2 | intcomma }}</strong></h4>
+            <h4><strong>Total: ${{ grand_total|floatformat:2 | intcomma }}</strong></h4>
             <div class="pt-3 text-center">
                 <a href="{% url 'products' %}" class="btn btn-sm ">
                     <i class="fas fa-chevron-left"></i>
@@ -144,7 +144,7 @@
             <p class="small text-muted mb-1">{{ item.product.sku }}</p>
             <h6><span class="mr-4 mb-1">Price:</span>£{{ item.product.price }}</h6>
             <h6 class="font-weight-bold"><span class="mr-4">Subtotal:</span>
-                £{{ item.product.price | calc_subtotal:item.quantity | intcomma }}</h6>
+                ${{ item.product.price | calc_subtotal:item.quantity | intcomma }}</h6>
             <form class="form update-form pb-3 text-center mt-4" method="POST"
                 action="{% url 'adjust_bag' item.item_id %}">
                 {% csrf_token %}
