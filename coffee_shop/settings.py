@@ -49,7 +49,7 @@ INSTALLED_APPS = [
     'django.contrib.humanize',
     'allauth',
     'allauth.account',
-    'allauth.socialaccount',
+    'allauth.socialaccount',  # keeping here for usage later
 
     # my created apps
     'home',
