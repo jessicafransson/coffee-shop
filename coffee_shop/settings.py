@@ -20,6 +20,7 @@ if os.path.isfile("env.py"):
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
+ALLAUTH_DIR = os.path.join(BASE_DIR, 'templates', 'allauth')
 
 
 # Quick-start development settings - unsuitable for production
@@ -32,6 +33,11 @@ SECRET_KEY = os.environ.get('SECRET_KEY', '')
 DEBUG = 'DEVELOPMENT' in os.environ
 
 ALLOWED_HOSTS = ['coffeeshop91.herokuapp.com', 'localhost']
+
+# Add Render.com URL to allowed hosts
+RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
+if RENDER_EXTERNAL_HOSTNAME:
+    ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
 
 
 # Apps installed and defined
@@ -120,7 +126,6 @@ AUTHENTICATION_BACKENDS = [
 
 SITE_ID = 1
 
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 # Information for user login/logout and user info
 ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
