@@ -116,6 +116,7 @@ TEMPLATES = [
 
 MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
 
+
 AUTHENTICATION_BACKENDS = [
     # Allowing superusers to access the admin panel
     'django.contrib.auth.backends.ModelBackend',
@@ -126,6 +127,7 @@ AUTHENTICATION_BACKENDS = [
 
 SITE_ID = 1
 
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 # Information for user login/logout and user info
 ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
