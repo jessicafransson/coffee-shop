@@ -24,11 +24,11 @@
 <div class="row m-4">
     <!-- Delivery Info -->
     <div class="col-lg-6">
-        <h4>Default Delivery Information:</h4>
+        <h4>Standard Delivery Information:</h4>
         <form action="{% url 'profile' %}" method="POST" id="profile-update-form">
             {% csrf_token %}
             {{ form|crispy}}
-            <button class="btn link-btn rounded-pill mx-auto mx-md-0 d-block">Update information</button>
+            <button class="btn link-btn rounded-pill mx-auto mx-md-0 d-block">Update your information</button>
         </form>
     </div>
     <!-- Order History -->
