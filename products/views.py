@@ -96,7 +96,6 @@ def product_detail(request, product_id):
         if product.likes.filter(id=request.user.id).exists():
             liked = True
 
-
         context = {
             'product': product,
             'form': form,
