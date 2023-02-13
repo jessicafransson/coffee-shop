@@ -35,15 +35,6 @@ class StripeWH_Handler:
                 'contact_email': settings.DEFAULT_FROM_EMAIL}
         )
 
-        print(
-            send_mail(
-                subject,
-                body,
-                settings.DEFAULT_FROM_EMAIL,
-                [cust_email]
-                    )
-        )
-
         send_mail(
             subject,
             body,
@@ -73,7 +64,7 @@ class StripeWH_Handler:
         stripe_charge = stripe.Charge.retrieve(intent.latest_charge)
         billing_details = stripe_charge.billing_details
         shipping_details = intent.shipping
-        grand_total = round(stripe_charge.amount / 100, 2)
+        grand_total = round(intent.charges.data[0].amount / 100, 2)
 
         # clean data from shipping details to prevent empty strings in db
         for field, value in shipping_details.address.items():
