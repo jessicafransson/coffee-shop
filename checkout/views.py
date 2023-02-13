@@ -59,6 +59,7 @@ def checkout(request):
             'county': request.POST['county'],
         }
         order_form = OrderForm(form_data)
+
         # if the form is valid, to save order
         if order_form.is_valid():
             order = order_form.save(commit=False)
@@ -143,7 +144,7 @@ def checkout(request):
 
     if not stripe_public_key:
         messages.warning(request, 'The Stripe public key is missing. \
-            Please check it is set in the environment.')
+            Please check so it is set in the environment!')
 
     template = 'checkout/checkout.html'
     context = {
@@ -158,9 +159,11 @@ def checkout(request):
 def checkout_success(request, order_number):
     """
     Handle successful checkouts
+    send order confirmation email
     """
     save_info = request.session.get('save_info')
     order = get_object_or_404(Order, order_number=order_number)
+    discount = order.order_subtotal - order.order_total
 
     if request.user.is_authenticated:
         profile = UserProfile.objects.get(user=request.user)
