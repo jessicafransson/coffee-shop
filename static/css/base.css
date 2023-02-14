@@ -20,11 +20,6 @@ h1, h2, h3, h4 {
     letter-spacing: 2px;
 }
 
-p {
-    margin-top: 0;
-    margin-bottom: 1rem;
-}
-
 a {
     text-decoration: none;
     color: black;
@@ -37,6 +32,10 @@ a:hover {
 
 .logo {
     font-family: 'imbue', "Times New Roman", Times, serif;
+}
+
+.cursor:hover {
+    cursor: pointer;
 }
 
 main {
@@ -295,12 +294,51 @@ footer {
     font-size: 1.75rem;
     padding-right: .5rem;
 }
+/* Mailchimp */
 
-#mc_embed_signup {
-    background: #fff;
-    clear: left;
-    font: 14px Helvetica, Arial, sans-serif;
-    width: 600px;
+#mc_embed_signup{
+    font:14px 'Roboto Serif',Arial,sans-serif;  
+    width:100%;
+}
+
+.optionalParent {
+    float: right;
+    position: relative;
+    left: 30px;
+}
+
+#mc_embed_signup #mc-embedded-subscribe-form div.mce_inline_error {
+    background-color: whitesmoke !important;
+    float: right !important;
+}
+
+#mc_embed_signup #mce-success-response {
+    width: 100%;
+    margin-bottom: 1em !important;
+    display: block !important;
+}
+
+/* Reviews and the stars */
+
+.radio-tag {
+    opacity: 0;
+}
+
+.product-rating .fa-solid {
+    color: gold;
+}
+
+.review-stars .fa-star {
+    color: gold;
+    text-shadow: -1px 1px #000;
+}
+
+label {
+    cursor: pointer;
+}
+
+.star:hover {
+    color: gold;
 }
 
 /* ---------------------------------------- Media Queries */

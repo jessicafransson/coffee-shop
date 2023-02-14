@@ -22,4 +22,5 @@ class ProductForm(forms.ModelForm):
 
         self.fields['category'].choices = friendly_names
         for field_name, field in self.fields.items():
-            field.widget.attrs['class'] = 'border-black rounded-0'
+            if field_name not in ['description', 'image', 'likes']:
+                field.widget.attrs['class'] = 'rounded-pill'
