@@ -1,20 +1,18 @@
-/*  Core logic/payment flow for this comes from here:
-    https://stripe.com/docs/js
-    https://stripe.com/docs/payments/accept-a-payment	
-    CSS from here:
-    https://stripe.com/docs/stripe-js 
+/*
+    Core logic/payment flow for this comes from here:
+    https://stripe.com/docs/payments/accept-a-payment
+    CSS from here: 
+    https://stripe.com/docs/stripe-js
 */
 
-// slice first & last characters to remove the " " around the key
 var stripePublicKey = $('#id_stripe_public_key').text().slice(1, -1);
 var clientSecret = $('#id_client_secret').text().slice(1, -1);
 var stripe = Stripe(stripePublicKey);
 var elements = stripe.elements();
-
 var style = {
     base: {
         color: '#000',
-        fontFamily: '"Overpass", sans-serif',
+        fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
         fontSmoothing: 'antialiased',
         fontSize: '16px',
         '::placeholder': {
@@ -22,31 +20,30 @@ var style = {
         }
     },
     invalid: {
-        color: '#A82114',
-        iconColor: '#A82114'
+        color: '#dc3545',
+        iconColor: '#dc3545'
     }
 };
-
-var card = elements.create('card', {style: style});
+var card = elements.create('card', {
+    style: style
+});
 card.mount('#card-element');
-
 
 // Handle realtime validation errors on the card element
 card.addEventListener('change', function (event) {
     var errorDiv = document.getElementById('card-errors');
     if (event.error) {
         var html = `
-        <span role="alert">
-        <i class="fa-solid fa-xmark"></i>
-        </span>
-        <span>${event.error.message}</span>
+            <span class="icon" role="alert">
+                <i class="fas fa-times"></i>
+            </span>
+            <span>${event.error.message}</span>
         `;
         $(errorDiv).html(html);
     } else {
         errorDiv.textContent = '';
     }
 });
-
 
 // Handle form submit
 var form = document.getElementById('payment-form');
@@ -66,7 +63,6 @@ form.addEventListener('submit', function(ev) {
         'client_secret': clientSecret,
         'save_info': saveInfo,
     };
-    console.log(postData);
     var url = '/checkout/cache_checkout_data/';
 
     $.post(url, postData).done(function () {
@@ -102,8 +98,8 @@ form.addEventListener('submit', function(ev) {
             if (result.error) {
                 var errorDiv = document.getElementById('card-errors');
                 var html = `
-                    <span role="alert">
-                    <i class="fa-solid fa-xmark"></i>
+                    <span class="icon" role="alert">
+                    <i class="fas fa-times"></i>
                     </span>
                     <span>${result.error.message}</span>`;
                 $(errorDiv).html(html);
@@ -118,7 +114,7 @@ form.addEventListener('submit', function(ev) {
             }
         });
     }).fail(function () {
-        // Reload the page, the error message will be in django toast
+        // just reload the page, the error will be in django messages
         location.reload();
     });
 });

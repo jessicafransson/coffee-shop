@@ -29,15 +29,15 @@ def webhook(request):
         )
     except ValueError as e:
         # Invalid payment
-        print('VALUE ERROR: ', e)
         return HttpResponse(content=e, status=400)
     except stripe.error.SignatureVerificationError as e:
         # Invalid sign
-        print('SIGNATURE ERROR: ', e)
         return HttpResponse(content=e, status=400)
     except Exception as e:
-        print('GENERAL ERROR: ', e)
         return HttpResponse(content=e, status=400)
+
+    print('Success!')
+    return HttpResponse(status=200)
 
     # WebHook Handler setup
     handler = StripeWH_Handler(request)

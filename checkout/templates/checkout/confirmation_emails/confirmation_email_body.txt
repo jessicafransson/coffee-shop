@@ -1,27 +1,25 @@
+{% load humanize %}
+
 Hello {{ order.full_name }}!
 
-This email will confirm your order made at Coffee Shop. You will find your order information below:
+We hope you found everything you needed. As a thank you, save 10% of your next order with coupon code SAVE10
+
+Your order information is below:
 
 Order Number: {{ order.order_number }}
 Order Date: {{ order.date }}
 
-Order Total: ${{ order.order_total }}
-Delivery: ${{ order.delivery_cost }}
-Grand Total: ${{ order.grand_total }}
+Order Total: £{{ order.order_total | intcomma }}
+Delivery: £{{ order.delivery_cost }}
+Grand Total: £{{ order.grand_total | intcomma }}
 
-Your order will be sent to:
+Your order will be shipped to {{ order.street_address1 }} in {{ order.town_or_city }}, {{ order.country }}.
 
-{{ order.street_address1 }} 
-{{ order.town_or_city }}
-{{ order.country }}
+We've got your phone number on file as {{ order.phone_number }}.
 
-You have registered your phone number as:
+If you have any questions, feel free to contact us at {{ contact_email }}.
 
-{{ order.phone_number }}.
-
-If you have any questions, don't hesitate to contact us at malmocoffeeshop@gmail.com
-
-Thank you for your order and enjoy your coffee!
+Thanks again!
 
 Sincerely,
 
