@@ -1,6 +1,6 @@
 # Coffee Shop
 
-Here's a link to the live project ()
+Find my live deployed site [here](https://coffeeshop91.herokuapp.com)
 
 -------
 
@@ -216,6 +216,7 @@ Others from pixabay
 ### Other
 - The [Djangodocs](https://docs.djangoproject.com/en/4.0/) was a big help for troubleshooting
 - [Stackoverflow](https://stackoverflow.com) for trying to find bugs, sollutions and inspiration.
+- Creating a sitemap file [here](https://www.xml-sitemaps.com/)
 
 ------
 
