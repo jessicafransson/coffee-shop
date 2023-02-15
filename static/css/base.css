@@ -345,9 +345,45 @@ label {
 
 /* Slightly larger container on xl screens */
 @media (min-width: 1200px) {
-  .container {
-    max-width: 80%;
-  }
+    .hero-img {
+    background: url("https://res.cloudinary.com/dc06hazhc/image/upload/v1675706269/homepage_background_image_lfgwoj.jpg") no-repeat center center fixed;
+    background-size: cover;
+    height: 90vh;
+    font-family: 'Roboto Serif', Arial, Helvetica, sans-serif;
+    }
+}
+
+@media (max-width: 1106px) {
+    .delivery-charge {
+        display: block !important;
+    }
+
+    .product-rating {
+        font-size: .9rem;
+       
+    }
+}
+
+@media (max-width: 991px) {
+    .header-container {
+        padding-top: 125px;
+    }
+
+    .qty-btns {
+        width: 95%;
+    }
+
+    .product-rating {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    
+    #hero-logo {
+        font-size: 4.5rem;
+    } 
+
 }
 
 /* products form  */
@@ -390,16 +426,5 @@ label {
 
     .header-container {
         padding-top: 164px;
-    }
-}
-
-/* Make sure the navbar collapses on mobile */
-@media (max-width: 991px) {
-    .header-container {
-        padding-top: 116px;
-    }
-
-    body {
-        height: calc(100vh - 116px);
     }
 }

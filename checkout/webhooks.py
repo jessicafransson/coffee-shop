@@ -20,6 +20,7 @@ def webhook(request):
 
     # verify signature and get data
     payload = request.body
+    print(payload)
     sig_header = request.META['HTTP_STRIPE_SIGNATURE']
     event = None
 

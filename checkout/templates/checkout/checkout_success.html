@@ -78,7 +78,7 @@
             </div>
 
             <!-- Shipping info -->
-            <div class="row py-4">
+            <div class="row">
                 <div class="col mb-1">
                     <small class="font-weight-bold">Shipping To:</small>
                 </div>
@@ -183,23 +183,22 @@
     </div>
 </div>
 
-<div class="row">
-    <div class="col-12 col-lg-7">
-        {% if from_profile %}
-        <a href="{% url 'profile' %}" class="btn btn-outline-black my-2">
-            <span class="mr-2">
-                <i class="fa-solid fa-chevron-left"></i>
-            </span>
-            <span>Take me back to my profile!</span>
+{% if from_profile %}
+<div class="row my-3">
+    <div class="col-12 mb-3">
+        <a href="{% url 'profile' %}" class="btn link-btn rounded-pill mb-2 ml-5">
+            Back to Profile
         </a>
-        {% else %}
-        <a href="{% url 'products' %}" class="btn btn-outline-black my-2">
-            <span class="icon mr-2">
-                <i class="fa-solid fa-shop"></i>
-            </span>
-            <span>Check out some more beans!</span>
-        </a>
-        {% endif %}
     </div>
 </div>
+{% else %}
+<div class="row my-3">
+    <div class="col-12 text-center text-md-left pl-md-5">
+        <a href="{% url 'products' %}" class="btn link-btn rounded-pill">
+            Continue Shopping
+        </a>
+    </div>
+</div>
+{% endif %}
+
 {% endblock %}
