@@ -15,7 +15,10 @@ body {
     font-family: 'Roboto Serif', Arial, Helvetica, sans-serif;
 }
 
-h1, h2, h3, h4 {
+h1,
+h2,
+h3,
+h4 {
     font-family: 'imbue', "Times New Roman", Times, serif;
     letter-spacing: 2px;
 }
@@ -52,14 +55,16 @@ main {
     color: white;
 }
 
-.link-btn:hover, .btn-bag:hover {
+.link-btn:hover,
+.btn-bag:hover {
     background-color: #748386;
     color: white;
 }
 
 .hover-link:hover {
-    color:#706563;
+    color: #706563;
 }
+
 /*------------------ Header */
 
 
@@ -93,7 +98,9 @@ main {
 
 .btn-outline-black {
     background: white;
-    color: black !important /* use important to override the link colors for <a> elements */;
+    color: black !important
+        /* use important to override the link colors for <a> elements */
+    ;
     border: 1px solid black;
 }
 
@@ -123,7 +130,7 @@ main {
 }
 
 .bg-black {
-    background: #000  !important;
+    background: #000 !important;
 }
 
 .overlay {
@@ -136,7 +143,7 @@ main {
     z-index: -1;
 }
 
-a.category-badge > span badge:hover {
+a.category-badge>span badge:hover {
     background: #212529 !important;
     color: #fff !important;
 }
@@ -178,61 +185,23 @@ input[name='q']::placeholder {
 /* ------------------------------- Code from css-tricks.com https://css-tricks.com/snippets/css/css-triangle/ */
 
 .arrow-up {
-    width: 0; 
-    height: 0; 
+    width: 0;
+    height: 0;
     border-left: 4px solid transparent;
-    border-right: 4px solid transparent; 
+    border-right: 4px solid transparent;
     border-bottom: 10px solid black;
     position: absolute;
     top: -10px;
     right: 36px;
 }
 
-/* ----------------------------- Convenience classes - colors from Bootstrap */
-
-.arrow-primary {
-    border-bottom-color: #007bff !important;
-}
-
-.arrow-secondary {
-    border-bottom-color: #6c757d !important;
-}
-
-.arrow-success {
-    border-bottom-color: #28a745 !important;
-}
-
-.arrow-danger {
-    border-bottom-color: #dc3545 !important;
-}
-
-.arrow-warning {
-    border-bottom-color: #ffc107 !important;
-}
-
-.arrow-info {
-    border-bottom-color: #17a2b8 !important;
-}
-
-.arrow-light {
-    border-bottom-color: #f8f9fa !important;
-}
-
-.arrow-dark {
-    border-bottom-color: #343a40 !important;
-}
-
-.bag-notification-wrapper {
-    height: 100px;
-    overflow-x: hidden;
-    overflow-y: auto;
-}
-
 /* ---------------------------------------- Allauth */
 
 .allauth-form-inner-content p {
-    margin-top: 1.5rem; /* mt-4 */
-    color: #6c757d; /* secondary text */
+    margin-top: 1.5rem;
+    /* mt-4 */
+    color: #6c757d;
+    /* secondary text */
 }
 
 .allauth-form-inner-content input {
@@ -250,8 +219,8 @@ input[name='q']::placeholder {
 
 .allauth-form-inner-content button,
 .allauth-form-inner-content input[type='submit'] {
-	/* btn bootstrap */
-	display: inline-block;
+    /* btn bootstrap */
+    display: inline-block;
     font-weight: 400;
     color: #fff;
     text-align: center;
@@ -268,20 +237,22 @@ input[name='q']::placeholder {
     border-radius: 0;
 
     /* standard bootstrap btn transitions */
-    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
 }
 
 /* hover effect */
 .allauth-form-inner-content button:hover,
-.allauth-form-inner-content input[type='submit']:hover {	
-	color: #fff;
+.allauth-form-inner-content input[type='submit']:hover {
+    color: #fff;
     background-color: #222;
     border-color: #222;
 }
 
 .allauth-form-inner-content a {
-	color: #17a2b8; /* text-info */
+    color: #17a2b8;
+    /* text-info */
 }
+
 /* ---------------------------------------- Footer */
 
 footer {
@@ -294,28 +265,14 @@ footer {
     font-size: 1.75rem;
     padding-right: .5rem;
 }
+
 /* Mailchimp */
 
-#mc_embed_signup{
-    font:14px 'Roboto Serif',Arial,sans-serif;  
-    width:100%;
-}
-
-.optionalParent {
-    float: right;
-    position: relative;
-    left: 30px;
-}
-
-#mc_embed_signup #mc-embedded-subscribe-form div.mce_inline_error {
-    background-color: whitesmoke !important;
-    float: right !important;
-}
-
-#mc_embed_signup #mce-success-response {
-    width: 100%;
-    margin-bottom: 1em !important;
-    display: block !important;
+#mc_embed_signup {
+    background: #fff;
+    clear: left;
+    font: 14px Helvetica, Arial, sans-serif;
+    width: 400px;
 }
 
 /* Reviews and the stars */
@@ -346,10 +303,10 @@ label {
 /* Slightly larger container on xl screens */
 @media (min-width: 1200px) {
     .hero-img {
-    background: url("https://res.cloudinary.com/dc06hazhc/image/upload/v1675706269/homepage_background_image_lfgwoj.jpg") no-repeat center center fixed;
-    background-size: cover;
-    height: 90vh;
-    font-family: 'Roboto Serif', Arial, Helvetica, sans-serif;
+        background: url("https://res.cloudinary.com/dc06hazhc/image/upload/v1675706269/homepage_background_image_lfgwoj.jpg") no-repeat center center fixed;
+        background-size: cover;
+        height: 90vh;
+        font-family: 'Roboto Serif', Arial, Helvetica, sans-serif;
     }
 }
 
@@ -360,7 +317,7 @@ label {
 
     .product-rating {
         font-size: .9rem;
-       
+
     }
 }
 
@@ -379,10 +336,10 @@ label {
 }
 
 @media (max-width: 768px) {
-    
+
     #hero-logo {
         font-size: 4.5rem;
-    } 
+    }
 
 }
 
@@ -426,5 +383,14 @@ label {
 
     .header-container {
         padding-top: 164px;
+    }
+
+    .navbar-collapse.collapse {
+        display: block !important;
+    }
+
+    .navbar-nav>li,
+    .navbar-nav {
+        float: left !important;
     }
 }
