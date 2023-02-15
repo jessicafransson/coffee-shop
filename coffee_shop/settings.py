@@ -124,10 +124,9 @@ AUTHENTICATION_BACKENDS = [
     'allauth.account.auth_backends.AuthenticationBackend',
 ]
 
+
 SITE_ID = 1
 
-
-ACCOUNT_EMAIL_VERIFICATION = 'none'
 
 # Information for user login/logout and user info
 ACCOUNT_AUTHENTICATION_METHOD = 'username_email'

@@ -86,13 +86,13 @@ main {
 }
 
 .shop-now-button {
-    background: black;
+    background: rgb(66, 65, 65);
     color: white;
     min-width: 260px;
 }
 
 .btn-black {
-    background: black;
+    background: #555;
     color: white;
 }
 
@@ -307,6 +307,7 @@ label {
         background-size: cover;
         height: 90vh;
         font-family: 'Roboto Serif', Arial, Helvetica, sans-serif;
+        max-width: 80%;
     }
 }
 
