@@ -1,12 +1,11 @@
 # Coffee Shop
 
+Coffee Shop is an e-commerce website operating in the field for all coffee lovers. 
+
+This fully responsive website was built using the Django framework in Python.
+
 Find my live deployed site [here](https://coffeeshop91.herokuapp.com)
 
--------
-
-### Coffee Shop is the one stop coffee shop for all coffee drinkers out there. We serve the purpose of being able to deliver your favourite beans right to your door. We also serve a purpose of giving you the information you need about the different type of roasts. 
-
-This project is built as a Full Stack Framework for e-commerce. 
 
 The payment system used is a service called Stripe. To test the payments on this site, dummy card details can be used. A list of these can be found [here](https://stripe.com/docs/testing#cards)
 
@@ -15,27 +14,32 @@ The payment system used is a service called Stripe. To test the payments on this
 [User experiences (UX)]()
 * user stories 
 
-- design 
+[Design](#design)
+
 * color and inspiration
 
-- Features
+[Features](#features)
 
-- Technologies 
-* libraries and languages
+[Technologies](#technologies) 
+*[Languages used](#languages-used)
+[Libraries & programs used](#libraries-and-programs-used)
 
-- testing (#testing.md)
 
-- Deployment
+[testing](#testing.md)
 
-- Credits 
+[Deployment](#deployment)
+* [Github](#github)
+
+[Credits](#credits)
+* [Code](#code)
+* [Media](#media)
+* [Other](#other)
 
 --------
 
 ## User experience (UX)
 
--------
-
-## User stories 
+### User stories 
 
 This is a list of my user stories, and it can also be found [here](https://github.com/users/jessicafransson/projects/8)
 
@@ -133,6 +137,73 @@ this is what the visitor can do on my site:
 
 [Back to top ⇧](#coffee-shop)
 -----
+
+### Business Model 
+
+This project will have the business model of B2C (Business to Customer) as the business is selling products directly from their shop to the end user.
+
+### Marketing 
+
+This site represents a fairly new business, where the only current marketing stragety is a facebook page, and signing up for a newsletter.
+
+- Links to social media sites can be found inside the footer
+
+- The facebook link takes you to the Coffee Shop business page which can be found [here](https://www.facebook.com/checkpoint/1501092823525282/?next=https%3A%2F%2Fwww.facebook.com%2FCoffee-Shop-100440999619238%2Finsights%2F%3Freferrer%3Dpage_admin_insights_card)*.
+<br>
+<i>*Note, this page has unfortunately been deleted, due to facebooks regular deletion of inactive business pages.</i>
+
+![Facebook](media/coffeeshopfacebook.png)
+
+- The newsletter sign up form is to be found in the footer of the site. This is serviced by [Mailchimp](https://mailchimp.com/?currency=SEK)
+
+![Newsletter]()
+
+### Search Engine Optimisation
+
+I've created both a robots.txt and sitemap.cml file to help search engines located to the site. To keep my users information safe, any pages that would include sensitive information has been disallowed in my robots.txt file.
+
+My purpose of the "About us" pages was designed to give an opportinity to use some keywords to the user and help boost the site's ranking in search engine results. 
+
+My inital keywords and phrases i came up with are:
+
+#### Short tail keywords
+- Espresso
+- Coffeebeans
+- Grounds
+- Coffee pot
+- Shot
+- Bean
+- Filter coffee
+- Cappucino
+- Flat white
+
+#### Long tail keywords
+- Milk drinks with coffee
+- Espresso beans for home usage
+- Make your own espresso
+- Barista coffee at home
+- espresso and pre-ground beans for home use
+
+[Back to top⇧](#coffee-shop)
+
+## Features
+
+### Navbar
+
+- #### Links
+    - To help the user to navigate the website there's four links at the main nav bar at the top of every page.
+    - Once the screen size becomes to small to fit all four links it turns into a hamburger bar to fit all the elements comfortably.
+    - The link to the current page will be highlighted by an underline to help users understand what page they are on.
+    - The Shop link and the about us drops down into a sub-menu where the user can navigate to all products or choose one of the two categories. In the about us section the user can choose to read the different articles, the main about us page, the coffee farm page or the flavour guide. 
+
+    ![Navbar]( image here of the navbar )
+
+- #### Search bar
+    - The search bar is located in the middle of the navigation bar, and can be used to search for items on the site.
+    - Using the search bar will search both the product's title and description for a match.
+    - On smaller screens the bar collapses into a icon for searching that when clicking drops down into the full search bar.
+
+    ![Nav-bar search ]( image here of the navbar search )
 
 ## Technologies 
 
