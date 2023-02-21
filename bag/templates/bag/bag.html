@@ -69,7 +69,7 @@
     <div class="col">
         <div class="float-md-right ml-md-5 mr-md-5 px-3">
             {% if coupon %}
-            <p>Subtotal: £{{ before_coupon|floatformat:2 | intcomma }}</p>
+            <p>Subtotal: ${{ before_coupon|floatformat:2 | intcomma }}</p>
             <p><strong class="text-success">{{ coupon }}</strong> coupon ({{ coupon.discount}}% off): <span
                     class="text-danger">- ${{ discount | floatformat:2 }}</span></p>
             <p><strong>Items: ${{ total|floatformat:2 | intcomma }}</strong></p>
@@ -140,7 +140,7 @@
     <div class="row">
         <div class="col">
             <p class="mt-4 mb-1"><strong>{{ item.product.name }}</strong></p>
-            <h6><span class="mr-4 mb-1">Price:</span>£{{ item.product.price }}</h6>
+            <h6><span class="mr-4 mb-1">Price:</span>${{ item.product.price }}</h6>
             <h6 class="font-weight-bold"><span class="mr-4">Subtotal:</span>
                 ${{ item.product.price | calc_subtotal:item.quantity | intcomma }}</h6>
             <form class="form update-form pb-3 text-center mt-4" method="POST"
