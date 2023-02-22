@@ -39,6 +39,8 @@ The payment system used is a service called Stripe. To test the payments on this
 
 ## User experience (UX)
 
+The visitors to Coffee Shop is most likely someone who enjoys making nice coffee at home. Who enjoys a nice espresso, or a pour over coffee from whole beans. A visitor to Coffee shop is also someone who most likely enjoys reading about coffee, and the different type of brews there are. 
+
 ### User stories 
 
 This is a list of my user stories, and it can also be found [here](https://github.com/users/jessicafransson/projects/8)
@@ -81,7 +83,12 @@ This is a list of my user stories, and it can also be found [here](https://githu
 
 ## Design
 
+The look for this project is partly inspired by Code Institutes "Boutique Ado" with some finishing touches and styles that i've seen doing research for this project.
+I've contacted Gringo Coffee shop who is a roastery here in Sweden and i've gotten their permission to use images and copy their descriptions. You can find their website [here](https://www.gringonordic.se/)
+
 ### Color scheme 
+
+I've decided to stick to a basic color scheme of black/white/grey with this project to really highlight the bags of beans, as i find them to have a really nice design - and i wanted them to really pop. 
 
 ### Images
 
@@ -89,12 +96,34 @@ This is a list of my user stories, and it can also be found [here](https://githu
 
 ### Wireframe
 
+I took a lot of inspiration for this project from Code Institutes Boutique Ado, and also from Gringo's website as described above.
+I did a start design on Figma to try and set up the main page and view for the products. 
+
+* First mockup looked like this:
+
+![Mockup](static/images/figmamockup.png)
+
+* And for the product page like this: 
+
+![Mockup](static/images/figmamockupproduct.png)
+
+[Back to top ⇧](#coffee-shop)
+
 -------
 
 ## Features 
 
 ### Home page 
- navbar
+
+ - ### Navigation bar 
+    - The navbar is always visible from the top of the page, and will house links for products, about us, contact form and back to home page. There will also always be access to your account, the shoppingbag and to search the shop.
+    - The option to view your account will only be visible when a user is logged in.
+    - The option to add products and coupons is only visible to admin users.
+    - The shopping bag is always accessible from the navbar, to always be able to check what you've added to your bag, to easily be able to remove and edit the items in your bag. 
+
+------- 
+
+
  heroimage
  product view
  account
