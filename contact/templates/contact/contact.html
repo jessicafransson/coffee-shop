@@ -22,15 +22,7 @@
         <p class="text-muted text-center">Fill out this form below to get in touch with us:</p>
         <form action="{% url 'contact' %}" method="POST" id="contact-form" class="pt-5">
             {% csrf_token %}
-            <input type="text" class="w-100 rounded-pill form-control" placeholder="Name *" name="name"
-                value="{{ request.user.username }}" required>
-            <input type="email" class="w-100 mt-4 rounded-pill form-control" placeholder="Email Address *" name="email"
-                value="{{ request.user.email }}" required>
-            <input type="text" class="w-100 mt-4 rounded-pill form-control" placeholder="Subject *" name="subject"
-                required>
-            <textarea class="w-100 mt-4 rounded form-control mb-2" placeholder="Your Message *" rows="10" name="message"
-                required></textarea>
-            <p class="float-left">* Required Fields</p>
+            {{ form|crispy }}
 
             <!-- buttons for submitt and go back -->
             <div class="submit-button text-right mt-5 mb-2">
