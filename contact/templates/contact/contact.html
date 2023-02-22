@@ -22,7 +22,15 @@
         <p class="text-muted text-center">Fill out this form below to get in touch with us:</p>
         <form action="{% url 'contact' %}" method="POST" id="contact-form" class="pt-5">
             {% csrf_token %}
-            {{ form|crispy }}
+            <input type="text" class="w-100 rounded-pill form-control" placeholder="Name *" name="name"
+                value="{{ request.user.username }}" required>
+            <input type="email" class="w-100 mt-4 rounded-pill form-control" placeholder="Email Address *" name="email"
+                value="{{ request.user.email }}" required>
+            <input type="text" class="w-100 mt-4 rounded-pill form-control" placeholder="Subject *" name="subject"
+                required>
+            <textarea class="w-100 mt-4 rounded form-control mb-2" placeholder="Your Message *" rows="10" name="message"
+                required></textarea>
+            <p class="float-left">* Required Fields</p>
 
             <!-- buttons for submitt and go back -->
             <div class="submit-button text-right mt-5 mb-2">
@@ -30,10 +38,7 @@
                     <span class="mr-2"><i class="fa-solid fa-chevron-left"></i></span>
                     <span>Back to Shop</span>
                 </a>
-                <button class="btn btn-outline-blue my-2" id="submit-button">
-                    <span class="mr-2"><i class="fa-regular fa-paper-plane"></i></span>
-                    <span>Send message</span>
-                </button>
+                <button type="submit" class="btn link-btn rounded-pill float-right">Send Message</button>
             </div>
         </form>
     </div>
