@@ -362,6 +362,10 @@ label {
     .product-rating {
         font-size: 1rem;
     }
+
+    .nav-link {
+        padding: 0 1rem;
+    }
 }
 
 @media (max-width: 768px) {
@@ -379,6 +383,10 @@ label {
 @media (max-width: 576px) {
     .delivery-banner h4{
         font-size: 1rem;
+    }
+
+    #nav-sm {
+        background-color: pink;
     }
 }
 
@@ -426,30 +434,4 @@ label {
         font-size: .65rem;
     }
     
-}
-
-
-/* fixed top navbar only on medium and up
-/* fixed top navbar only on medium and up 
-@media (min-width: 992px) {
-    .fixed-top-desktop-only {
-        position: fixed;
-        top: 0;
-        right: 0;
-        left: 0;
-        z-index: 1030;
-    }
-
-    .header-container {
-        padding-top: 164px;
-    }
-
-    .navbar-collapse.collapse {
-        display: block !important;
-    }
-
-    .navbar-nav>li,
-    .navbar-nav {
-        float: left !important;
-    }
 }
