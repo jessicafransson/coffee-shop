@@ -29,4 +29,17 @@ I've used Chromes devtools to troubleshoot errors and made sure it's responsive 
 
 ### HTML
 
-[W3C](https://validator.w3.org/) was used to validate all my HTML on the site.
+[W3C](https://validator.w3.org/) was used to validate all my HTML on the site. As this project is used with Django, i've tested my html  by inspecting the page source and running it through this validator.
+
+
+
+| Page | Result |
+| :--- | :--- |
+
+![html](assets/images/htmlvalidator.png.png)
+
+### CSS
+
+[W3C](https://jigsaw.w3.org/css-validator/) was used to validate my CSS.
+
+![css](assets/images/cssvalidator.png)
