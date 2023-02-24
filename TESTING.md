@@ -53,8 +53,8 @@ I've used Chromes devtools to troubleshoot errors and made sure it's responsive 
 | Checkout Success | Pass |
 
 
-### When testing the front end for adding products i was displayed with following error. 
-### Since this is part of the Crispy form i couldnt delete the overflowing code.
+When testing the front end for adding products i was displayed with following error. 
+Since this is part of the Crispy form i couldnt delete the overflowing code.
 
 [HTML Error](assets/images/htmlerror.png)
 
