@@ -90,3 +90,14 @@ I've used Chromes devtools to troubleshoot errors and made sure it's responsive 
 ![jshint-checkout](assets/testing/validation/javascript/checkoutjs.png)
 
 ### PEP8
+
+- PEP8 only shows things that can be ignored
+
+![pylint]()
+
+### Lighthouse
+
+- Lighthouse score shows..
+
+
+[Back to top ⇧](#coffee-shop---testing)
