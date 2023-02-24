@@ -203,9 +203,9 @@
     <!-- Shows Pop-up modal to entice non-users to sign up -->
     {% if not user.is_authenticated %}
     <script>
-        $(document).ready(function () {
-            if (sessionStorage.PopupShown != 'yes') {
-                setTimeout(function () {
+        $( document ).ready(function() {
+            if(sessionStorage.PopupShown != 'yes') {
+                setTimeout(function() {
                     $('#signUpModal').modal('show');
                     sessionStorage.PopupShown = 'yes';
                 }, 8000);
