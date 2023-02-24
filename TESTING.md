@@ -34,9 +34,31 @@ I've used Chromes devtools to troubleshoot errors and made sure it's responsive 
 
 
 | Page | Result |
-| :--- | :--- |
+| Home Page | Pass |
+| All Beans | Pass |
+| Espresso | Pass |
+| Pour Over | Pass |
+| About us | Pass |
+| Our Farm | Pass |
+| Flavour Guide | Pass |
+| Contact | Pass |
+| Privacy Policy | Pass |
+| Terms and Conditions | Pass |
+| Delivery | Pass |
+| My Account | Pass |
+| Product Management | * See comment below * |
+| Coupon Management | Pass |
+| Bag | Pass |
+| Checkout | Pass |
+| Checkout Success | Pass |
 
-![html](assets/images/htmlvalidator.png.png)
+
+### When testing the front end for adding products i was displayed with following error. 
+### Since this is part of the Crispy form i couldnt delete the overflowing code.
+
+[HTML Error](assets/images/htmlerror.png)
+
+![html](assets/images/htmlvalidator.png)
 
 ### CSS
 
