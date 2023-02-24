@@ -12,7 +12,7 @@
         <div class="row">
             <div class="col">
                 <h5 class="card-text d-inline"><strong>£{{ product.price }}</strong></h5>
-                <p  class="delivery-charge text-muted d-inline small font-weight-italic ml-2">+ £{{ delivery }} delivery</p>
+                <p  class="delivery-charge text-muted d-inline small font-weight-italic ml-2">+ ${{ delivery }} delivery</p>
                 <p class="card-text mt-2 mb-1"> 
                     <a href="{% url 'products' %}?category={{ product.category.name }}">
                         <i class="fas fa-tag mr-1"></i>{{ product.category.friendly_name }}
