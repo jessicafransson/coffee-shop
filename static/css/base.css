@@ -283,8 +283,8 @@ input[name='q']::placeholder {
 
 /* ---------------------------------------- Footer */
 
-footer {
-    background-color: whitesmoke;
+.footer-container {
+    background-color: #fff;
 }
 
 .social-icon {
