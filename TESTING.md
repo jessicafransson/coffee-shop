@@ -248,7 +248,123 @@ I've used Chromes devtools to troubleshoot errors and made sure it's responsive 
 
 ![email-confirmation](assets/testing/validation/epic/emailconfirmation.png)
 
+### EPIC | Interaction
+
+*As a user i can leave reviews on products to share tips with others*
+- To write a review is located on the right side at the end of the product detail page.
+- Once the review has been left it will be visible on the left side, with the amount of stars filled in.
+- If a user has already left a review, the box on the left will be gone, with a text that a review has already been written.
+
+![review](assets/testing/validation/epic/addreview.png)
+
+- If the user isn't logged in they see this view, redirecting to log in to leave a review
+
+![leave-review-user-not-loggedin](assets/testing/validation/epic/addreviewloginrequired.png)
+
+- When the review has been successfully left, it will be displayed like this:
+- currently there's a bug for the user to edit their review. It is under construction.
+
+![review-confirmation](assets/testing/validation/epic/addedreview.png)
+
+*As a user i can contact the shop owner with questions*
+
+- The contact us form contains a form the user can fill out to leave a message to the company with ideas or complaints.
+- If the user doesn't want to send a message there's a button displayed which re-directs the user back to previous page.
+
+![contact-us](assets/testing/validation/epic/contactform.png)
+
+*As a user i can sign up for a newsletter*
+
+- The user can at the footer of every page sign up for a newsletter for the shop.
+
+![newsletter](assets/testing/validation/epic/newsletter.png)
+
+- When the form has been filled out correctly a message pops up saying "thank you for subscribing".
+
+![newsletter-success](assets/testing/validation/epic/newslettersuccess.png)
+
+*As a user i can find information about the shop, and how to contact them*
+
+- The user can find the information about the shop in the footer of each page with address, email and phone number
+- There's also a link here directly to the contact form
+
+![contact-info](assets/testing/validation/epic/contactinfo.png)
+
+*As a user i can read more about the shop and founders*
+
+- As a user i can read more information about coffee shop as a company
+- As a user i can also go directly to the beans from this page via the shop link
+- As a user i can also go directly to contact us via a link on this page.
+
+![about-coffee-shop](assets/testing/validation/epic/aboutus.png)
+
+*As a user i can read more about the farm they own*
+
+- As a user i can read more about the work they do on their farm, and their purpose
+- As a user i can also go directly to the beans from this page via the shop link
+- As a user i can also go directly to contact us via a link on this page.
+
+![about-coffee-farm](assets/testing/validation/epic/coffeefarm.png)
+
+*As a user i can get more information about different type of beans and flavours*
+
+- As a user i can learn more about different type of beans, and how the roast affects the flavour.
+- As a user i can also go directly to the beans from this page via the shop link
+- As a user i can also go directly to contact us via a link on this page.
+
+![about-coffee-flavours](assets/testing/validation/epic/flavourguide.png)
+
+
 [Back to top ⇧](#coffee-shop---testing)
+
+## Feature testing
+
+### Nav Bar
+
+- #### Links
+
+    Checked that:
+
+    - The links change colour when hovered over.
+    - The Shop link drops down into a sub-menu displaying all products and the different categories.
+    - The links collapse into a hamburger menu once the screen size becomes too small. 
+
+    ![navbar](assets/testing/validation/epic/navbar.png)
+
+- #### Search Bar
+    Checked that:
+    - The search bar will search both products title and description.
+    - On smaller screens, the search bar collapses into a search icon that when clicked dropps into the full search bar
+
+    ![search-bar](assets/testing/validation/epic/searchbar.png)
+
+- #### Account
+    Checked that:
+    - Hovering over the account icon changes its colour.
+    - When clicking the account a dropdown opens up for the user with options to register or log in.
+    - When a user is logged in the dropdown options change to 'My Account' and 'Sign out'.
+    - When a user is logged in the icons text changes from 'Sign in' to 'My Account'.
+    - When a user is signed in as a super user then a third option of 'Product Management' is available.
+    - When a user is signed in as a super user then a fourth option of 'Coupon Management' is available.
+
+    ![user-menu](assets/testing/validation/epic/userlogin.png)
+    ![admin-menu](assets/testing/validation/epic/adminmenu.png)
+    
+- #### Bag Icon
+    Checked that:
+    - Underneath the bag icon there's a total cost of all the items in the bag.
+    - After an item has been added a pop-up shows with the qty of items, and total lost, located at the top right corner.
+
+
+    ![add-to-shopping-bag](assets/testing/validation/epic/addtobag.png)
+
+    - When bag icon is clicked, user get's navigated to the shopping bag where user can see what items are in the bag.
+
+    ![shopping-bag](assets/testing/validation/epic/viewbag.png)
+
+### Home Page 
+
+
 
 [Back to top ⇧](#coffee-shop---testing)
 
