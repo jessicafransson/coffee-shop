@@ -6,18 +6,22 @@
 
 ## Content
 
-* [Validation Testing](#validation-testing)
-    * [HTML](#html)
-    * [CSS](#css)
-    * [JavaScript](#javascript)
-    * [Python](#python)
-    * [Lighthouse](#lighthouse)
-* [Manual testing](#manual-testing)
-    * [Testing User Stories](#testing-user-stories)
-    * [Full Testing](#full-testing)
+[Validators](#validation-testing)
+* [HTML](#html)
+* [CSS](#css)
+* [JavaScript](#jshint)
+* [Python](#python)
+* [Lighthouse](#lighthouse)
+
+[User Story Testing](user-story-testing)
+* [Testing User Stories](#testing-user-stories)
+* [Full Testing](#full-testing)
+
 * [Bugs](#bugs)
-    * [Solved Bugs](#solved-bugs)
-    * [Known Bugs](#known-bugs)
+* [Solved Bugs](#solved-bugs)
+* [Known Bugs](#known-bugs)
+
+[Back to top ⇧](#coffee-shop---testing)
 
 Testing has been ongoing throughout building this site, making sure the mobile view is working as it should, and that styles do as expected. 
 
@@ -60,6 +64,7 @@ I've used Chromes devtools to troubleshoot errors and made sure it's responsive 
 ![editcouponerror-w3](assets/testing/validation/html/html_editcouponerror.png)
 - The add and edit coupon page shows eight errors. These are because of the datetimepicker widget so it cannot be changed.
 
+[Back to top ⇧](#coffee-shop---testing)
 
 ### CSS
 
@@ -71,6 +76,8 @@ I've used Chromes devtools to troubleshoot errors and made sure it's responsive 
 ![bag-css-jigsaw](assets/testing/validation/css/cssbag.png)
 #### Profile CSS
 ![profile-css-jigsaw](assets/testing/validation/css/cssprofile.png)
+
+[Back to top ⇧](#coffee-shop---testing)
 
 ### JSHINT
 
@@ -89,6 +96,8 @@ I've used Chromes devtools to troubleshoot errors and made sure it's responsive 
 ### Checkout
 ![jshint-checkout](assets/testing/validation/javascript/checkoutjs.png)
 
+[Back to top ⇧](#coffee-shop---testing)
+
 ### PEP8
 
 - PEP8 only shows things that can be ignored
@@ -98,6 +107,10 @@ I've used Chromes devtools to troubleshoot errors and made sure it's responsive 
 ### Lighthouse
 
 - Lighthouse score shows..
+
+[Back to top ⇧](#coffee-shop---testing)
+
+
 
 
 [Back to top ⇧](#coffee-shop---testing)
