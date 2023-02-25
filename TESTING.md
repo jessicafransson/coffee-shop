@@ -364,8 +364,115 @@ I've used Chromes devtools to troubleshoot errors and made sure it's responsive 
 
 ### Home Page 
 
+- #### Hero Image
+    Checked that:
+    - The button for "Shop now" brings the user to the product page
+    - Hovering the "Shop Now button works
+
+    ![hero-image](assets/testing/validation/epic/heroimage.png)
+
+- #### Categories
+    Checked that:
+    - Hovering the categories works
+    - Clicking the category for "espresso" only brings me the correct items
+
+    ![categories-espresso](assets/testing/validation/epic/categoriesespresso.png)
+
+- #### Footer 
+    Checked that:
+    - All the links works with the hoover effect.
+    - All the links work and directs to the correct place.
+    - Clicking the email address opens up the email programme.
+    - Clicking the social media buttons directs to the correct places.
+
+    ![footer](assets/testing/validation/epic/footer.png)
 
 
 [Back to top ⇧](#coffee-shop---testing)
+
+### Accounts
+
+- #### Register Page
+    Checked that:
+    - Submitting the registration form sends a link with an authentication form to the email provided.
+    - Clicking the confirmation link takes you to the account page.
+    - After creating an account these details works to log in with.
+
+    ![sign-up](assets/testing/validation/epic/signupform.png)
+
+    - User fills out this form.
+
+    ![confirm-email-sent](assets/testing/validation/epic/confirmemailsent.png)
+
+    - User get's displayed that the email address needs to be confirmed.
+
+    ![confirm-email](assets/testing/validation/epic/confirmemail.png)
+
+    - User checks email to find email confirmation for signing up.
+
+    ![sign-up-email](assets/testing/validation/epic/signupconfirmemail.png)
+
+    - The link redirects to this page, where the user verifies the email is correct.
+
+    ![sign-up-success](assets/testing/validation/epic/signupsuccess.png)
+
+    - The user can log in with the details provided in the first step. 
+    
+- #### Login Page
+    Checked that:
+    - The log in page works for users with already created accounts.
+    - Users can sign in using their username.
+    - Toast messages are displayed with correct status.
+
+    ![login-form](assets/testing/validation/epic/loginform.png)
+
+- #### Logout Page
+    Checked that:
+    - The logout page logs out users who are signed in.
+    - The account icon turns from "My Account" to "sign in".
+    - Toast message informs the user of the status. 
+
+    ![logout](assets/testing/validation/epic/logout.png)
+
+
+[Back to top ⇧](#coffee-shop---testing)
+
+
+### Profile 
+
+- #### Delivery Details
+    Checked that:
+    - The section in the users account match with address and phone number.
+    - The saved information will autofill at the checkout.
+    - A toast message will be displayed when details have been updated.
+
+- #### Order History
+    Checked that:
+    - The box with order information displays with date, items, qty and order total.
+    - Clicking the order number will direct to page for order confirmation.
+    - A scroll function will display when a certain number of orders has reached.
+    - The order summary has a redirect button back to profile.
+
+    ![order-history](assets/testing/validation/epic/orderhistory.png)
+
+- #### Products 
+    Checked that:
+    - The product page is responsive, adjusting the amount of products displayed depending on screen size.
+    - Each product displays an image, title, price, category and rating.
+    - If the user is an admin there will be displayed two buttons, one for edit and one for delete.
+
+    ![products](assets/testing/validation/epic/allproducts.png)
+
+- #### Product detail 
+    Checked that:
+    - The product detail info shows information about the product, along with buttons to add to cart, and the qty the user wishes to add to the cart.
+    - The product rating is an average and will display result in stars, along with comments from users.
+    - There is a button for "back to shopping" underneath "add to cart"
+
+    ![product-detail](assets/testing/validation/epic/productdetail.png)
+
+    - If the user is a superuser the buttons for edit and delete will be displayed underneath the image.
+
+    ![product-detail-admin](assets/testing/validation/epic/productdetailadmin.png)
 
 [Back to top ⇧](#coffee-shop---testing)
