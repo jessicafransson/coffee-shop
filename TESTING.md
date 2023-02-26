@@ -446,6 +446,8 @@ I've used Chromes devtools to troubleshoot errors and made sure it's responsive 
     - The saved information will autofill at the checkout.
     - A toast message will be displayed when details have been updated.
 
+    ![profile-detail](assets/testing/validation/epic/userprofileview.png)
+
 - #### Order History
     Checked that:
     - The box with order information displays with date, items, qty and order total.
@@ -474,5 +476,151 @@ I've used Chromes devtools to troubleshoot errors and made sure it's responsive 
     - If the user is a superuser the buttons for edit and delete will be displayed underneath the image.
 
     ![product-detail-admin](assets/testing/validation/epic/productdetailadmin.png)
+
+- #### Product review
+    Checked that:
+    - If the product has recieved any reviews it's displayed underneath the image on the product detail page.
+    - Since the leave review button is only valid for logged in users, there will be an edit and delete button for the review.
+
+    ![add-review](assets/testing/validation/epic/addreview.png)
+
+    - The review contains the amount of stars given, the comment they've added, the users name and when it was added.
+
+    ![added-review](assets/testing/validation/epic/addedreview.png)
+
+    - The users can only add a review if they have an account, and are logged in.
+    - If the user isn't logged in, a link will redirect them to loggin in.
+
+    ![login-required](assets/testing/validation/epic/addreviewloginrequired.png)
+
+
+[Back to top ⇧](#coffee-shop---testing)
+
+### Product management
+
+- #### Add a product
+    Checked that:
+    - The button for adding a product is accessed via the account dropdown menu, under product management.
+    - The form can't be submitted with any empty fields.
+
+    ![pm-add-product](assets/testing/validation/epic/pmaddproduct.png)
+
+    - The admin gets displayed a successmessage saying the product was added correctly.
+    - When product is added, admin gets redirected to the product detail view of the added item.
+
+    ![pm-added-product](assets/testing/validation/epic/pmaddedproduct.png)
+
+
+- #### Edit Product
+    Checked that:
+    - The edit button can be accessed both from all products view, and product detail view.
+    - Clicking to edit the product leaves all the forms filled out as is, with options to edit fields. 
+    - Clicking the button "Update" saves any changes made to the existing item.
+
+    - The edit button can only be accessed from a logged in admin user.
+
+    ![pm-edit-product-form](assets/testing/validation/epic/adminupdateproduct.png)
+
+- #### Delete Product
+    Checked that: 
+    - The delete button can be accessed both from all products view, and product detail view.
+    - (At the moment there's no warning before pressing the delete button for admin users on the all products page - it's a feature to fix!)
+    - Clicking the delete button triggers a warning with "are you sure you want to delete this item?"
+    - Clicking to delte removes it completely from the database. 
+
+    ![pm-delete-product](assets/testing/validation/epic/admindelete.png)
+
+
+- #### Add Coupon
+    Checked that:
+    - The add coupon is accessible by the account drop down menu, under coupon management.
+    - The form displays all the fields for adding a coupon.
+    - Clicking the "add coupon" will create a successmessage and the coupon will be added.
+    - A list of all added coupons will be displayed at the end of the page, underneath the "add coupon" form.
+
+    ![pm-add-coupon-form](assets/testing/validation/epic/adminaddcoupon.png)
+
+    - There will be a successmessage when clicking the " add coupon " to display the form has been filled out correctly.
+
+    ![pm-coupon-added-success](assets/testing/validation/epic/admincouponsuccess.png)
+
+    - All coupons will be displayed underneath the add coupon form, with notifications if it's valid, the percentage.
+
+     ![pm-view-coupons](assets/testing/validation/epic/adminviewcoupons.png)
+
+    
+
+- #### Edit Coupon
+    Checked that:
+    - The edit coupon form can be accessed by clicking edit in the coupon view.
+    - Pressing the edit button loads the form, which is already filled out with current information.
+    - Pressing the update button will save the changes made to this coupon.
+
+    ![pm-edit-coupon](assets/testing/validation/epic/editcoupon.png)
+
+- #### Delete Coupon
+    Checked that:
+    - The delete coupon is an icon of a red trash can, that is found at the end of the coupon listed.
+    - Clicking the delete coupon button will trigger a warning sign, asking the user if they're sure they want to delete the coupon.
+    - If the user clicks delete, the coupon will be deleted from the database.
+    - If the user chooses to click cancel, the view will go back to the coupon page in the profile view.
+
+    ![pm-delete-coupon](assets/testing/validation/epic/deletecoupon.png)
+
+### Bag
+
+- #### Items
+    Checked that:
+    - The shopping bag displays the items added to the bag. 
+
+
+    ![view-bag](assets/testing/validation/epic/viewbag.png)
+
+- #### Quantity and Price
+
+- #### Coupons
+
+### Checkout
+
+- #### Details
+
+- #### Order Summary
+
+- #### Payment
+
+- #### Loading Spinner
+
+- #### Confirmation
+
+- #### Webhooks
+
+### About Us
+
+- #### Image
+
+- #### Links
+
+### Contact
+
+- #### Contact Info
+
+- #### Messaging
+
+### Toasts
+
+- #### Toasts
+
+
+### Other
+
+- #### 404 page
+
+- #### Newsletter 
+
+## Bugs
+
+### Fixed
+
+### Unfixed
 
 [Back to top ⇧](#coffee-shop---testing)
