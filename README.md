@@ -22,8 +22,6 @@ The payment system used is a service called Stripe. To test the payments on this
 [Design](#design)
 * [Colour Scheme](#colour-scheme)
 * [Typography](#typography)
-* [Imagery](#imagery)
-* [Wireframes](#wireframes)
 * [Database Schema](#database-schema)
 * [Business Model](#business-model)
 * [Marketing](#marketing)
@@ -159,33 +157,7 @@ This is a list of my user stories, and it can also be found [here](https://githu
 [Back to top ⇧](#coffee-shop)
 ----- 
 
-## Design
 
-The look for this project is partly inspired by Code Institutes "Boutique Ado" with some finishing touches and styles that i've seen doing research for this project.
-I've contacted Gringo Coffee shop who is a roastery here in Sweden and i've gotten their permission to use images and copy their descriptions. You can find their website [here](https://www.gringonordic.se/)
-
-### Color scheme 
-
-I've decided to stick to a basic color scheme of black/white/grey with this project to really highlight the bags of beans, as i find them to have a really nice design - and i wanted them to really pop. 
-
-### Images
-
-- I've gotten my images from Gringo, which is also where i have gotten the inspiration for this website, and the information about their magical beans. 
-
-### Wireframe
-
-I took a lot of inspiration for this project from Code Institutes Boutique Ado, and also from Gringo's website as described above.
-I did a start design on Figma to try and set up the main page and view for the products. 
-
-* First mockup looked like this:
-
-![Mockup](static/images/figmamockup.png)
-
-* And for the product page like this: 
-
-![Mockup](static/images/figmamockupproduct.png)
-
-[Back to top ⇧](#coffee-shop)
 
 -------
 
@@ -243,7 +215,44 @@ this is what the visitor can do on my site:
 
 
 [Back to top ⇧](#coffee-shop)
+
+
 -----
+## Design
+
+The look for this project is partly inspired by Code Institutes "Boutique Ado" with some finishing touches and styles that i've seen doing research for this project.
+I've contacted Gringo Coffee shop who is a roastery here in Sweden and i've gotten their permission to use images and copy their descriptions. You can find their website [here](https://www.gringonordic.se/)
+
+### Color scheme 
+
+I've decided to stick to a basic color scheme of black/white/grey with this project to really highlight the bags of beans, as i find them to have a really nice design - and i wanted them to really pop. 
+
+### Images
+
+- I've gotten my images from Gringo, which is also where i have gotten the inspiration for this website, and the information about their magical beans. 
+
+### Wireframe
+
+I took a lot of inspiration for this project from Code Institutes Boutique Ado, and also from Gringo's website as described above.
+I did a start design on Figma to try and set up the main page and view for the products. 
+
+* First mockup looked like this:
+
+![Mockup](static/images/figmamockup.png)
+
+* And for the product page like this: 
+
+![Mockup](static/images/figmamockupproduct.png)
+
+[Back to top ⇧](#coffee-shop)
+
+
+### Database Schema 
+
+My database schema is as follows:
+
+![Database Schema](assets/databaseschema.png)
+
 
 ### Business Model 
 
@@ -260,6 +269,400 @@ This site represents a fairly new business, where the only current marketing str
 <i>*Note, this page has unfortunately been deleted, due to facebooks regular deletion of inactive business pages.</i>
 
 ![Facebook](media/coffeeshopfacebook.png)
+
+### Search Engine Optimisation
+
+I've created a sitemap.xml and a robots.txt file to help aid search engines to locate my site. To keep my users information safe, any pages that could contain sensitive information has been disallowed in the robots.txt file.
+
+The purpose of my About Us page was to be able to shed some light in the ways of brewing coffee, but also use some of our keywords to help boost the site's ranking with search engine results.
+
+
+#### Short Tail Keywords
+- espresso
+- ground beans
+- filter
+- milky drink
+- frothed milk
+- flat white
+- pour over coffee
+- brewing type
+
+
+#### Long Tail Keywords
+- Make espresso at home
+- How to make café style milk at home
+- What beans to use for espresso
+- What beans to use for filter coffee
+- Difference between espresso and brewed coffee
+- Who can drink coffee
+- Caffein free coffee
+- How to make an americano
+- How to mix a flat white
+
+## Features
+
+### Nav Bar
+
+- #### Links
+
+    Checked that:
+
+    - The links change colour when hovered over.
+    - The Shop link drops down into a sub-menu displaying all products and the different categories.
+    - The links collapse into a hamburger menu once the screen size becomes too small. 
+
+    ![navbar](assets/testing/validation/epic/navbar.png)
+
+- #### Search Bar
+    Checked that:
+    - The search bar will search both products title and description.
+    - On smaller screens, the search bar collapses into a search icon that when clicked dropps into the full search bar
+
+    ![search-bar](assets/testing/validation/epic/searchbar.png)
+
+- #### Account
+    Checked that:
+    - Hovering over the account icon changes its colour.
+    - When clicking the account a dropdown opens up for the user with options to register or log in.
+    - When a user is logged in the dropdown options change to 'My Account' and 'Sign out'.
+    - When a user is logged in the icons text changes from 'Sign in' to 'My Account'.
+    - When a user is signed in as a super user then a third option of 'Product Management' is available.
+    - When a user is signed in as a super user then a fourth option of 'Coupon Management' is available.
+
+    ![user-menu](assets/testing/validation/epic/userlogin.png)
+    ![admin-menu](assets/testing/validation/epic/adminmenu.png)
+    
+- #### Bag Icon
+    Checked that:
+    - Underneath the bag icon there's a total cost of all the items in the bag.
+    - After an item has been added a pop-up shows with the qty of items, and total lost, located at the top right corner.
+
+
+    ![add-to-shopping-bag](assets/testing/validation/epic/addtobag.png)
+
+    - When bag icon is clicked, user get's navigated to the shopping bag where user can see what items are in the bag.
+
+    ![shopping-bag](assets/testing/validation/epic/viewbag.png)
+
+### Home Page 
+
+- #### Hero Image
+    Checked that:
+    - The button for "Shop now" brings the user to the product page
+    - Hovering the "Shop Now button works
+
+    ![hero-image](assets/testing/validation/epic/heroimage.png)
+
+- #### Categories
+    Checked that:
+    - Hovering the categories works
+    - Clicking the category for "espresso" only brings me the correct items
+
+    ![categories-espresso](assets/testing/validation/epic/categoriesespresso.png)
+
+- #### Footer 
+    Checked that:
+    - All the links works with the hoover effect.
+    - All the links work and directs to the correct place.
+    - Clicking the email address opens up the email programme.
+    - Clicking the social media buttons directs to the correct places.
+
+    ![footer](assets/testing/validation/epic/footer.png)
+
+### Accounts
+
+- #### Register Page
+    Checked that:
+    - Submitting the registration form sends a link with an authentication form to the email provided.
+    - Clicking the confirmation link takes you to the account page.
+    - After creating an account these details works to log in with.
+
+    ![sign-up](assets/testing/validation/epic/signupform.png)
+
+    - User fills out this form.
+
+    ![confirm-email-sent](assets/testing/validation/epic/confirmemailsent.png)
+
+    - User get's displayed that the email address needs to be confirmed.
+
+    ![confirm-email](assets/testing/validation/epic/confirmemail.png)
+
+    - User checks email to find email confirmation for signing up.
+
+    ![sign-up-email](assets/testing/validation/epic/signupconfirmemail.png)
+
+    - The link redirects to this page, where the user verifies the email is correct.
+
+    ![sign-up-success](assets/testing/validation/epic/signupsuccess.png)
+
+    - The user can log in with the details provided in the first step. 
+    
+- #### Login Page
+    Checked that:
+    - The log in page works for users with already created accounts.
+    - Users can sign in using their username.
+    - Toast messages are displayed with correct status.
+
+    ![login-form](assets/testing/validation/epic/loginform.png)
+
+- #### Logout Page
+    Checked that:
+    - The logout page logs out users who are signed in.
+    - The account icon turns from "My Account" to "sign in".
+    - Toast message informs the user of the status. 
+
+    ![logout](assets/testing/validation/epic/logout.png)
+
+### Profile 
+
+- #### Delivery Details
+    Checked that:
+    - The section in the users account match with address and phone number.
+    - The saved information will autofill at the checkout.
+    - A toast message will be displayed when details have been updated.
+
+    ![profile-detail](assets/testing/validation/epic/userprofileview.png)
+
+- #### Order History
+    Checked that:
+    - The box with order information displays with date, items, qty and order total.
+    - Clicking the order number will direct to page for order confirmation.
+    - A scroll function will display when a certain number of orders has reached.
+    - The order summary has a redirect button back to profile.
+
+    ![order-history](assets/testing/validation/epic/orderhistory.png)
+
+- #### Products 
+    Checked that:
+    - The product page is responsive, adjusting the amount of products displayed depending on screen size.
+    - Each product displays an image, title, price, category and rating.
+    - If the user is an admin there will be displayed two buttons, one for edit and one for delete.
+
+    ![products](assets/testing/validation/epic/allproducts.png)
+
+- #### Product detail 
+    Checked that:
+    - The product detail info shows information about the product, along with buttons to add to cart, and the qty the user wishes to add to the cart.
+    - The product rating is an average and will display result in stars, along with comments from users.
+    - There is a button for "back to shopping" underneath "add to cart"
+
+    ![product-detail](assets/testing/validation/epic/productdetail.png)
+
+    - If the user is a superuser the buttons for edit and delete will be displayed underneath the image.
+
+    ![product-detail-admin](assets/testing/validation/epic/productdetailadmin.png)
+
+- #### Product review
+    Checked that:
+    - If the product has recieved any reviews it's displayed underneath the image on the product detail page.
+    - Since the leave review button is only valid for logged in users, there will be an edit and delete button for the review.
+
+    ![add-review](assets/testing/validation/epic/addreview.png)
+
+    - The review contains the amount of stars given, the comment they've added, the users name and when it was added.
+
+    ![added-review](assets/testing/validation/epic/addedreview.png)
+
+    - The users can only add a review if they have an account, and are logged in.
+    - If the user isn't logged in, a link will redirect them to loggin in.
+
+    ![login-required](assets/testing/validation/epic/addreviewloginrequired.png)
+
+### Product management
+
+- #### Add a product
+    Checked that:
+    - The button for adding a product is accessed via the account dropdown menu, under product management.
+    - The form can't be submitted with any empty fields.
+
+    ![pm-add-product](assets/testing/validation/epic/pmaddproduct.png)
+
+    - The admin gets displayed a successmessage saying the product was added correctly.
+    - When product is added, admin gets redirected to the product detail view of the added item.
+
+    ![pm-added-product](assets/testing/validation/epic/pmaddedproduct.png)
+
+
+- #### Edit Product
+    Checked that:
+    - The edit button can be accessed both from all products view, and product detail view.
+    - Clicking to edit the product leaves all the forms filled out as is, with options to edit fields. 
+    - Clicking the button "Update" saves any changes made to the existing item.
+
+    - The edit button can only be accessed from a logged in admin user.
+
+    ![pm-edit-product-form](assets/testing/validation/epic/adminupdateproduct.png)
+
+- #### Delete Product
+    Checked that: 
+    - The delete button can be accessed both from all products view, and product detail view.
+    - (At the moment there's no warning before pressing the delete button for admin users on the all products page - it's a feature to fix!)
+    - Clicking the delete button triggers a warning with "are you sure you want to delete this item?"
+    - Clicking to delte removes it completely from the database. 
+
+    ![pm-delete-product](assets/testing/validation/epic/admindelete.png)
+
+[Back to top ⇧](#coffee-shop)
+
+- #### Add Coupon
+    Checked that:
+    - The add coupon is accessible by the account drop down menu, under coupon management.
+    - The form displays all the fields for adding a coupon.
+    - Clicking the "add coupon" will create a successmessage and the coupon will be added.
+    - A list of all added coupons will be displayed at the end of the page, underneath the "add coupon" form.
+
+    ![pm-add-coupon-form](assets/testing/validation/epic/adminaddcoupon.png)
+
+    - There will be a successmessage when clicking the " add coupon " to display the form has been filled out correctly.
+
+    ![pm-coupon-added-success](assets/testing/validation/epic/admincouponsuccess.png)
+
+    - All coupons will be displayed underneath the add coupon form, with notifications if it's valid, the percentage.
+
+     ![pm-view-coupons](assets/testing/validation/epic/adminviewcoupons.png)
+
+
+- #### Edit Coupon
+    Checked that:
+    - The edit coupon form can be accessed by clicking edit in the coupon view.
+    - Pressing the edit button loads the form, which is already filled out with current information.
+    - Pressing the update button will save the changes made to this coupon.
+
+    ![pm-edit-coupon](assets/testing/validation/epic/editcoupon.png)
+
+- #### Delete Coupon
+    Checked that:
+    - The delete coupon is an icon of a red trash can, that is found at the end of the coupon listed.
+    - Clicking the delete coupon button will trigger a warning sign, asking the user if they're sure they want to delete the coupon.
+    - If the user clicks delete, the coupon will be deleted from the database.
+    - If the user chooses to click cancel, the view will go back to the coupon page in the profile view.
+
+    ![pm-delete-coupon](assets/testing/validation/epic/deletecoupon.png)
+
+### Bag
+
+- #### Items
+    Checked that:
+    - The shopping bag displays the items added to the bag.
+    - Clicking the image in the bag will redirect the user to the product detail page.
+    - The added item shows the image, name, price and quantity of the product.
+    - Each product has a line to change the qty of the item, or delete it from the bag.
+
+    ![view-bag](assets/testing/validation/epic/viewbag.png)
+
+- #### Quantity and Price
+    Checked that:
+    - The qty element button has two sides, one to increase and one to decrease the total.
+    - The minus option will disable if the quantity of the item is one.
+    - The plus button will disable if the amount added is 99.
+    - Clicking the red trash can will completely remove the item from the cart.
+
+- #### Coupons
+    Checked that:
+    - Underneath the subtotal is a box for adding a coupon code.
+    - If the code is valid the user will be displayed with a successmessage saying the code has been added, and the discount will appear in the summary of the cost.
+    - If the code added is invalid, an error message will display saying "the code is invalid, please check the details"
+
+    ![add-coupon](assets/testing/validation/epic/couponadded.png)
+
+### Checkout
+
+- #### Details
+    Checked that:
+    - If the user is anonymous, a link to create an account or login will be present.
+    - Any field with the sign * has to be filled out, if left empty, an error message will be displayed.
+
+    ![checkout-notloggedin](assets/testing/validation/epic/checkoutloggedin.png)
+
+    - If the user is logged in, the box for save information can be checked, and the information will then be saved.
+    - If the user is signed in and already has added their information, that will be displayed automatically.
+    - Any field with the sign * has to be filled out, if left empty, an error message will be displayed.
+
+    ![checkout-loggedin](assets/testing/validation/epic/checkoutloggedin.png)
+
+
+- #### Order Summary
+    Checked that:
+    - Clicking the image of the product takes the user to the product detail view.
+    - This section will show details of everything in the bag, along with qty and grand total.
+
+    ![order-summary](assets/testing/validation/epic/ordersummary.png)
+
+- #### Payment
+    Checked that:
+    - Only numbers can be entered in the card payment section. Incorrect card numbers will display an error message.
+    - You can make a purchase using a dummy card number: 4242 4242 4242 4242 with the expiry date 04/24 and the CVC code 242.
+    - You can either press the option to make purchase, or go back to the shopping bag.
+
+    ![payment](assets/testing/validation/epic/payment.png)
+
+- #### Loading Spinner
+    Checked that:
+    - Once the user clicks confirm order, and as long as the form is valid, the view with a loading spinner will be displayed, until the purchase has been completed.
+
+    ![payment-loading](assets/testing/validation/epic/paymentloading.png)
+
+- #### Confirmation
+    Checked that:
+    - Once the order has been processed the user is taken to the successpage.
+    - An email confirmation will be sent to the users given email.
+    - After the summary the user can choose to go back to the shop.
+
+    ![order-summary](assets/testing/validation/epic/ordersuccess.png)
+
+- #### Webhooks
+    Checked that:
+    - After the payment has gone thru, the order shows in the webhooks and confirm the order exists.
+
+    ![webhooks](assets/testing/validation/epic/webhooks.png)
+
+
+### About Us
+
+- #### Image
+    Checked that:
+    - Below the image at the about us page there's links for "contact us" and "view our selection".
+
+    ![about-us](assets/testing/validation/epic/aboutus.png)
+
+- #### Links
+    Checked that:
+    - Hovering the links will make them change tone.
+    - Clicking the links will direct the user to the correct page.
+
+    ![links](assets/testing/validation/epic/links.png)
+
+### Contact
+
+- #### Contact Info
+    Checked that:
+    - Hovering over the social media links will make them change tone. Clicking these links will redirect them to the correct website in a new tab.
+
+    ![contact-info](assets/testing/validation/epic/contactinfo.png)
+
+- #### Messaging
+    Checked that:
+    - All the fields have a sign showing they are required.
+    - When all fields have been filled out the send message button will send the message to the shop.
+
+    ![contact-form](assets/testing/validation/epic/contactform.png)
+
+### Toasts
+
+- #### Toasts
+    Checked that:
+    - Toast messages will appear in the top right corner and will be displayed any time a user has done something on the site.
+    - The toast message will display success for all things that has been successful.
+    - The toast message will display a red error any time something could not be fulfilled.
+
+    ![toast-message](assets/testing/validation/epic/loginsuccess.png)
+
+### Other
+
+- #### 404 Page
+    - If any links are broken or the user types a faulty address a 404 page will render.
+
+    ![404](assets/testing/validation/epic/404.png)
 
 
 ## Technologies 
