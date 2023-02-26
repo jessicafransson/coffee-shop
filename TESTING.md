@@ -548,7 +548,7 @@ I've used Chromes devtools to troubleshoot errors and made sure it's responsive 
 
      ![pm-view-coupons](assets/testing/validation/epic/adminviewcoupons.png)
 
-    
+[Back to top ⇧](#coffee-shop---testing)
 
 - #### Edit Coupon
     Checked that:
@@ -608,6 +608,8 @@ I've used Chromes devtools to troubleshoot errors and made sure it's responsive 
 
     ![checkout-loggedin](assets/testing/validation/epic/checkoutloggedin.png)
 
+[Back to top ⇧](#coffee-shop---testing)
+
 
 - #### Order Summary
     Checked that:
@@ -644,33 +646,83 @@ I've used Chromes devtools to troubleshoot errors and made sure it's responsive 
 
     ![webhooks](assets/testing/validation/epic/webhooks.png)
 
+[Back to top ⇧](#coffee-shop---testing)
+
 ### About Us
 
 - #### Image
+    Checked that:
+    - Below the image at the about us page there's links for "contact us" and "view our selection".
+
+    ![about-us](assets/testing/validation/epic/aboutus.png)
 
 - #### Links
+    Checked that:
+    - Hovering the links will make them change tone.
+    - Clicking the links will direct the user to the correct page.
+
+    ![links](assets/testing/validation/epic/links.png)
 
 ### Contact
 
 - #### Contact Info
+    Checked that:
+    - Hovering over the social media links will make them change tone. Clicking these links will redirect them to the correct website in a new tab.
+
+    ![contact-info](assets/testing/validation/epic/contactinfo.png)
 
 - #### Messaging
+    Checked that:
+    - All the fields have a sign showing they are required.
+    - When all fields have been filled out the send message button will send the message to the shop.
+
+    ![contact-form](assets/testing/validation/epic/contactform.png)
 
 ### Toasts
 
 - #### Toasts
+    Checked that:
+    - Toast messages will appear in the top right corner and will be displayed any time a user has done something on the site.
+    - The toast message will display success for all things that has been successful.
+    - The toast message will display a red error any time something could not be fulfilled.
 
+    ![toast-message](assets/testing/validation/epic/loginsuccess.png)
+
+[Back to top ⇧](#coffee-shop---testing)
 
 ### Other
 
 - #### 404 page
+    Checked that:
+    - Any time a user is trying to do something that isn't valid, or types an address that is incorrect, a 404 page will render.
 
-- #### Newsletter 
+    ![404](assets/testing/validation/epic/404.png)
+
+- #### Newsletter
+    Checked that:
+    - Signing up to the newsletter works.
+
+    ![mailchimp](assets/testing/validation/epic/newsletter.png)
+
+    - When the user has successfully signed up there will be a successmessage displayed underneath.
+
+    ![mailchimp-success](assets/testing/validation/epic/newslettersuccess.png)
+
+    - And the user will be registered in my mailchimp account.
+
+    ![mailchimp-confirm](assets/testing/validation/epic/mailchimpconfirm.png)
 
 ## Bugs
 
 ### Fixed
 
+- Was trying to setup webhooks to work for email confirmation and signing up for a new account. Went thru all my code and was troubleshooting for hours trying to make it work. I had help from tutor support as well trying to find the issue, as my code seemed to be correct for the people helping me. We went over all my settings and secret keys but somehow the connection just wasn't there. I've removed the two factor authentication and put it back, copying the new password and eventually it worked after a while. Must have been something with the connection after the first set up.
+
+- The review section first allowed users to leave more than one review. When i inspected this closer i saw my code was filtering user with request user id, changing this to user=user_profile.id made this function correctly.
+
 ### Unfixed
+
+- When the user is trying to edit it's own review, it's giving an error message saying it can't be done.
+
 
 [Back to top ⇧](#coffee-shop---testing)
