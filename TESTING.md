@@ -571,28 +571,78 @@ I've used Chromes devtools to troubleshoot errors and made sure it's responsive 
 
 - #### Items
     Checked that:
-    - The shopping bag displays the items added to the bag. 
-
+    - The shopping bag displays the items added to the bag.
+    - Clicking the image in the bag will redirect the user to the product detail page.
+    - The added item shows the image, name, price and quantity of the product.
+    - Each product has a line to change the qty of the item, or delete it from the bag.
 
     ![view-bag](assets/testing/validation/epic/viewbag.png)
 
 - #### Quantity and Price
+    Checked that:
+    - The qty element button has two sides, one to increase and one to decrease the total.
+    - The minus option will disable if the quantity of the item is one.
+    - The plus button will disable if the amount added is 99.
+    - Clicking the red trash can will completely remove the item from the cart.
 
 - #### Coupons
+    Checked that:
+    - Underneath the subtotal is a box for adding a coupon code.
+    - If the code is valid the user will be displayed with a successmessage saying the code has been added, and the discount will appear in the summary of the cost.
+    - If the code added is invalid, an error message will display saying "the code is invalid, please check the details"
+
+    ![add-coupon](assets/testing/validation/epic/couponadded.png)
 
 ### Checkout
 
 - #### Details
+    Checked that:
+    - If the user is anonymous, a link to create an account or login will be present.
+    - Any field with the sign * has to be filled out, if left empty, an error message will be displayed.
+
+    ![checkout-notloggedin](assets/testing/validation/epic/checkoutloggedin.png)
+
+    - If the user is logged in, the box for save information can be checked, and the information will then be saved.
+    - If the user is signed in and already has added their information, that will be displayed automatically.
+    - Any field with the sign * has to be filled out, if left empty, an error message will be displayed.
+
+    ![checkout-loggedin](assets/testing/validation/epic/checkoutloggedin.png)
+
 
 - #### Order Summary
+    Checked that:
+    - Clicking the image of the product takes the user to the product detail view.
+    - This section will show details of everything in the bag, along with qty and grand total.
+
+    ![order-summary](assets/testing/validation/epic/ordersummary.png)
 
 - #### Payment
+    Checked that:
+    - Only numbers can be entered in the card payment section. Incorrect card numbers will display an error message.
+    - You can make a purchase using a dummy card number: 4242 4242 4242 4242 with the expiry date 04/24 and the CVC code 242.
+    - You can either press the option to make purchase, or go back to the shopping bag.
+
+    ![payment](assets/testing/validation/epic/payment.png)
 
 - #### Loading Spinner
+    Checked that:
+    - Once the user clicks confirm order, and as long as the form is valid, the view with a loading spinner will be displayed, until the purchase has been completed.
+
+    ![payment-loading](assets/testing/validation/epic/paymentloading.png)
 
 - #### Confirmation
+    Checked that:
+    - Once the order has been processed the user is taken to the successpage.
+    - An email confirmation will be sent to the users given email.
+    - After the summary the user can choose to go back to the shop.
+
+    ![order-summary](assets/testing/validation/epic/ordersuccess.png)
 
 - #### Webhooks
+    Checked that:
+    - After the payment has gone thru, the order shows in the webhooks and confirm the order exists.
+
+    ![webhooks](assets/testing/validation/epic/webhooks.png)
 
 ### About Us
 
