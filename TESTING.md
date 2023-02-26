@@ -155,15 +155,13 @@ I've used Chromes devtools to troubleshoot errors and made sure it's responsive 
 
 [Back to top ⇧](#coffee-shop---testing)
 
-### PEP8
-
-- PEP8 only shows things that can be ignored
-
-![pylint]()
 
 ### Lighthouse
 
-- Lighthouse score shows..
+- Lighthouse score shows following score, which would improve in the section for performance if i had more time.
+
+![lighthouse](assets/lighthouse.png)
+
 
 [Back to top ⇧](#coffee-shop---testing)
 
