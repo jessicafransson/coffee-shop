@@ -6,13 +6,14 @@ This fully responsive website was built using the Django framework in Python.
 
 Find my live deployed site [here](https://coffeeshop91.herokuapp.com)
 
-
 The payment system used is a service called Stripe. To test the payments on this site, dummy card details can be used. A list of these can be found [here](https://stripe.com/docs/testing#cards)
+
+![Responsive](assets/mockup.png)
 
 ## Content 
 
 [User experiences (UX)]()
-* user stories 
+* [user stories]
 
 [Design](#design)
 
@@ -25,7 +26,8 @@ The payment system used is a service called Stripe. To test the payments on this
 [Libraries & programs used](#libraries-and-programs-used)
 
 
-[testing](#testing.md)
+[Testing](#testing)
+
 
 [Deployment](#deployment)
 * [Github](#github)
@@ -261,7 +263,7 @@ My inital keywords and phrases i came up with are:
 
 ## Testing 
 
-Testing and results can be found [here] (testing.md)
+Testing and results can be found [here](TESTING.md)
 
 ## Creating repository
 
