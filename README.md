@@ -12,30 +12,106 @@ The payment system used is a service called Stripe. To test the payments on this
 
 ## Content 
 
-[User experiences (UX)]()
-* [user stories]
-
+[User Experience (UX)](#user-experience-ux)
+* [User Stories](#user-stories)
+    - [EPIC | Navigation](#EPIC-|-navigation)
+    - [EPIC | Accounts](#EPIC-|-accounts)
+    - [EPIC | Admin](#EPIC-|-admin)
+    - [EPIC | Purchasing](#EPIC-|-purchasing)
+    - [EPIC | Interaction](#EPIC-|-interaction)
 [Design](#design)
-
-* color and inspiration
+* [Colour Scheme](#colour-scheme)
+* [Typography](#typography)
+* [Imagery](#imagery)
+* [Wireframes](#wireframes)
+* [Database Schema](#database-schema)
+* [Business Model](#business-model)
+* [Marketing](#marketing)
+* [Search Engine Optimisation](#search-engine-optimisation)
 
 [Features](#features)
+* [Nav Bar](#nav-bar)
+    - [Links](#links)
+    - [Search Bar](#search-bar)
+    - [Account](#account)
+    - [Bag Icon](#bag-icon)
+    - [Banner](#banner)
+* [Home page](#home-page)
+    - [Hero Image](#hero-image)
+    - [Categories](#categories)
+    - [Footer](#footer)
+* [Accounts](#accounts)
+    - [Register Page](#register-page)
+    - [Login Page](#login-page)
+    - [Log Out Page](#log-out-page)
+* [Profile](#profile)
+    - [Heading](#heading)
+    - [Delivery Details](#delivery-details)
+    - [Order History](#order-history)
+* [All Products](#all-products)
+    - [Sorting](#sorting)
+    - [Products](#products)
+* [Product Details](#product-details)
+    - [Product Info](#product-info)
+    - [Like Button](#like-button)
+    - [Quantity Buttons](#quantity-buttons)
+    - [Customer Reviews](#bag-icon)
+    - [Add Review](#add-review)
+* [Product Management](#product-management)
+    - [Add Product](#add-product)
+    - [Edit Product](#edit-product)
+    - [Delete Product](#delete-product)
+    - [Add Coupon](#add-coupon)
+    - [Edit Coupon](#edit-coupon)
+    - [Delete Coupon](#delete-coupon)
+* [Bag](#bag)
+    - [Items](#add-product)
+    - [Quantity and Price](#quantity-and-price)
+    - [Totals and Messaging](#totals-and-messaging)
+    - [Coupons](#coupons)
+* [Checkout](#checkout)
+    - [Details](#details)
+    - [Order Summary](#order-summary)
+    - [Payment](#payment)
+    - [Loading Spinner](#loading-spinner)
+    - [Confirmation](#confirmation)
+    - [Webhooks](#webhooks)
+* [About Us](#about-us)
+    - [Image](#image)
+    - [Bio](#bio)
+    - [Links](#links)
+* [Contact](#contact)
+    - [Contact Info](#contact-info)
+    - [Messaging](#messaging)
+* [Toasts and Pop-ups](#toasts-and-pop-ups)
+    - [Toasts](#toasts)
+* [Other](#other)
+    - [404 Page](#404-page)
 
-[Technologies](#technologies) 
-*[Languages used](#languages-used)
-[Libraries & programs used](#libraries-and-programs-used)
-
+[Technologies](#technologies)
+* [Languages used](#languages-used)
+* [Libraries & Programs Used](#libraries-and-programs-used)
 
 [Testing](#testing)
-
-
+  
 [Deployment](#deployment)
 * [Github](#github)
+    -[Forking](#forking)
+    -[Clone](#clone)
+* [Django](#django)
+    -[All Auth](#all-auth)
+* [Heroku](#heroku)
+* [Cloudinary](#connecting-to-cloudinary)
+* [Stripe](#Stripe)
+    -[Payment](#payments)
+    -[Webhooks](#webhooks)
 
 [Credits](#credits)
 * [Code](#code)
 * [Media](#media)
 * [Other](#other)
+
+- [Acknowledgments](#acknowledgments)
 
 --------
 
@@ -185,65 +261,16 @@ This site represents a fairly new business, where the only current marketing str
 
 ![Facebook](media/coffeeshopfacebook.png)
 
-- The newsletter sign up form is to be found in the footer of the site. This is serviced by [Mailchimp](https://mailchimp.com/?currency=SEK)
-
-![Newsletter]()
-
-### Search Engine Optimisation
-
-I've created both a robots.txt and sitemap.cml file to help search engines located to the site. To keep my users information safe, any pages that would include sensitive information has been disallowed in my robots.txt file.
-
-My purpose of the "About us" pages was designed to give an opportinity to use some keywords to the user and help boost the site's ranking in search engine results. 
-
-My inital keywords and phrases i came up with are:
-
-#### Short tail keywords
-- Espresso
-- Coffeebeans
-- Grounds
-- Coffee pot
-- Shot
-- Bean
-- Filter coffee
-- Cappucino
-- Flat white
-
-#### Long tail keywords
-- Milk drinks with coffee
-- Espresso beans for home usage
-- Make your own espresso
-- Barista coffee at home
-- espresso and pre-ground beans for home use
-
-[Back to top⇧](#coffee-shop)
-
-## Features
-
-### Navbar
-
-- #### Links
-    - To help the user to navigate the website there's four links at the main nav bar at the top of every page.
-    - Once the screen size becomes to small to fit all four links it turns into a hamburger bar to fit all the elements comfortably.
-    - The link to the current page will be highlighted by an underline to help users understand what page they are on.
-    - The Shop link and the about us drops down into a sub-menu where the user can navigate to all products or choose one of the two categories. In the about us section the user can choose to read the different articles, the main about us page, the coffee farm page or the flavour guide. 
-
-    ![Navbar]( image here of the navbar )
-
-- #### Search bar
-    - The search bar is located in the middle of the navigation bar, and can be used to search for items on the site.
-    - Using the search bar will search both the product's title and description for a match.
-    - On smaller screens the bar collapses into a icon for searching that when clicking drops down into the full search bar.
-
-    ![Nav-bar search ]( image here of the navbar search )
 
 ## Technologies 
 
 ### languages used:
 
-- HTML5
-- CSS
-- Python
-- JavaScript 
+- [HTML5](https://en.wikipedia.org/wiki/HTML5)
+- [CSS3](https://en.wikipedia.org/wiki/Cascading_Style_Sheets)
+- [Javascript](https://en.wikipedia.org/wiki/JavaScript)
+- [Python](https://www.python.org/)
+
 
 ### Libraries and programs used:
 
@@ -252,56 +279,189 @@ My inital keywords and phrases i came up with are:
 - Gitpod, Used to build project and editing the code.
 - Django, a python based framework to develop this project
 - Bootstrap, for HTML design templates.
+- Fontawesome, used to obtain the icons used and created.
 - Cloudinary, to store images. 
 - Figma, to mockup the design.
 - ElephantSQL, database through Heroku.
 - W3C for validation of HTML and CSS.
 - Pep8CI for validation of Python.
+- Jshint, used to validate Python code.
+- Crispy forms, to access and render forms on the site.
+- Django tempus dominus, used to render date and timepicker for the add coupons.
 - Summernote, for usage in the admin panel.
 - Heroku, for deploying the project. 
-- Convertion, for converting JPG to AVIF. 
+- Stripe, used to make payments and generate webhooks.
+
 
 ## Testing 
 
 Testing and results can be found [here](TESTING.md)
 
-## Creating repository
-
-The project is deployed to Heroku from GitHub.
-It is created in GitHub following these steps: 
-
-    1. Log in to GitHub.
-    2. Click the 'repositories' section.
-    3. Pressed the 'new' button, this will create a new repository page.
-    4. Choose the CodeInstitute template from the dropdown menu. 
-    5. I choose a title for my project and pressed 'create repository'.
-    6. Once this is created i opened the repository and pressed the green 'GitPod' button to create my workspace. 
-
 ## Deployment
 
-### To deploy this project through Heroku i did following steps:
+### Github
 
-    1. Log in to [Heroku](https://www.heroku.com/)
-    2. From the main Heroku dashboard select 'new', and 'create new app'
-    3. Name your project, and select a suitable region. After this press 'create app'. (The name you choose must be unique)
-    4. Previous step creates the app in Heroku and will bring you to the deploy tab. From the menu at the top you want to navigate to the resources tab. 
-    5. After this you want to add the database to the app, you do this by going to the add-ons section and search for 'Heroku Postgres', select the package that appears and add it to the database. 
-    6. Navigat3e to the settings, inside config vars you want to add the DATABASE_URL to the clipboard for the Django config. 
-    7. Create a new file in GitPod called env.py and inside set your environment table for the DATABASE_URL and paste in the copied address from Heroku. 
-    8. I created a secret key by adding SECRET_KEY in my env.py file, and in heroku. To get the secret key i typed 'openssl rand -base64 16' in my terminal. One time for a secret key to Heroku and a second time for a secret key to add in GitPod. 
-    9. Create an account in Cloudinary, or log in if you already have an account. The url is found on your dashboard in your account. Copy this and add to your env.py file. 
-    10. Paste it also into your Heroku config vars. 
-    11. You now need to add 'KEY - DISABLE_COLLECTSTATIC' with the value of 1 to the config vars in Heroku, this line must be removed before final deployment of the project. 
-    12. In GitPod you now have to add the cloudinary libraries to the list of installed apps in the settings file. The order here is important, 'cloudinary_storage' must go above 'django.contrib.staticfiles' and then 'cloudinary' goes below. 
-    13. For your settings.py file you must also add the STATIC files, the url, storage path, directory path, root path, media url and the default file storage path. 
-    14. You link this to the templates directory in Heroku with 'TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')'
-    15. You also need to add new folders in GitPod. Create media, static and template folders and a file at the top level namned Procfile (the P has to be capital - important!)
-    16. Inside the Procfile you need to add following: web: guincorn coffee_shop.wsgi.
-    17. After adding these files, commit and push these changes to GitHub.
-    18. In Heroku, go to the deployment tab and deploy this branch manually. This will lead to Heroku building this app for you, and you will be able to follow the build process in the window. 
-    19. When successful, you will be displayed with following: "Your app was successfully deployed".
+First you will need to create a new repository.
+
+1. Log into Github.
+2. On the 'Repositories' tab click 'New'. This takes you to the create a new repository page.
+3. Name the repository and click 'Create repository'.
+4. Your new repository is now set up and ready to use.
+
+
+### Django 
+
+Since this project is created using Django, you need to do following steps to install:
+
+1. In your workspace, type:
+    `pip3 install django`
+2. To name your project:
+    `django-admin startproject *The name of your project here*`
+This will add the django project folder in your file explorer
+3. Next, add your gitignore file. You do this by typing following in your terminal:
+    `touch .gitignore`
+4. In this created file, add following lines:
+    ```
+    *.sqlite3
+    *.pyc
+    __pycache__
+    ```
+5. To make sure everything is up and running, run following command:
+    `python3 manage.py runserver`
+    This will export port 8000. Open it up and you should see a Django success page. 
+6. After this it's time for the inital migration. You do this by typing:
+    `python3 manage.py migrate`
+7. Finally, to have access to the admin panel you will need to create a superuser. This is done by running the command:
+    `python3 manage.py createsuperuser`
+    Here you will have to create a user by typing in a username, and an optional email address.
+8. Once this is done, you can push your changes to GitHub by running following in your terminal:
+    ```
+    git add .
+    git commit -m "initial commit"
+    git push
+    ```
+
+
+#### All auth
+
+Within the Django framework, there is a package called Allauth. This package will handle the whole registration and signin process. 
+You can find the whole step to install [here](https://django-allauth.readthedocs.io/en/latest/installation.html).
+
+### Heroku 
+
+Heroku is used to deploy the final project.
+
+1. You need to create an account, you can sign up for free [here](https://signup.heroku.com/).
+2. Once you are logged in, click the button 'New' and select 'Create new app'.
+3. Name the app, then select what region is closest to you and click 'Create App'.
+4. Then on the resources tab, navigate to the 'Add-ons' section and search for 'Heroku Postgres'.
+5. Select 'Heroku Postgres', then under 'Plan name' choose 'Hobby Dev - Free' and click 'Submit Order Form'.
+
+To use Postgres you will need to install dj_database_url and psycopg2. You do this by typing the following in your terminal:
+
+1. In your IDE type the command:  
+    `pip3 install dj_database_url`
+2. Then once that is installed type the command:  
+    `pip3 install psycopg2-binary`
+3. Then, to make sure Heroku install all your apps requirements when you deploy it, run the command:  
+    `pip3 freeze > requirements.txt`
+4. Next, navigate to your setting.py file in your main project folder. At the top of the file add the line:  
+    ```
+    import dj_database_url
+    ```
+5. Then scroll down the file till you find your database settings. Comment out the default configuration and underneath insert the code:  
+    ```
+    DATABASES = {
+        'default': dj_database_url.parse(*Enter Database URL here*)
+    }
+    ```
+    The database URL can be found in the settings tab of your app in heroku, under Config Vars. Make sure to have the link in quotation marks.  
+    **Important!** If you want to migrate any data from your current database to the Postgres database in Heroku, make sure you run this line before connecting to Postgres:  
+    `./manage.py dumpdata --exclude auth.permission --exclude contenttypes > db.json`  
+6. Once that's saved, you will now need to run migrations because you have connected to a new database. This is done by running the command:  
+    `python3 manage.py migrate`
+    If you had previously saved your data to import into the postgres database, you can now run the command:  
+    `./manage.py loaddata db.json`
+7. Now that's setup you will now need to create a superuser for the new database. The command is:  
+    `python3 manage.py createsuperuser`
+    *Note, once the superuser is created, it's a good idea to sign into the admin panel, locate the user, and check the option that says their email is verified. This is needed otherwise Allauth won't allow the user to sign into the store.* 
+8. Before you commit these changes, you will need to remove the Databases section in the settings.py and uncomment the original database. This is to stop your Postgres database URL from ending up in version control.
+9. Now we can create an if statement in our settings.py to run the postgres database when using the app on heroku or sqlite if not. Scroll back to the database section and refactor the code to look like this:  
+    ```
+    if 'DATABASE_URL' in os.environ:
+        DATABASES = {
+            'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+        }
+    else:
+        DATABASES = {
+            'default': {
+                'ENGINE': 'django.db.backends.sqlite3',
+                'NAME': BASE_DIR / 'db.sqlite3',
+            }
+    }
+    ```
+10. Next we will install another package called gunicorn, which will act as our web server. Do this by running following command:  
+    `pip3 install gunicorn`
+    And then don't forget to freeze the requirements with:  
+    `pip3 freeze > requirements.txt`
+11. Now we create our Procfile to tell Heroku to create a web dyno. In your root directory create a file named 'Procfile' and inside insert the code:  
+    `web: gunicorn **'your_projects_name_here'**.wsgi:application
+12. Then, back in heroku, navigate to settings and in the config vars input the key DISABLE_COLLECTSTATIC with the value 1, and click 'Add'.
+This is to stop heroku from collecting any static files when you deploy.
+13. You will also need to add heroku to your allowed hosts in your settings.py. Back in your project, in the settings file, scroll down to ALLOWED_HOSTS, and inside the brackets insert the url to your app, followed by 'localhost'. It should look something like this:     
+    ```
+    ALLOWED_HOSTS = ['your-project-name.herokuapp.com', 'localhost']
+    ```
+14. Now add, commit and push these changes, followed by a push to heroku with the command:  
+    `git push heroku main'
+    Your app will now be deployed, albeit without any static files, but this will be fixed when setting up AWS, documented below. 
+15. If you want your project to be automatically deployed to heroku when pushing your work to github you can. To do so, In heroku go to the deploy tab, and in the 'deployment method' section connect it to github. You will need to search for your repository and once found click 'connect'. Then scroll down and click 'Enable automatic deploys'. Now when you push to github your code will automatically deploy to Heroku as well. 
 
 [Back to top ⇧](#coffee-shop)
+
+#### Connecting to Cloudinary
+
+To store images and files i've used Cloudinary for this project.
+
+````
+Create an account in Cloudinary and follow the steps to link up your project on the site. Log in and create an account on: https://cloudinary.com
+````
+
+
+### Stripe
+
+Stripe is what we use when we need to handle the checkout process when a payment is made. You will need a stripe account which you can sign up for [here](https://stripe.com/en-gb).
+
+#### Payments
+
+1. Follow stripes guide to setup payment [here](https://stripe.com/docs/payments/accept-a-payment#web-collect-card-details).
+
+
+#### Webhooks 
+
+1. To set up a webhook, sign into your stripe account and click 'Developers' located in the top right of the navbar.
+2. Then in the side-nav under the Developers title, click on 'Webhooks', then 'Add endpoint'.
+3. On the next page you will need to input the link to your heroku app followed by /checkout/wh/. It should look something like this:  
+    ```
+    https://your-app-name.herokuapp.com/checkout/wh/
+    ```
+4. Then click '+ Select events' and check the 'Select all events' checkbox at the top before clicking 'Add events' at the bottom. Once this is done finish the form by clicking 'Add endpoint'.
+5. Your webhook is now created and you should see that it has generated a secret key. You will need this to add to your heroku config vars.
+6. Head over to your app in heroku and navigate to the config vars section under settings. You will need the secret key you just generated for your webhook, in addition to your Publishable key and secret key that you can find in the API keys section back in stripe.
+
+7. Add these values under these keys:  
+    ```
+    STRIPE_PUBLIC_KEY = 'insert your stripe publishable key'
+    STRIPE_SECRET_KEY = 'insert your secret key'
+    STRIPE_WH_SECRET = 'insert your webhooks secret key'
+    ```
+
+8. Finally, back in your setting.py file in django, insert the following near the bottom of the file:  
+    ```
+    STRIPE_PUBLIC_KEY = os.getenv('STRIPE_PUBLIC_KEY', '')
+    STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY', '')
+    STRIPE_WH_SECRET = os.getenv('STRIPE_WH_SECRET', '')
+    ```
 
 ------
 
@@ -313,12 +473,13 @@ It is created in GitHub following these steps:
 
 ### Media
 - As mentioned above most images are from the [Gringo](https://www.gringonordic.se/) website. 
-Others from pixabay
+Others from pixabay.
 
 ### Other
 - The [Djangodocs](https://docs.djangoproject.com/en/4.0/) was a big help for troubleshooting
 - [Stackoverflow](https://stackoverflow.com) for trying to find bugs, sollutions and inspiration.
 - Creating a sitemap file [here](https://www.xml-sitemaps.com/)
+- A lot of inspiration was taken from Code Institutes Boutique Ado, videos and functionality.
 
 ------
 
