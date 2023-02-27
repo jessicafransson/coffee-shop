@@ -336,13 +336,9 @@ The purpose of my About Us page was to be able to shed some light in the ways of
     Checked that:
     - Underneath the bag icon there's a total cost of all the items in the bag.
     - After an item has been added a pop-up shows with the qty of items, and total lost, located at the top right corner.
-
-
-    ![add-to-shopping-bag](assets/testing/validation/epic/addtobag.png)
-
     - When bag icon is clicked, user get's navigated to the shopping bag where user can see what items are in the bag.
 
-    ![shopping-bag](assets/testing/validation/epic/viewbag.png)
+    ![shopping-bag](assets/testing/validation/epic/bagicon.png)
 
 ### Home Page 
 

@@ -255,19 +255,24 @@ I've used Chromes devtools to troubleshoot errors and made sure it's responsive 
 
 ![Admin-add-coupon](assets/testing/validation/epic/admincouponsuccess.png)
 
+
+*As admin I can edit and delete coupon codes that are invalid, or change their information*
+
 - The admin user can also check what coupons are active and valid at the moment, and choose to edit and delete them.
 
 ![Admin-add-coupon](assets/testing/validation/epic/adminactivecoupon.png)
 
+![admin-edit-delete](assets/testing/validation/epic/editdeletecoupon.png)
+
 ### EPIC | Purchasing
 
-*As a shopper i can add items to my bag*
+*As a user i can add items to my bag*
 - The shopper can in any product detail view add items to the bag, and choose the qty of items.
 
 
 ![Add-bag](assets/testing/validation/epic/addbag.png)
 
-*As a shopper i can view my bag to see the items in there, and the amount in my bag.*
+*As a user i can view my bag to see the items in there, and the amount in my bag.*
 - The items will remain in the bag until the shopper is ready to purchase them.
 - In this view the shopper can also choose to update the amount and delete an item
 - The shopper can also always follow the amount total in the bag, and see the total cost with shipping.
@@ -276,7 +281,7 @@ I've used Chromes devtools to troubleshoot errors and made sure it's responsive 
 
 ![view-bag](assets/testing/validation/epic/viewbag.png)
 
-*As a shopper i can easily make a purchase without being logged in*
+*As a user i can easily make a purchase without being logged in*
 
 - Any shopper can add items to the bag, and make a purchase without being logged in.
 - The users will be displayed with a form to fill out information, and card details.
@@ -305,7 +310,9 @@ I've used Chromes devtools to troubleshoot errors and made sure it's responsive 
 
 ### EPIC | Interaction
 
-*As a user i can leave reviews on products to share tips with others*
+*As a user i can leave reviews on products to share tips with others*, 
+<br>
+*As a user i can easily see reviews from other buyers*
 - To write a review is located on the right side at the end of the product detail page.
 - Once the review has been left it will be visible on the left side, with the amount of stars filled in.
 - If a user has already left a review, the box on the left will be gone, with a text that a review has already been written.
