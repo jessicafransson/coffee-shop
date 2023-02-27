@@ -192,19 +192,31 @@ I've used Chromes devtools to troubleshoot errors and made sure it's responsive 
 
 ### EPIC | Accounts
 
-*As a user i can easily create account to use all the features*
+*As a user i can easily create account to use all the features*,
+<br>
+*As a user i can confirm my email address to create my account*,
+<br>
+*As a user i can access my account*,
+<br>
 - Users can click the 'Sign in' account icon located in the header, and there choose to sign up. 
 - Once on the registration page, the user fills out the form to create an account.
 
 ![Sign-up-form](assets/testing/validation/epic/signupform.png)
 
-*As a user i can confirm my email address to create my account*
-- When filling out the form, an email will be sent with a link the user can click to confirm the email address.
+- The user will be displayed with following message, asking the user to go to their email account for a link:
 
-![Email-confirmation](assets/testing/validation/epic/emailconfirmation.png)
+![Email](assets/testing/validation/epic/confirmemailsent.png)
 
-*As a user i can access my account*
-- When the link has been clicked and the account is active the user can log in and log out easily from the buttons in the navbar.
+- The user will then be asked to confirm their email address via a link sent to them:
+
+![Email-confirmation](assets/testing/validation/epic/confirmemail.png)
+
+- When the user clicks the link in the email, they will be directed to following page, asking them to confirm their email address.
+
+![confirm-email](assets/testing/validation/epic/signupconfirmemail.png)
+
+
+- When the confirm button has been clicked and the account is active the user can log in and log out easily from the buttons in the navbar.
 
 ![Email-confirmed](assets/testing/validation/epic/emailconfirmed.png)
 
@@ -262,7 +274,6 @@ I've used Chromes devtools to troubleshoot errors and made sure it's responsive 
 
 ![Admin-add-coupon](assets/testing/validation/epic/adminactivecoupon.png)
 
-![admin-edit-delete](assets/testing/validation/epic/editdeletecoupon.png)
 
 ### EPIC | Purchasing
 
@@ -376,6 +387,17 @@ I've used Chromes devtools to troubleshoot errors and made sure it's responsive 
 
 ![about-coffee-flavours](assets/testing/validation/epic/flavourguide.png)
 
+*As a user i can read more about the shops privacy policy*
+
+![privacy](assets/privacy.png)
+
+*As a user i can read more about the shops delivery policy*
+
+![delivery](assets/deliverypolicy.png)
+
+*As a user i can read about the shops terms and conditions*
+
+![terms](assets/termsconditions.png)
 
 [Back to top ⇧](#coffee-shop---testing)
 
