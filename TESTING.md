@@ -224,7 +224,6 @@ I've used Chromes devtools to troubleshoot errors and made sure it's responsive 
 
 ![log-in](assets/testing/validation/epic/signinmenu.png)
 
-![log-in](assets/testing/validation/epic/signinform.png)
 
 ![log-in](assets/testing/validation/epic/loginsuccess.png)
 
@@ -807,6 +806,8 @@ I've used Chromes devtools to troubleshoot errors and made sure it's responsive 
 ### Unfixed
 
 - When the user is trying to edit it's own review, it's giving an error message saying it can't be done.
+
+- When the admin user clicks the delete item button in the products view, the item gets deleted from the database without a first warning. When the admin user is in the product detail view the correct warning gets triggered. This is a bug that will be fixed when there's time.
 
 
 [Back to top ⇧](#coffee-shop---testing)
