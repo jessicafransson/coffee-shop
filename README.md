@@ -167,8 +167,9 @@ I've contacted Gringo Coffee shop who is a roastery here in Sweden and i've gott
 
 ### Color scheme 
 
-I've decided to stick to a basic color scheme of black/white/grey with this project to really highlight the bags of beans, as i find them to have a really nice design - and i wanted them to really pop. 
+Since i've used the product images from Gringo, and really love the design and colors on their bags i decided to go for a neutral color scheme for the website, with a nice black/grey/white scheme. I got inspiration from these colors:
 
+![Colour Scheme](assets/colorscheme.png)
 ### Images
 
 - I've gotten my images from Gringo, which is also where i have gotten the inspiration for this website, and the information about their magical beans. 
@@ -176,7 +177,8 @@ I've decided to stick to a basic color scheme of black/white/grey with this proj
 ### Wireframe
 
 I took a lot of inspiration for this project from Code Institutes Boutique Ado, and also from Gringo's website as described above.
-I did a start design on Figma to try and set up the main page and view for the products. 
+I did a start design on Figma to try and set up the main page and view for the products.
+I decided i wanted the pages to follow the same style, so for the other pages on the website the style followed the product page mock-up. The footer is always on the page the user is, and also the navigation bar. 
 
 * First mockup looked like this:
 
@@ -211,6 +213,14 @@ This site represents a fairly new business, where the only current marketing str
 <i>*Note, this page has unfortunately been deleted, due to facebooks regular deletion of inactive business pages.</i>
 
 ![Facebook](media/coffeeshopfacebook.png)
+
+- Before i started coding the project i sat down to think about how i would use marketing for this webshop, and what ways would be the best way to get a reach. Since this is a mock-up shop, some questions are for the future and what could be added in this project further on.
+
+![marketing](assets/marketingtype.png)
+
+- I also sat down to mark down what my content would look like, and how i would make it accessible for all users that would visit my site. I feel like i've followed this pretty good along the way, and further implementations would definetly be to add a FAQ section, maybe link to some really good videos about brewing your own coffee. There's just so much additions to make to this project, that i will do when i've got more time.
+
+![content](assets/content.png)
 
 ### Search Engine Optimisation
 
